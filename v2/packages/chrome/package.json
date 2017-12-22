@@ -16,12 +16,12 @@
   "dependencies": {
     "@zendesk/garden-css-chrome": "^1.0.0",
     "classnames": "^2.2.5",
-    "prop-types": "^15.6.0"
+    "prop-types": "^15.6.0",
+    "styled-components": "^2.3.3"
   },
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0 || ^16.0.0",
-    "react-dom": "^0.14.0 || ^15.0.0 || ^16.0.0",
-    "styled-components": "^2.3.3"
+    "react-dom": "^0.14.0 || ^15.0.0 || ^16.0.0"
   },
   "devDependencies": {}
 }
