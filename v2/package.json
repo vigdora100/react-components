@@ -11,10 +11,12 @@
     "start": "",
     "styleguide": "lerna run styleguide --stream"
   },
+  "dependencies": {},
   "devDependencies": {
     "@zendesk/garden-svg-icons": "^2.5.0",
-    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
     "babel-plugin-inline-react-svg": "^0.5.2",
+    "babel-plugin-styled-components": "^1.4.0",
     "inline-svg-react": "^0.1.7",
     "lerna": "^2.5.1",
     "raw-loader": "^0.5.1",
