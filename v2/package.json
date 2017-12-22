@@ -5,14 +5,18 @@
   "license": "UNLISCENSED",
   "main": "index.js",
   "scripts": {
+    "bootstrap": "lerna exec -- git clean -Xdf . && lerna bootstrap --concurrency=2",
+    "dev": "lerna run dev --stream",
+    "postinstall": "npm run bootstrap",
     "start": "",
-    "styleguide": "styleguidist build --config ./utils/styleguide/styleguide.config.js"
+    "styleguide": "lerna run styleguide --stream"
   },
   "devDependencies": {
     "@zendesk/garden-svg-icons": "^2.5.0",
     "babel": "^6.23.0",
     "babel-plugin-inline-react-svg": "^0.5.2",
     "inline-svg-react": "^0.1.7",
+    "lerna": "^2.5.1",
     "raw-loader": "^0.5.1",
     "react-styleguidist": "^6.1.0",
     "webpack": "^3.10.0"

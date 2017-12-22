@@ -6,7 +6,8 @@
   "version": "0.0.1",
   "main": "dist/index.js",
   "scripts": {
-    "dev": "styleguidist server --config ./utils/styleguide/styleguide.config.js"
+    "dev": "styleguidist server --config ../../utils/styleguide/styleguide.config.js",
+    "styleguide": "styleguidist build --config ../../utils/styleguide/styleguide.config.js"
   },
   "dependencies": {
     "classnames": "^2.2.5",

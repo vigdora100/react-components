@@ -1,10 +1,15 @@
 const path = require("path");
+const packageManifest = require(path.resolve('package.json'));
+const packageName = packageManifest.name &&
+    packageManifest.name.replace('@zendeskgarden/', '');
+
+const basePathName = path.basename(path.resolve('./'));
 
 module.exports = {
-    title: '',
+    title: packageName,
     skipComponentsWithoutExample: false,
     serverPort: 7000,
-    styleguideDir: '../../demo/chrome',
+    styleguideDir: `../../demo/${basePathName}`,
     showUsage: true,
     require: [
         'babel-polyfill',
