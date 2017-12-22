@@ -1,0 +1,23 @@
+{
+  "name": "@zendeskgarden/react-chrome",
+  "description": "Garden Crome React Component",
+  "author": "Zendesk Garden <garden@zendesk.com>",
+  "license": "UNLISCENSED",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "styleguidist server --config ./utils/styleguide/styleguide.config.js"
+  },
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "prop-types": "^15.6.0",
+    "styled-components": "^2.3.3"
+  },
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0 || ^16.0.0",
+    "react-dom": "^0.14.0 || ^15.0.0 || ^16.0.0"
+  },
+  "devDependencies": {
+    "@zendesk/garden-css-chrome": "^1.0.0"
+  }
+}

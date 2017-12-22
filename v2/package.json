@@ -1,0 +1,20 @@
+{
+  "private": true,
+  "description": "Garden React Components",
+  "author": "Zendesk Garden <garden@zendesk.com>",
+  "license": "UNLISCENSED",
+  "main": "index.js",
+  "scripts": {
+    "start": "",
+    "styleguide": "styleguidist build --config ./utils/styleguide/styleguide.config.js"
+  },
+  "devDependencies": {
+    "@zendesk/garden-svg-icons": "^2.5.0",
+    "babel": "^6.23.0",
+    "babel-plugin-inline-react-svg": "^0.5.2",
+    "inline-svg-react": "^0.1.7",
+    "raw-loader": "^0.5.1",
+    "react-styleguidist": "^6.1.0",
+    "webpack": "^3.10.0"
+  }
+}
