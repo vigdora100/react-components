@@ -5,10 +5,11 @@
   "license": "UNLISCENSED",
   "main": "index.js",
   "scripts": {
+    "postinstall": "npm run bootstrap",
     "bootstrap": "lerna exec -- git clean -Xdf . && lerna bootstrap --concurrency=2",
     "dev": "lerna run dev --stream",
-    "postinstall": "npm run bootstrap",
     "start": "",
+    "build": "lerna run build",
     "styleguide": "lerna run styleguide --stream"
   },
   "dependencies": {},
@@ -19,6 +20,7 @@
     "babel-plugin-styled-components": "^1.4.0",
     "inline-svg-react": "^0.1.7",
     "lerna": "^2.5.1",
+    "lodash": "^4.17.4",
     "raw-loader": "^0.5.1",
     "react-styleguidist": "^6.1.0",
     "webpack": "^3.10.0"

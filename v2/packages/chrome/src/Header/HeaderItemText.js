@@ -10,6 +10,7 @@ const HeaderItemText = styled.div.attrs({
 })``;
 
 HeaderItemText.propTypes = {
+  /** Clip text (but leave accessible to screenreaders) for an icon-only header item */
   clipped: PropTypes.bool
 };
 

@@ -3,6 +3,21 @@ const CallIn = require('@zendesk/garden-svg-icons/src/14-call-in.svg');
 const InlineSVG = require("inline-svg-react").default;
 
 <Header>
+    <HeaderItem maxX focused>
+        <HeaderItemText>
+            maxX + Focused
+        </HeaderItemText>
+    </HeaderItem>
+    <HeaderItem maxY focused>
+        <HeaderItemText>
+            maxY + Focused
+        </HeaderItemText>
+    </HeaderItem>
+    <HeaderItem focused round>
+        <HeaderItemText>
+            Round + Focused
+        </HeaderItemText>
+    </HeaderItem>
     <HeaderItem focused>
         <HeaderItemText>
             Focused

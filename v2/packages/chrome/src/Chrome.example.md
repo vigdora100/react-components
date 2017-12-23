@@ -10,7 +10,7 @@ const InlineSVG = require("inline-svg-react").default;
 
 <Chrome>
     <Nav expanded>
-        <NavItem logo product="chat">
+        <NavItem logo product="connect">
             <NavItemIcon>
                 <InlineSVG icon={ConnectLogo} />
             </NavItemIcon>
@@ -72,7 +72,7 @@ const InlineSVG = require("inline-svg-react").default;
                 Sidebar Content
             </Sidebar>
             <Main>
-                Main content
+                Main content. No padding or margin constraints are provided since this area is heavily customized per product.
             </Main>
         </Content>
     </Body>

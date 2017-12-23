@@ -3,6 +3,10 @@ import PropTypes from 'prop-types';
 
 export default class KeyboardFocusContainer extends PureComponent {
     static propTypes = {
+        /**
+         * A function that receives: ({ isKeyboardFocused: bool, onBlur: eventProxy,
+         * onFocus: eventProxy, onMouseDown: eventProxy })
+         */
         children: PropTypes.func.isRequired
     };
 
