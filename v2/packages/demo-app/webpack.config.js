@@ -1,9 +1,19 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: [
         './src/index.js'
     ],
+    output: {
+        path: path.resolve(__dirname, '..', '..', 'demo'),
+        publicPath: '/',
+        filename: 'bundle.js'
+    },
+    resolve: {
+        extensions: ['*', '.js', '.jsx']
+    },
+    devtool: 'inline-source-map',
     module: {
         loaders: [{
             test: /\.jsx?$/,
@@ -22,15 +32,8 @@ module.exports = {
             loader: 'raw-loader'
         }]
     },
-    resolve: {
-        extensions: ['*', '.js', '.jsx']
-    },
-    output: {
-        path: __dirname + '/public',
-        publicPath: '/',
-        filename: 'bundle.js'
-    },
-    devServer: {
-        contentBase: './public'
-    }
+    plugins: [new HtmlWebpackPlugin({
+        title: 'React Components - Zendesk Garden',
+        template: './public/index.template.html'
+    })]
 };

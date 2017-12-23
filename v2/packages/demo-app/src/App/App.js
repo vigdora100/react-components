@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import Chrome from '@zendeskgarden/react-chrome/dist/Chrome';
-import Nav from '@zendeskgarden/react-chrome/dist/Nav';
-import NavItem from '@zendeskgarden/react-chrome/dist/NavItem';
-import NavItemIcon from '@zendeskgarden/react-chrome/dist/NavItemIcon';
-import NavItemText from '@zendeskgarden/react-chrome/dist/NavItemText';
-import SubNav from '@zendeskgarden/react-chrome/dist/SubNav';
-import SubNavItem from '@zendeskgarden/react-chrome/dist/SubNavItem';
-import SubNavItemText from '@zendeskgarden/react-chrome/dist/SubNavItemText';
+import Nav from '@zendeskgarden/react-chrome/dist/Nav/Nav';
+import NavItem from '@zendeskgarden/react-chrome/dist/Nav/NavItem';
+import NavItemIcon from '@zendeskgarden/react-chrome/dist/Nav/NavItemIcon';
+import NavItemText from '@zendeskgarden/react-chrome/dist/Nav/NavItemText';
+import SubNav from '@zendeskgarden/react-chrome/dist/SubNav/SubNav';
+import SubNavItem from '@zendeskgarden/react-chrome/dist/SubNav/SubNavItem';
+import SubNavItemText from '@zendeskgarden/react-chrome/dist/SubNav/SubNavItemText';
 import Body from '@zendeskgarden/react-chrome/dist/Body';
-import Header from '@zendeskgarden/react-chrome/dist/Header';
+import Header from '@zendeskgarden/react-chrome/dist/Header/Header';
 import Content from '@zendeskgarden/react-chrome/dist/Content';
 import InlineSVG from 'inline-svg-react';
 
@@ -64,7 +64,7 @@ export default class App extends Component {
                 <Body>
                     <Header>&nbsp;</Header>
                     <Content className="content">
-                        <iframe className="iframe-content" src="http://127.0.0.1:8080" />
+                        <iframe className="iframe-content" src="/chrome" />
                     </Content>
                 </Body>
             </Chrome>
