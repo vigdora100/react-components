@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import ChromeStyles from '@zendesk/garden-css-chrome';
 import { KeyboardFocusContainer } from '@zendeskgarden/react-selection';
 
-const StyledNavItem = styled.div.attrs({
+const StyledNavItem = styled.a.attrs({
   className: props => classNames(ChromeStyles['c-chrome__nav__item'], {
     [ChromeStyles['c-chrome__nav__item--logo']]: props.logo,
     [ChromeStyles['is-current']]: props.current,
