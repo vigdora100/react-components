@@ -12,7 +12,7 @@ const defaultStyleguideConfig = {
     title: packageName,
     skipComponentsWithoutExample: false,
     serverPort: 7000,
-    styleguideDir: `../../demo/${basePathName}`,
+    styleguideDir: `../../demo/iframes/${basePathName}`,
     showUsage: true,
     require: [
         'babel-polyfill',

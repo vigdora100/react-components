@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styled from 'styled-components';
 import ChromeStyles from '@zendesk/garden-css-chrome';
-import KeyboardFocusContainer from '../KeyboardFocusContainer';
+import { KeyboardFocusContainer } from '@zendeskgarden/react-selection';
 
 const StyledSubNavItem = styled.a.attrs({
   className: props => classNames(ChromeStyles['c-chrome__subnav__item'], {

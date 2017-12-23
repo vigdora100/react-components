@@ -1,6 +1,6 @@
 {
-  "name": "@zendeskgarden/react-chrome",
-  "description": "Garden Chrome React Component",
+  "name": "@zendeskgarden/react-selection",
+  "description": "Garden Chrome Selection Utilities",
   "author": "Zendesk Garden <garden@zendesk.com>",
   "license": "UNLISCENSED",
   "repository": {
@@ -10,7 +10,8 @@
   "version": "0.0.1",
   "main": "src/index.js",
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "scripts": {
     "build": "NODE_ENV=production babel ./src --out-dir=dist",
@@ -18,7 +19,6 @@
     "styleguide": "styleguidist build --config ../../utils/styleguide/styleguide.base.config.js"
   },
   "dependencies": {
-    "@zendeskgarden/react-selection": "^0.0.1",
     "classnames": "^2.2.5",
     "prop-types": "^15.6.0",
     "styled-components": "^2.3.3"

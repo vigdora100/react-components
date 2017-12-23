@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import ChromeStyles from '@zendesk/garden-css-chrome';
-import KeyboardFocusContainer from '../KeyboardFocusContainer';
+import { KeyboardFocusContainer } from '@zendeskgarden/react-selection';
 
 const StyledNavItem = styled.div.attrs({
   className: props => classNames(ChromeStyles['c-chrome__nav__item'], {

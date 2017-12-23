@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import classNames from 'classnames';
 import ChromeStyles from '@zendesk/garden-css-chrome';
 
-import KeyboardFocusContainer from '../KeyboardFocusContainer';
+import { KeyboardFocusContainer } from '@zendeskgarden/react-selection';
 
 const StyledHeaderItem = styled.button.attrs({
   className: props => classNames(ChromeStyles['c-chrome__body__header__item'], {

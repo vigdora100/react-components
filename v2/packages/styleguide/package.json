@@ -1,9 +1,9 @@
 {
-  "name": "@zendeskgarden/demo-app",
+  "private": true,
+  "name": "styleguide",
   "description": "The demo app that is used to serve documentation.",
   "author": "",
   "license": "ISC",
-  "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --progress --colors --hot --config ./webpack.config.js",
@@ -11,7 +11,9 @@
   },
   "dependencies": {
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-svg-inline": "^2.0.1"
   },
   "devDependencies": {
     "@zendesk/garden-svg-icons": "^2.5.0",

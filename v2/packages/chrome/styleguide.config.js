@@ -4,6 +4,7 @@
  */
 
 module.exports = {
+    serverPort: 8500,
     sections: [{
         name: "General",
         content: "../../packages/chrome/README.md",
