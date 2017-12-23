@@ -1,9 +1,11 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import ChromeStyles from '@zendesk/garden-css-chrome';
+import KeyboardFocusContainer from './KeyboardFocusContainer';
 
-const NavItem = styled.div.attrs({
+const StyledNavItem = styled.div.attrs({
   className: props => classNames(ChromeStyles['c-chrome__nav__item'], {
     [ChromeStyles['c-chrome__nav__item--logo']]: props.logo,
     [ChromeStyles['is-current']]: props.current,
@@ -18,8 +20,38 @@ const NavItem = styled.div.attrs({
     [ChromeStyles['c-chrome__nav__item--logo--support']]: props.product === 'support',
     [ChromeStyles['c-chrome__nav__item--logo--talk']]: props.product === 'talk'
   }),
-  tabIndex: 0
+  tabIndex: props => {
+    if (props.tabIndex) {
+      return props.tabIndex;
+    }
+
+    return props.logo ? -1 : 0;
+  }
 })``;
+
+const NavItem = ({ onFocus, onBlur, onMouseDown, children, focused, ...other}) => (
+  <KeyboardFocusContainer>
+    {keyboardFocusProps => (
+        <StyledNavItem
+          {...other}
+          onFocus={event => {
+            keyboardFocusProps.onFocus(event);
+            onFocus && onFocus(event);
+          }}
+          onBlur={event => {
+            keyboardFocusProps.onBlur(event);
+            onBlur && onBlur(event);
+          }}
+          onMouseDown={event => {
+            keyboardFocusProps.onMouseDown(event);
+            onMouseDown && onMouseDown(event);
+          }}
+          focused={focused || keyboardFocusProps.isKeyboardFocused}>
+          {children}
+        </StyledNavItem>
+    )}
+  </KeyboardFocusContainer>
+);
 
 NavItem.propTypes = {
   logo: PropTypes.bool,
@@ -27,8 +59,8 @@ NavItem.propTypes = {
   hovered: PropTypes.bool,
   active: PropTypes.bool,
   focused: PropTypes.bool,
-  product: PropTypes.oneOf(['connect', 'chat', 'explore', 'guide', 'message', 'support', 'talk'])
-}
+  product: PropTypes.oneOf(['connect', 'chat', 'explore', 'guide', 'message', 'support', 'talk']),
+  children: PropTypes.node
+};
 
-/** @component */
 export default NavItem;
