@@ -15,24 +15,12 @@ const StyledSubNavItem = styled.a.attrs({
   tabIndex: props => props.tabIndex || 0
 })``;
 
-const SubNavItem = ({ onFocus, onBlur, onMouseDown, children, focused, ...other}) => (
+const SubNavItem = ({ children, focused, ...other}) => (
   <KeyboardFocusContainer>
-    {keyboardFocusProps => (
+    {({ getFocusProps, keyboardFocused }) => (
         <StyledSubNavItem
-          {...other}
-          onFocus={event => {
-            keyboardFocusProps.onFocus(event);
-            onFocus && onFocus(event);
-          }}
-          onBlur={event => {
-            keyboardFocusProps.onBlur(event);
-            onBlur && onBlur(event);
-          }}
-          onMouseDown={event => {
-            keyboardFocusProps.onMouseDown(event);
-            onMouseDown && onMouseDown(event);
-          }}
-          focused={focused || keyboardFocusProps.isKeyboardFocused}>
+          {...getFocusProps(other)}
+          focused={focused || keyboardFocused}>
           {children}
         </StyledSubNavItem>
     )}
@@ -43,7 +31,8 @@ SubNavItem.propTypes = {
   current: PropTypes.bool,
   hovered: PropTypes.bool,
   active: PropTypes.bool,
-  focused: PropTypes.bool
+  focused: PropTypes.bool,
+  children: PropTypes.node
 };
 
 /** @component */

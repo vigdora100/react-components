@@ -19,25 +19,12 @@ const StyledHeaderItem = styled.button.attrs({
   tabIndex: props => props.tabIndex || 0
 })``;
 
-
-const HeaderItem = ({ onFocus, onBlur, onMouseDown, children, focused, ...other}) => (
+const HeaderItem = ({ focused, children, ...other}) => (
   <KeyboardFocusContainer>
-    {keyboardFocusProps => (
+    {({ getFocusProps, keyboardFocused }) => (
         <StyledHeaderItem
-          {...other}
-          onFocus={event => {
-            keyboardFocusProps.onFocus(event);
-            onFocus && onFocus(event);
-          }}
-          onBlur={event => {
-            keyboardFocusProps.onBlur(event);
-            onBlur && onBlur(event);
-          }}
-          onMouseDown={event => {
-            keyboardFocusProps.onMouseDown(event);
-            onMouseDown && onMouseDown(event);
-          }}
-          focused={focused || keyboardFocusProps.isKeyboardFocused}>
+          {...getFocusProps(other)}
+          focused={focused || keyboardFocused}>
           {children}
         </StyledHeaderItem>
     )}
@@ -58,7 +45,8 @@ HeaderItem.propTypes = {
   round: PropTypes.bool,
   hovered: PropTypes.bool,
   active: PropTypes.bool,
-  focused: PropTypes.bool
+  focused: PropTypes.bool,
+  children: PropTypes.node
 };
 
 /** @component */

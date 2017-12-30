@@ -29,24 +29,12 @@ const StyledNavItem = styled.a.attrs({
   }
 })``;
 
-const NavItem = ({ onFocus, onBlur, onMouseDown, children, focused, ...other}) => (
+const NavItem = ({ children, focused, ...other}) => (
   <KeyboardFocusContainer>
-    {keyboardFocusProps => (
+    {({ getFocusProps, keyboardFocused }) => (
         <StyledNavItem
-          {...other}
-          onFocus={event => {
-            keyboardFocusProps.onFocus(event);
-            onFocus && onFocus(event);
-          }}
-          onBlur={event => {
-            keyboardFocusProps.onBlur(event);
-            onBlur && onBlur(event);
-          }}
-          onMouseDown={event => {
-            keyboardFocusProps.onMouseDown(event);
-            onMouseDown && onMouseDown(event);
-          }}
-          focused={focused || keyboardFocusProps.isKeyboardFocused}>
+          {...getFocusProps(other)}
+          focused={focused || keyboardFocused}>
           {children}
         </StyledNavItem>
     )}

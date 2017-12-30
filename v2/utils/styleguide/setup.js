@@ -8,9 +8,13 @@ import Grid from './Grid';
 global.Grid = Grid;
 
 // Garden components
-import Chrome from '../../packages/chrome/src/index.js';
+import * as Button from '../../packages/button';
+import * as Chrome from '../../packages/chrome';
+import * as Selection from '../../packages/selection';
 
 global.Garden = {
-    Chrome
+    Button,
+    Chrome,
+    Selection
 };
 

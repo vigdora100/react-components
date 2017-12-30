@@ -7,9 +7,8 @@
   "scripts": {
     "bootstrap": "lerna exec -- git clean -Xdf . && lerna bootstrap --concurrency=2",
     "build": "lerna run build",
-    "dev": "lerna run dev --stream",
     "postinstall": "npm run bootstrap",
-    "start": "",
+    "start": "lerna run start --stream",
     "styleguide": "lerna run styleguide --stream"
   },
   "dependencies": {

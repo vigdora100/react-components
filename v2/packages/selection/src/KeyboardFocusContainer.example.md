@@ -2,11 +2,9 @@ This render-prop based component helps with differentiating between focus events
 
 ```jsx static
 <KeyboardFocusContainer>
-    {({ isKeyboardFocused, onFocus, onBlur, onMouseDown }) => (
+    {({ keyboardFocused, getFocusProps }) => (
         <button
-            onFocus={onFocus}
-            onBlur={onBlur}
-            onMouseDown={onMouseDown}>
+            {...getFocusProps()}>
             {isKeyboardFocused ? 'Keyboard focused!' : 'Not keyboard focused' }
         </button>
     )}
@@ -17,15 +15,52 @@ This comes in handy where you want to display focus styling only when the compon
 
 ```jsx
 <KeyboardFocusContainer>
-    {({ isKeyboardFocused, onFocus, onBlur, onMouseDown }) => (
+    {({ keyboardFocused, getFocusProps }) => (
         <button
-            onFocus={onFocus}
-            onBlur={onBlur}
-            onMouseDown={onMouseDown}
+            {...getFocusProps()}
             style={{
-                color: isKeyboardFocused ? 'red' : 'inherit'
+                color: keyboardFocused ? 'red' : 'inherit'
             }}>
-            {isKeyboardFocused ? 'Keyboard focused!' : 'Not keyboard focused' }
+            {keyboardFocused ? 'Keyboard focused!' : 'Not keyboard focused' }
+        </button>
+    )}
+</KeyboardFocusContainer>
+```
+
+You can pass any event props to `getFocusProps()` and they will be applied to the element without overriding any internal events within the `KeyboardFocusContainer`.
+
+```jsx
+initialState = { isFocused: false };
+
+<KeyboardFocusContainer>
+    {({ keyboardFocused, getFocusProps }) => (
+        <button
+            {...getFocusProps({
+                onFocus: () => setState({ isFocused: true }),
+                onBlur: () => setState({ isFocused: false })
+            })}>
+            {state.isFocused ? keyboardFocused ? 'Keyboard focused!' : 'Non-Keyboard focused!' : 'Not focused' }
+        </button>
+    )}
+</KeyboardFocusContainer>
+```
+
+The `KeyboardFocusContainer` will respect `preventDefault()` for any proxied event.  Here you can see the `onFocus` property being prevented.
+
+```jsx
+initialState = { isFocused: false };
+
+<KeyboardFocusContainer>
+    {({ keyboardFocused, getFocusProps }) => (
+        <button
+            {...getFocusProps({
+                onFocus: event => {
+                    setState({ isFocused: true });
+                    event.preventDefault();
+                },
+                onBlur: () => setState({ isFocused: false })
+            })}>
+            {state.isFocused ? keyboardFocused ? 'Keyboard focused!' : 'Non-Keyboard focused!' : 'Not focused' }
         </button>
     )}
 </KeyboardFocusContainer>

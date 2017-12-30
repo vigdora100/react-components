@@ -16,7 +16,8 @@ const defaultStyleguideConfig = {
     showUsage: true,
     require: [
         'babel-polyfill',
-        path.resolve(__dirname, 'setup.js')
+        path.resolve(__dirname, 'setup.js'),
+        path.resolve(__dirname, 'styles.css')
     ],
     getExampleFilename(componentPath) {
         return componentPath.replace(/\.jsx?$/, '.example.md');

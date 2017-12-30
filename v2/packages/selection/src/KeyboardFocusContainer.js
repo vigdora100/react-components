@@ -1,10 +1,11 @@
 import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import { composeEventHandlers } from './utils';
 
 export default class KeyboardFocusContainer extends PureComponent {
     static propTypes = {
         /**
-         * A function that receives: ({ isKeyboardFocused: bool, onBlur: eventProxy,
+         * A function that receives: ({ keyboardFocused: bool, onBlur: eventProxy,
          * onFocus: eventProxy, onMouseDown: eventProxy })
          */
         children: PropTypes.func.isRequired
@@ -14,7 +15,7 @@ export default class KeyboardFocusContainer extends PureComponent {
       super(props, context);
 
       this.state = {
-        isKeyboardFocused: false
+        keyboardFocused: false
       };
 
       this.keyboardFocus = true;
@@ -22,6 +23,7 @@ export default class KeyboardFocusContainer extends PureComponent {
 
     onMouseDown = event => {
       this.keyboardFocus = false;
+
       setTimeout(() => {
         this.keyboardFocus = true;
       }, 0);
@@ -29,23 +31,30 @@ export default class KeyboardFocusContainer extends PureComponent {
 
     onFocus = event => {
       if (this.keyboardFocus) {
-        this.setState({ isKeyboardFocused: true });
+        this.setState({ keyboardFocused: true });
       }
     };
 
     onBlur = event => {
-      this.setState({ isKeyboardFocused: false });
+      this.setState({ keyboardFocused: false });
     }
+
+    getFocusProps = ({ onBlur, onFocus, onMouseDown, ...otherProps } = {}) => {
+      return {
+        onBlur: composeEventHandlers(onBlur, this.onBlur),
+        onFocus: composeEventHandlers(onFocus, this.onFocus),
+        onMouseDown: composeEventHandlers(onMouseDown, this.onMouseDown),
+        ...otherProps
+      };
+    };
 
     render() {
       const { children } = this.props;
-      const { isKeyboardFocused } = this.state;
+      const { keyboardFocused } = this.state;
 
       return children({
-          onBlur: this.onBlur,
-          onFocus: this.onFocus,
-          onMouseDown: this.onMouseDown,
-          isKeyboardFocused
+        getFocusProps: this.getFocusProps,
+        keyboardFocused
       });
     }
   }
