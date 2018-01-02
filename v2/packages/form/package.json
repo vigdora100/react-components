@@ -1,0 +1,33 @@
+{
+  "name": "@zendeskgarden/react-form",
+  "description": "Garden Form Components",
+  "author": "Zendesk Garden <garden@zendesk.com>",
+  "license": "UNLISCENSED",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zendeskgarden/react-components"
+  },
+  "version": "0.0.1",
+  "main": "dist",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "NODE_ENV=production babel ./src --out-dir=dist",
+    "start": "styleguidist server --config ../../utils/styleguide/styleguide.base.config.js",
+    "styleguide": "styleguidist build --config ../../utils/styleguide/styleguide.base.config.js"
+  },
+  "dependencies": {
+    "@zendesk/garden-css-variables": "^3.0.0",
+    "@zendesk/garden-svg-icons": "^2.5.0",
+    "@zendeskgarden/react-theming": "^0.0.1",
+    "classnames": "^2.2.5",
+    "prop-types": "^15.6.0",
+    "styled-components": "^2.3.3",
+    "uuid": "^3.1.0"
+  },
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0 || ^16.0.0",
+    "react-dom": "^0.14.0 || ^15.0.0 || ^16.0.0"
+  }
+}
