@@ -18,15 +18,13 @@ Use the `FormContainer` component to apply accessibility props to your form elem
 
 ```jsx static
 <FormContainer>
-    {({ getLabelProps, getInputProps }) => {
-        return (
-            <FormGroup>
-                <Label {...getLabelProps()}>Label Content</Label>
-                <Hint>Hint content</Hint>
-                <input  {...getInputProps()} />
-                <SuccessMessage>Example message</SuccessMessage>
-            </FormGroup>
-        )
-    }}
+    {({ getLabelProps, getInputProps }) => (
+        <FormGroup>
+            <Label {...getLabelProps()}>Label Content</Label>
+            <Hint>Hint content</Hint>
+            <input  {...getInputProps()} />
+            <SuccessMessage>Example message</SuccessMessage>
+        </FormGroup>
+    )}
 </FormContainer>
 ```

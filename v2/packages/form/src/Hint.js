@@ -5,7 +5,7 @@ import { utils } from '@zendeskgarden/react-theming';
 const Hint = styled.div`
     color: ${VARIABLES.zdColorAluminum};
     font-size: ${VARIABLES.zdFontSizeEpsilon};
-    margin-bottom: 4px;
+    line-height: ${(20 / 14)}
 
     ${props => utils.retrieveTheme('form.hint', props)}
 `;

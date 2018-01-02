@@ -1,22 +1,30 @@
 import { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import uuid from 'uuid/v1';
 
 export default class FormContainer extends PureComponent {
+    static propTypes = {
+        /** Receives: { getLabelProps, getInputProps } as a parameter */
+        children: PropTypes.func
+    };
+
     constructor(...args) {
         super(...args);
 
         this.inputId = uuid();
     }
 
-    getLabelProps = () => {
+    getLabelProps = (...other) => {
         return {
-            htmlFor: this.inputId
+            htmlFor: this.inputId,
+            ...other
         };
     };
 
-    getInputProps = () => {
+    getInputProps = (...other) => {
         return {
-            id: this.inputId
+            id: this.inputId,
+            ...other
         };
     };
 

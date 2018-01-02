@@ -7,8 +7,8 @@ const Label = styled.label`
     font-size: ${VARIABLES.zdFontSizeEpsilon};
     font-weight: ${VARIABLES.zdFontWeightSemibold};
     vertical-align: middle;
+    line-height: ${(30 / 14)};
 
-    direction: ${props => utils.isRtl(props) ? 'rtl' : 'ltr'};
     ${props => utils.retrieveTheme('form.label', props)}
 `;
 
