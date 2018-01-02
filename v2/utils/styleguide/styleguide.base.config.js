@@ -11,7 +11,7 @@ const basePathName = path.basename(path.resolve('./'));
 const defaultStyleguideConfig = {
     title: packageName,
     skipComponentsWithoutExample: false,
-    serverPort: 7000,
+    serverPort: 5000,
     styleguideDir: `../../demo/iframes/${basePathName}`,
     showUsage: true,
     require: [
@@ -21,6 +21,12 @@ const defaultStyleguideConfig = {
     ],
     getExampleFilename(componentPath) {
         return componentPath.replace(/\.jsx?$/, '.example.md');
+    },
+    styleguideComponents: {
+        Wrapper: path.resolve(__dirname, 'Wrapper'),
+        TableOfContentsRenderer: path.resolve(__dirname, 'TableOfContentsRenderer'),
+        StyleGuideRenderer: path.resolve(__dirname, 'StyleGuideRenderer'),
+        LogoRenderer: path.resolve(__dirname, 'LogoRenderer')
     },
     webpackConfig: {
         module: {

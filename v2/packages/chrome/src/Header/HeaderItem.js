@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import classNames from 'classnames';
 import ChromeStyles from '@zendesk/garden-css-chrome';
 
+import { utils } from '@zendeskgarden/react-theming';
 import { KeyboardFocusContainer } from '@zendeskgarden/react-selection';
 
 const StyledHeaderItem = styled.button.attrs({
@@ -17,7 +18,9 @@ const StyledHeaderItem = styled.button.attrs({
     [ChromeStyles['is-focused']]: props.focused
   }),
   tabIndex: props => props.tabIndex || 0
-})``;
+})`
+  ${props => utils.retrieveTheme('chrome.header_item', props)}
+`;
 
 const HeaderItem = ({ focused, children, ...other}) => (
   <KeyboardFocusContainer>

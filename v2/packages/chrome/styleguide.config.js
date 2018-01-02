@@ -11,12 +11,12 @@ module.exports = {
     }, {
         name: "Header",
         description: "header items",
-        components: "../../packages/chrome/src/Header/[A-Z]*.js"
+        components: "../../packages/chrome/src/Header/*.js"
     }, {
         name: "Nav",
-        components: "../../packages/chrome/src/Nav/[A-Z]*.js"
+        components: "../../packages/chrome/src/Nav/*.js"
     }, {
         name: "SubNav",
-        components: "../../packages/chrome/src/SubNav/[A-Z]*.js"
+        components: "../../packages/chrome/src/SubNav/*.js"
     }]
 };

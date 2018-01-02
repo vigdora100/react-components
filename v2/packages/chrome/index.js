@@ -3,4 +3,4 @@
  * Allows Lerna bootstrapping to reference files without the build step.
  */
 
-export { default } from './src';
+export * from './src';

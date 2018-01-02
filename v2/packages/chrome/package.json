@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@zendeskgarden/react-selection": "^0.0.1",
+    "@zendeskgarden/react-theming": "^0.0.1",
     "classnames": "^2.2.5",
     "prop-types": "^15.6.0",
     "styled-components": "^2.3.3"

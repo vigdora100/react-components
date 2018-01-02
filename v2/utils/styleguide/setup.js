@@ -11,10 +11,12 @@ global.Grid = Grid;
 import * as Button from '../../packages/button';
 import * as Chrome from '../../packages/chrome';
 import * as Selection from '../../packages/selection';
+import * as Theming from '../../packages/theming';
 
 global.Garden = {
     Button,
     Chrome,
-    Selection
+    Selection,
+    Theming
 };
 

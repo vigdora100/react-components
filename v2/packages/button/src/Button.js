@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import classNames from 'classnames';
 import ButtonStyles from '@zendesk/garden-css-buttons';
 import { KeyboardFocusContainer } from '@zendeskgarden/react-selection';
+import { utils } from '@zendeskgarden/react-theming';
 
 const StyledButton = styled.button.attrs({
   className: props => classNames(ButtonStyles['c-btn'], {
@@ -22,7 +23,9 @@ const StyledButton = styled.button.attrs({
     [ButtonStyles['is-active']]: props.active,
     [ButtonStyles['is-selected']]: props.selected
   })
-})``;
+})`
+  ${props => utils.retrieveTheme('button', props)}
+`;
 
 const Button = ({ focused, children, ...other}) => (
   <KeyboardFocusContainer>

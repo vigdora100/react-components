@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import ChromeStyles from '@zendesk/garden-css-chrome';
+
+import { utils } from '@zendeskgarden/react-theming';
 import { KeyboardFocusContainer } from '@zendeskgarden/react-selection';
 
 const StyledNavItem = styled.a.attrs({
@@ -27,7 +29,9 @@ const StyledNavItem = styled.a.attrs({
 
     return props.logo ? -1 : 0;
   }
-})``;
+})`
+  ${props => utils.retrieveTheme('chrome.nav_item', props)}
+`;
 
 const NavItem = ({ children, focused, ...other}) => (
   <KeyboardFocusContainer>

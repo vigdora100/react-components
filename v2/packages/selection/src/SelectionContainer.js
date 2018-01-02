@@ -1,10 +1,11 @@
 import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import { utils } from '@zendeskgarden/react-theming';
 
 import { composeEventHandlers } from './utils';
 import KEY_CODES from './KEY_CODES';
 
-export default class SelectionContainer extends PureComponent {
+export class SelectionContainer extends PureComponent {
     static propTypes = {
         /**
          * Function that is provided:
@@ -137,35 +138,59 @@ export default class SelectionContainer extends PureComponent {
         },
         [KEY_CODES.LEFT]: event => {
             const { vertical } = this.props;
+            const isRtl = utils.isRtl(this.props);
 
             if (!vertical) {
                 event.preventDefault();
-                this.decrementIndex();
+
+                if (isRtl) {
+                    this.incrementIndex()
+                } else {
+                    this.decrementIndex();
+                }
             }
 
         },
         [KEY_CODES.RIGHT]: event => {
             const { vertical } = this.props;
+            const isRtl = utils.isRtl(this.props);
 
             if (!vertical) {
                 event.preventDefault();
-                this.incrementIndex();
+
+                if (isRtl) {
+                    this.decrementIndex()
+                } else {
+                    this.incrementIndex();
+                }
             }
         },
         [KEY_CODES.UP]: event => {
             const { vertical } = this.props;
+            const isRtl = utils.isRtl(this.props);
 
             if (vertical) {
                 event.preventDefault();
-                this.decrementIndex();
+
+                if (isRtl) {
+                    this.incrementIndex()
+                } else {
+                    this.decrementIndex();
+                }
             }
         },
         [KEY_CODES.DOWN]: event => {
             const { vertical } = this.props;
+            const isRtl = utils.isRtl(this.props);
 
             if (vertical) {
                 event.preventDefault();
-                this.incrementIndex();
+
+                if (isRtl) {
+                    this.decrementIndex()
+                } else {
+                    this.incrementIndex();
+                }
             }
         }
     };
@@ -196,7 +221,6 @@ export default class SelectionContainer extends PureComponent {
     render() {
         const { children } = this.props;
         const { highlightedIndex, selectedIndex } = this.retrieveState();
-
         this.items = [];
 
         return children({
@@ -207,3 +231,5 @@ export default class SelectionContainer extends PureComponent {
         });
     }
 };
+
+export default utils.withTheme(SelectionContainer);
