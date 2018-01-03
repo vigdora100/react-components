@@ -5,9 +5,9 @@ import { utils } from '@zendeskgarden/react-theming';
 import Item from './index';
 
 const Previous = styled(Item).attrs({
-    className: MenuStyles['c-menu__item--previous']
+  className: MenuStyles['c-menu__item--previous']
 })`
-    ${props => utils.retrieveTheme('menu.item_previous', props)}
+  ${props => utils.retrieveTheme('menu.item_previous', props)}
 `;
 
 /** @component */

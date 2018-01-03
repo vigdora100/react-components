@@ -4,36 +4,36 @@ import uuid from 'uuid/v1';
 
 export default class FormContainer extends PureComponent {
     static propTypes = {
-        /** Receives: { getLabelProps, getInputProps } as a parameter */
-        children: PropTypes.func
+      /** Receives: { getLabelProps, getInputProps } as a parameter */
+      children: PropTypes.func
     };
 
     constructor(...args) {
-        super(...args);
+      super(...args);
 
-        this.inputId = uuid();
+      this.inputId = uuid();
     }
 
     getLabelProps = (...other) => {
-        return {
-            htmlFor: this.inputId,
-            ...other
-        };
+      return {
+        htmlFor: this.inputId,
+        ...other
+      };
     };
 
     getInputProps = (...other) => {
-        return {
-            id: this.inputId,
-            ...other
-        };
+      return {
+        id: this.inputId,
+        ...other
+      };
     };
 
     render() {
-        const { children } = this.props;
+      const { children } = this.props;
 
-        return children({
-            getLabelProps: this.getLabelProps,
-            getInputProps: this.getInputProps
-        });
+      return children({
+        getLabelProps: this.getLabelProps,
+        getInputProps: this.getInputProps
+      });
     }
 }

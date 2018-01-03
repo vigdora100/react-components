@@ -8,19 +8,19 @@ import IconMessage from './IconMessage';
 import ErrorIcon from '@zendesk/garden-svg-icons/src/14-error-fill.svg';
 
 const StyledErrorMessage = styled(IconMessage)`
-    color: ${VARIABLES.zdColorFlamingo};
+  color: ${VARIABLES.zdColorFlamingo};
 
-    ${props => utils.retrieveTheme('form.error_message', props)}
+  ${props => utils.retrieveTheme('form.error_message', props)}
 `;
 
 const ErrorMessage = ({ children, ...other }) => (
-    <StyledErrorMessage icon={<ErrorIcon />} {...other}>
-        {children}
-    </StyledErrorMessage>
+  <StyledErrorMessage icon={<ErrorIcon />} {...other}>
+    {children}
+  </StyledErrorMessage>
 );
 
 ErrorMessage.propTypes = {
-    children: PropTypes.node
+  children: PropTypes.node
 };
 
 export default ErrorMessage;

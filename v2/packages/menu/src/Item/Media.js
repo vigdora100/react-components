@@ -5,9 +5,9 @@ import { utils } from '@zendeskgarden/react-theming';
 import Item from './index';
 
 const Media = styled(Item).attrs({
-    className: MenuStyles['c-menu__item--media']
+  className: MenuStyles['c-menu__item--media']
 })`
-    ${props => utils.retrieveTheme('menu.item_media', props)}
+  ${props => utils.retrieveTheme('menu.item_media', props)}
 `;
 
 /** @component */

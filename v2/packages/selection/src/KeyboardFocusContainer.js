@@ -4,11 +4,11 @@ import utils from './utils';
 
 export default class KeyboardFocusContainer extends PureComponent {
     static propTypes = {
-        /**
+      /**
          * A function that receives: ({ keyboardFocused: bool, onBlur: eventProxy,
          * onFocus: eventProxy, onMouseDown: eventProxy })
          */
-        children: PropTypes.func.isRequired
+      children: PropTypes.func.isRequired
     };
 
     constructor(props, context) {
@@ -57,4 +57,4 @@ export default class KeyboardFocusContainer extends PureComponent {
         keyboardFocused
       });
     }
-  }
+}

@@ -22,11 +22,11 @@ const StyledSubNavItem = styled.a.attrs({
 const SubNavItem = ({ children, focused, ...other}) => (
   <KeyboardFocusContainer>
     {({ getFocusProps, keyboardFocused }) => (
-        <StyledSubNavItem
-          {...getFocusProps(other)}
-          focused={focused || keyboardFocused}>
-          {children}
-        </StyledSubNavItem>
+      <StyledSubNavItem
+        {...getFocusProps(other)}
+        focused={focused || keyboardFocused}>
+        {children}
+      </StyledSubNavItem>
     )}
   </KeyboardFocusContainer>
 );

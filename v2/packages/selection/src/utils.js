@@ -7,13 +7,13 @@
  * @return {Function} the event handler to add to an element
  */
 function composeEventHandlers(...fns) {
-    return (event, ...args) =>
-        fns.some(fn => {
-        fn && fn(event, ...args)
-        return event.defaultPrevented
+  return (event, ...args) =>
+    fns.some(fn => {
+      fn && fn(event, ...args)
+      return event.defaultPrevented
     });
 }
 
 export default {
-    composeEventHandlers
+  composeEventHandlers
 };

@@ -8,19 +8,19 @@ import IconMessage from './IconMessage';
 import SuccessIcon from '@zendesk/garden-svg-icons/src/14-checkmark-fill.svg';
 
 const StyledSuccessMessage = styled(IconMessage)`
-    color: ${VARIABLES.zdColorChateauGreen};
+  color: ${VARIABLES.zdColorChateauGreen};
 
-    ${props => utils.retrieveTheme('form.success_message', props)}
+  ${props => utils.retrieveTheme('form.success_message', props)}
 `;
 
 const SuccessMessage = ({ children, ...other }) => (
-    <StyledSuccessMessage icon={<SuccessIcon />} {...other}>
-        {children}
-    </StyledSuccessMessage>
+  <StyledSuccessMessage icon={<SuccessIcon />} {...other}>
+    {children}
+  </StyledSuccessMessage>
 );
 
 SuccessMessage.propTypes = {
-    children: PropTypes.node
+  children: PropTypes.node
 };
 
 export default SuccessMessage;

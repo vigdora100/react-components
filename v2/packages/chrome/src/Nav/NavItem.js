@@ -36,11 +36,11 @@ const StyledNavItem = styled.a.attrs({
 const NavItem = ({ children, focused, ...other}) => (
   <KeyboardFocusContainer>
     {({ getFocusProps, keyboardFocused }) => (
-        <StyledNavItem
-          {...getFocusProps(other)}
-          focused={focused || keyboardFocused}>
-          {children}
-        </StyledNavItem>
+      <StyledNavItem
+        {...getFocusProps(other)}
+        focused={focused || keyboardFocused}>
+        {children}
+      </StyledNavItem>
     )}
   </KeyboardFocusContainer>
 );

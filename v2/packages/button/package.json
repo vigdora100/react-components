@@ -16,7 +16,7 @@
     "build": "NODE_ENV=production babel ./src --out-dir=dist",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:css": "stylelint './src/**/*.js'",
-    "lint:js": "eslint ./src/**/*.js --fix",
+    "lint:js": "eslint -c '../../.eslintrc.json' './src/**/*.js'",
     "start": "styleguidist server --config ../../utils/styleguide/styleguide.base.config.js",
     "styleguide": "styleguidist build --config ../../utils/styleguide/styleguide.base.config.js"
   },

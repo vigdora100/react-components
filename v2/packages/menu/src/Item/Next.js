@@ -5,9 +5,9 @@ import { utils } from '@zendeskgarden/react-theming';
 import Item from './index';
 
 const Next = styled(Item).attrs({
-    className: MenuStyles['c-menu__item--next']
+  className: MenuStyles['c-menu__item--next']
 })`
-    ${props => utils.retrieveTheme('menu.item_next', props)}
+  ${props => utils.retrieveTheme('menu.item_next', props)}
 `;
 
 /** @component */

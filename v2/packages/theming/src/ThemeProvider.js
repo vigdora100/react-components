@@ -3,22 +3,22 @@ import PropTypes from 'prop-types';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 
 const ThemeProvider = props => {
-    const theme = {
-        rtl: props.rtl,
-        styles: props.theme
-    };
+  const theme = {
+    rtl: props.rtl,
+    styles: props.theme
+  };
 
-    return (
-        <StyledThemeProvider theme={theme}>
-            {props.children}
-        </StyledThemeProvider>
-    );
+  return (
+    <StyledThemeProvider theme={theme}>
+      {props.children}
+    </StyledThemeProvider>
+  );
 };
 
 ThemeProvider.propTypes = {
-    children: PropTypes.node,
-    rtl: PropTypes.bool,
-    theme: PropTypes.object
+  children: PropTypes.node,
+  rtl: PropTypes.bool,
+  theme: PropTypes.object
 };
 
 /** @component */

@@ -25,11 +25,11 @@ const StyledHeaderItem = styled.button.attrs({
 const HeaderItem = ({ focused, children, ...other}) => (
   <KeyboardFocusContainer>
     {({ getFocusProps, keyboardFocused }) => (
-        <StyledHeaderItem
-          {...getFocusProps(other)}
-          focused={focused || keyboardFocused}>
-          {children}
-        </StyledHeaderItem>
+      <StyledHeaderItem
+        {...getFocusProps(other)}
+        focused={focused || keyboardFocused}>
+        {children}
+      </StyledHeaderItem>
     )}
   </KeyboardFocusContainer>
 );

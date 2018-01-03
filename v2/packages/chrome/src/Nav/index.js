@@ -16,9 +16,9 @@ const Nav = styled.nav.attrs({
 `;
 
 Nav.propTypes = {
-    expanded: PropTypes.bool,
-    dark: PropTypes.bool,
-    light: PropTypes.bool
+  expanded: PropTypes.bool,
+  dark: PropTypes.bool,
+  light: PropTypes.bool
 };
 
 /** @component */

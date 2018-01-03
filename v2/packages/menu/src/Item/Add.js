@@ -5,9 +5,9 @@ import { utils } from '@zendeskgarden/react-theming';
 import Item from './index';
 
 const Add = styled(Item).attrs({
-    className: MenuStyles['c-menu__item--add']
+  className: MenuStyles['c-menu__item--add']
 })`
-    ${props => utils.retrieveTheme('menu.item_add', props)}
+  ${props => utils.retrieveTheme('menu.item_add', props)}
 `;
 
 /** @component */

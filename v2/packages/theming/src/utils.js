@@ -1,26 +1,26 @@
 import { withTheme } from 'styled-components';
 
 function retrieveTheme(componentId, props) {
-    const styles = props.theme.styles;
+  const styles = props.theme.styles;
 
-    if (!styles) {
-        return;
-    }
+  if (!styles) {
+    return;
+  }
 
-    const componentStyles = styles[componentId];
-    if (typeof componentStyles === 'function') {
-        return componentStyles(props);
-    }
+  const componentStyles = styles[componentId];
+  if (typeof componentStyles === 'function') {
+    return componentStyles(props);
+  }
 
-    return componentStyles;
+  return componentStyles;
 }
 
 function isRtl(props) {
-    return props.theme && props.theme.rtl;
+  return props.theme && props.theme.rtl;
 }
 
 export default {
-    isRtl,
-    withTheme,
-    retrieveTheme
+  isRtl,
+  withTheme,
+  retrieveTheme
 };

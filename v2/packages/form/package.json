@@ -15,6 +15,9 @@
   "scripts": {
     "build": "NODE_ENV=production babel ./src --out-dir=dist",
     "start": "styleguidist server --config ../../utils/styleguide/styleguide.base.config.js",
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:css": "stylelint './src/**/*.js'",
+    "lint:js": "eslint -c '../../.eslintrc.json' './src/**/*.js'",
     "styleguide": "styleguidist build --config ../../utils/styleguide/styleguide.base.config.js"
   },
   "dependencies": {
