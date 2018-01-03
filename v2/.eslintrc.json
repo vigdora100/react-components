@@ -1,0 +1,15 @@
+{
+    "extends": [
+      "pretty-standard"
+    ],
+    "globals": {
+      "jest": false
+    },
+    "plugins": [
+        "react"
+    ],
+    "parser": "babel-eslint",
+    "rules": {
+        "indent": ["error", 2]
+    }
+  }

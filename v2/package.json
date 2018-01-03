@@ -5,10 +5,11 @@
   "license": "UNLISCENSED",
   "main": "index.js",
   "scripts": {
-    "postinstall": "npm run bootstrap",
     "bootstrap": "lerna exec -- git clean -Xdf . && lerna bootstrap --concurrency=2",
     "build": "lerna run build",
     "build:single": "node ./utils/scripts/scoped-npm-command --script build",
+    "postinstall": "npm run bootstrap",
+    "lint": "lerna run lint",
     "start": "node ./utils/scripts/scoped-npm-command --script start",
     "styleguide": "lerna run styleguide --stream",
     "styleguide:single": "node ./utils/scripts/scoped-npm-command --script styleguide"
@@ -21,6 +22,9 @@
     "babel-plugin-styled-components": "^1.4.0",
     "chalk": "^2.3.0",
     "commander": "^2.12.2",
+    "eslint": "^4.14.0",
+    "eslint-config-pretty-standard": "^1.1.0",
+    "eslint-plugin-react": "^7.5.1",
     "html-webpack-plugin": "^2.30.1",
     "inline-svg-react": "^0.1.7",
     "inquirer": "^4.0.1",
@@ -29,6 +33,10 @@
     "raw-loader": "^0.5.1",
     "react-styleguidist": "^6.1.0",
     "react-svg-inline": "^2.0.1",
+    "stylelint": "^8.4.0",
+    "stylelint-config-standard": "^18.0.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.2.1",
     "webpack": "^3.10.0"
   }
 }

@@ -4,9 +4,9 @@ import ButtonStyles from '@zendesk/garden-css-buttons';
 import { utils } from '@zendeskgarden/react-theming';
 
 const PillButton = styled(Button).attrs({
-    className: ButtonStyles['c-btn--pill']
+  className: ButtonStyles['c-btn--pill']
 })`
-    ${props => utils.retrieveTheme('button.pill_button', props)}
+  ${props => utils.retrieveTheme('button.pill_button', props)}
 `;
 
 /** @component */

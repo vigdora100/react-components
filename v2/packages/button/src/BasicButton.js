@@ -4,9 +4,9 @@ import ButtonStyles from '@zendesk/garden-css-buttons';
 import { utils } from '@zendeskgarden/react-theming';
 
 const BasicButton = styled(Button).attrs({
-    className: ButtonStyles['c-btn--basic']
+  className: ButtonStyles['c-btn--basic']
 })`
-    ${props => utils.retrieveTheme('button.basic_button', props)}
+  ${props => utils.retrieveTheme('button.basic_button', props)}
 `;
 
 /** @component */

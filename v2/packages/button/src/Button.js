@@ -30,11 +30,11 @@ const StyledButton = styled.button.attrs({
 const Button = ({ focused, children, ...other}) => (
   <KeyboardFocusContainer>
     {({ getFocusProps, keyboardFocused }) => (
-        <StyledButton
-          {...getFocusProps(other)}
-          focused={focused || keyboardFocused}>
-          {children}
-        </StyledButton>
+      <StyledButton
+        {...getFocusProps(other)}
+        focused={focused || keyboardFocused}>
+        {children}
+      </StyledButton>
     )}
   </KeyboardFocusContainer>
 );
