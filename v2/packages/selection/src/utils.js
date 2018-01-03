@@ -14,6 +14,6 @@ function composeEventHandlers(...fns) {
     });
 }
 
-export {
+export default {
     composeEventHandlers
 };

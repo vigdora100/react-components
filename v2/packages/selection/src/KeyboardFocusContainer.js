@@ -1,6 +1,6 @@
 import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { composeEventHandlers } from './utils';
+import utils from './utils';
 
 export default class KeyboardFocusContainer extends PureComponent {
     static propTypes = {
@@ -41,9 +41,9 @@ export default class KeyboardFocusContainer extends PureComponent {
 
     getFocusProps = ({ onBlur, onFocus, onMouseDown, ...otherProps } = {}) => {
       return {
-        onBlur: composeEventHandlers(onBlur, this.onBlur),
-        onFocus: composeEventHandlers(onFocus, this.onFocus),
-        onMouseDown: composeEventHandlers(onMouseDown, this.onMouseDown),
+        onBlur: utils.composeEventHandlers(onBlur, this.onBlur),
+        onFocus: utils.composeEventHandlers(onFocus, this.onFocus),
+        onMouseDown: utils.composeEventHandlers(onMouseDown, this.onMouseDown),
         ...otherProps
       };
     };

@@ -1,8 +1,8 @@
 import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { utils } from '@zendeskgarden/react-theming';
+import { utils as themingUtils } from '@zendeskgarden/react-theming';
 
-import { composeEventHandlers } from './utils';
+import utils from './utils';
 import KEY_CODES from './KEY_CODES';
 
 export class SelectionContainer extends PureComponent {
@@ -20,7 +20,8 @@ export class SelectionContainer extends PureComponent {
         /** The currently selected index. Used as a controlled element. */
         selectedIndex: PropTypes.number,
         /** Called when a new index is selected. Used as a controlled element. */
-        onSelection: PropTypes.func
+        onSelection: PropTypes.func,
+        highlightOnFocus: PropTypes.bool
     };
 
     constructor(...args) {
@@ -65,42 +66,45 @@ export class SelectionContainer extends PureComponent {
         }
 
         return {
-            onClick: composeEventHandlers(onClick, () => {
+            onClick: utils.composeEventHandlers(onClick, () => {
                 this.selectIndex(index);
             }),
-            onMouseDown: composeEventHandlers(onMouseDown, () => {
+            onMouseDown: utils.composeEventHandlers(onMouseDown, () => {
                 this.mousedDown = true;
 
                 setTimeout(() => {
                     this.mousedDown = false;
                 }, 0);
             }),
-            tabIndex: -1,
             ...rest
         };
     };
 
     incrementIndex = () => {
-        const { highlightedIndex, selectedIndex } = this.retrieveState();
-        let newHighlightedIndex = typeof highlightedIndex === 'undefined' ? selectedIndex : highlightedIndex;
+        const { highlightedIndex } = this.retrieveState();
 
-        newHighlightedIndex = newHighlightedIndex < this.items.length - 1 ? newHighlightedIndex + 1 : 0;
-        this.setState({ highlightedIndex: newHighlightedIndex });
+        if (typeof highlightedIndex === 'undefined') {
+            this.setState({ highlightedIndex: 0 });
+        } else {
+            this.setState({ highlightedIndex: highlightedIndex < this.items.length - 1 ? highlightedIndex + 1 : 0 });
+        }
     };
 
     decrementIndex = () => {
-        const { highlightedIndex, selectedIndex } = this.retrieveState();
-        let newHighlightedIndex = typeof highlightedIndex === 'undefined' ? selectedIndex : highlightedIndex;
+        const { highlightedIndex } = this.retrieveState();
 
-        newHighlightedIndex = newHighlightedIndex > 0 ? newHighlightedIndex - 1 : this.items.length - 1;
-        this.setState({ highlightedIndex: newHighlightedIndex });
+        if (typeof highlightedIndex === 'undefined') {
+            this.setState({ highlightedIndex: this.items.length - 1 });
+        } else {
+            this.setState({ highlightedIndex: highlightedIndex > 0 ? highlightedIndex - 1 : this.items.length - 1 });
+        }
     };
 
     selectIndex = (selectedIndex, highlightedIndex) => {
         const { onSelection } = this.props;
 
         if (onSelection) {
-            onSelection(selectedIndex);
+            onSelection(selectedIndex, this.items[selectedIndex]);
         } else {
             this.setState({
                 selectedIndex,
@@ -114,13 +118,17 @@ export class SelectionContainer extends PureComponent {
             event.preventDefault();
 
             const { highlightedIndex } = this.retrieveState();
-            this.selectIndex(highlightedIndex, highlightedIndex);
+            if (typeof highlightedIndex !== 'undefined') {
+                this.selectIndex(highlightedIndex, highlightedIndex);
+            }
         },
         [KEY_CODES.SPACE]: event => {
             event.preventDefault();
 
             const { highlightedIndex } = this.retrieveState();
-            this.selectIndex(highlightedIndex, highlightedIndex);
+            if (typeof highlightedIndex !== 'undefined') {
+                this.selectIndex(highlightedIndex, highlightedIndex);
+            }
         },
         [KEY_CODES.END]: event => {
             event.preventDefault();
@@ -138,7 +146,7 @@ export class SelectionContainer extends PureComponent {
         },
         [KEY_CODES.LEFT]: event => {
             const { vertical } = this.props;
-            const isRtl = utils.isRtl(this.props);
+            const isRtl = themingUtils.isRtl(this.props);
 
             if (!vertical) {
                 event.preventDefault();
@@ -153,7 +161,7 @@ export class SelectionContainer extends PureComponent {
         },
         [KEY_CODES.RIGHT]: event => {
             const { vertical } = this.props;
-            const isRtl = utils.isRtl(this.props);
+            const isRtl = themingUtils.isRtl(this.props);
 
             if (!vertical) {
                 event.preventDefault();
@@ -167,7 +175,7 @@ export class SelectionContainer extends PureComponent {
         },
         [KEY_CODES.UP]: event => {
             const { vertical } = this.props;
-            const isRtl = utils.isRtl(this.props);
+            const isRtl = themingUtils.isRtl(this.props);
 
             if (vertical) {
                 event.preventDefault();
@@ -181,7 +189,7 @@ export class SelectionContainer extends PureComponent {
         },
         [KEY_CODES.DOWN]: event => {
             const { vertical } = this.props;
-            const isRtl = utils.isRtl(this.props);
+            const isRtl = themingUtils.isRtl(this.props);
 
             if (vertical) {
                 event.preventDefault();
@@ -198,23 +206,27 @@ export class SelectionContainer extends PureComponent {
     /**
      * Props that should be applied to the container that triggers selection of items
      */
-    getContainerProps = ({ onFocus, onBlur, onKeyDown } = {}) => {
-        const { selectedIndex } = this.retrieveState();
+    getContainerProps = ({ onFocus, onBlur, onKeyDown, ...other } = {}) => {
+        const { selectedIndex, highlightedIndex } = this.retrieveState();
+        const { highlightOnFocus } = this.props;
 
         return {
-            onFocus: composeEventHandlers(onFocus, (event) => {
+            onFocus: utils.composeEventHandlers(onFocus, (event) => {
                 if (!this.mousedDown) {
-                    this.setState({ highlightedIndex: selectedIndex || 0 });
+                    if (highlightOnFocus) {
+                        this.setState({ highlightedIndex: selectedIndex || 0 });
+                    }
                 }
             }),
-            onBlur: composeEventHandlers(onBlur, (event) => {
+            onBlur: utils.composeEventHandlers(onBlur, (event) => {
                 this.setState({ highlightedIndex: undefined });
             }),
-            onKeyDown: composeEventHandlers(onKeyDown, (event) => {
+            onKeyDown: utils.composeEventHandlers(onKeyDown, (event) => {
                 const keyHandler = this.keyDownEventHandlers[event.keyCode];
                 keyHandler && keyHandler(event);
             }),
-            tabIndex: 0
+            tabIndex: 0,
+            ...other
         };
     }
 
@@ -232,4 +244,4 @@ export class SelectionContainer extends PureComponent {
     }
 };
 
-export default utils.withTheme(SelectionContainer);
+export default themingUtils.withTheme(SelectionContainer);

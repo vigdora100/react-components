@@ -9,7 +9,7 @@ const packageName = packageManifest.name &&
 const basePathName = path.basename(path.resolve('./'));
 
 const defaultStyleguideConfig = {
-    title: packageName,
+    title: 'Zendesk Garden',
     skipComponentsWithoutExample: false,
     serverPort: 5000,
     styleguideDir: `../../demo/iframes/${basePathName}`,

@@ -1,4 +1,4 @@
-The `ButtonGroup` component by itself is a simple, presentation component without any selection logic. For real-world usages it should be used with the `SelectionContainer` in `@zendeskgarden/react-selection`. This container applies the necessary logic and accessibility props. It can be used as a controlled and un-controlled container.
+The `ButtonGroup` component by itself is a simple, presentation component without any selection logic. For real-world usages it should be used with the `ButtonGroupContainer` component`. This container applies the necessary logic and accessibility props. It can be used as a controlled and un-controlled container.
 
 ```jsx
 const SelectionContainer = Garden.Selection.SelectionContainer;
@@ -16,14 +16,14 @@ initialState = {
     }]
 };
 
-<SelectionContainer
+<ButtonGroupContainer
     selectedIndex={state.selectedIndex}
     onSelection={selectedIndex => setState({ selectedIndex })}>
-    {({ getItemProps, getContainerProps, highlightedIndex, selectedIndex }) => (
-        <ButtonGroup {...getContainerProps()}>
+    {({ getButtonProps, getButtonGroupProps, highlightedIndex, selectedIndex }) => (
+        <ButtonGroup {...getButtonGroupProps()}>
             {state.items.map((item, index) => (
                 <Button
-                    {...getItemProps({
+                    {...getButtonProps({
                         item,
                         index
                     })}
@@ -35,5 +35,5 @@ initialState = {
             ))}
         </ButtonGroup>
     )}
-</SelectionContainer>
+</ButtonGroupContainer>
 ```

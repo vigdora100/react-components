@@ -16,7 +16,10 @@ module.exports = {
         ]
     }, {
         name: "ButtonGroup",
-        components: '../../packages/button/src/ButtonGroup.js'
+        components: () => [
+            '../../packages/button/src/ButtonGroup.js',
+            '../../packages/button/src/ButtonGroupContainer.js'
+        ]
     }, {
         name: "IconButton",
         components: '../../packages/button/src/IconButton/*.js'
