@@ -24,6 +24,7 @@
     "github-markdown-css": "^2.10.0"
   },
   "devDependencies": {
+    "gatsby-remark-images": "^1.5.36",
     "prettier": "^1.9.2"
   },
   "keywords": [

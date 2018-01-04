@@ -92,10 +92,10 @@ const TemplateWrapper = ({ children, location, data }) => {
   return (
     <Chrome>
       <Helmet
-        title="Zendesk Garden - React Components"
+        title="Zendesk Garden"
         meta={[
-          { name: 'description', content: 'Sample' },
-          { name: 'keywords', content: 'sample, something' },
+          { name: 'description', content: 'Zendesk Garden Design System.' },
+          { name: 'keywords', content: 'zendesk, garden, design, system, documentation, react, css' },
         ]}
       />
       <Navigation location={location} />
