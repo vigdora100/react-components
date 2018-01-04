@@ -1,20 +1,27 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "@zendeskgarden/react-styleguide",
+  "private": true,
   "description": "Gatsby default starter",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "license": "MIT",
   "version": "1.0.0",
   "main": "n/a",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
+    "styleguide": "gatsby build && cp -r public/. ../../demo",
+    "start": "gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "@zendesk/garden-svg-icons": "^2.5.0",
+    "@zendeskgarden/react-chrome": "^0.0.1",
     "gatsby": "^1.9.145",
+    "gatsby-1-config-css-modules": "^1.0.8",
     "gatsby-link": "^1.6.32",
-    "gatsby-plugin-react-helmet": "^1.0.8"
+    "gatsby-plugin-react-helmet": "^1.0.8",
+    "gatsby-source-filesystem": "^1.5.11",
+    "gatsby-transformer-remark": "^1.7.26",
+    "github-markdown-css": "^2.10.0"
   },
   "devDependencies": {
     "prettier": "^1.9.2"

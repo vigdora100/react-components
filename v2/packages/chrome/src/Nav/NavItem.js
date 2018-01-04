@@ -30,6 +30,8 @@ const StyledNavItem = styled.a.attrs({
     return props.logo ? -1 : 0;
   }
 })`
+  cursor: pointer;
+
   ${props => utils.retrieveTheme('chrome.nav_item', props)}
 `;
 

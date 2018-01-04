@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import ChromeStyles from '@zendesk/garden-css-chrome';
-
 import { utils } from '@zendeskgarden/react-theming';
 
 const Nav = styled.nav.attrs({
