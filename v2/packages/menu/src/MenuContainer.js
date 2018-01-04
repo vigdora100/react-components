@@ -55,72 +55,72 @@ export default class MenuContainer extends PureComponent {
     };
   };
 
-    getMenuProps = ({ ref, innerRef, onBlur, onKeyDown, ...other } = {}) => {
-      return {
-        innerRef: reference => {
-          this.contentRef = reference;
-          ref && ref(reference);
-          innerRef && innerRef(reference);
-        },
-        onBlur: utils.composeEventHandlers(onBlur, () => {
-          this.setState({ isOpen: !this.state.isOpen });
-        }),
-        onKeyDown: utils.composeEventHandlers(onKeyDown, event => {
-          if (event.keyCode === KEY_CODES.ESCAPE) {
-            this.setState({ isOpen: false }, () => {
-              this.triggerRef.focus();
-            });
-          }
-        }),
-        ...other
-      };
-    }
+  getMenuProps = ({ ref, innerRef, onBlur, onKeyDown, ...other } = {}) => {
+    return {
+      innerRef: reference => {
+        this.contentRef = reference;
+        ref && ref(reference);
+        innerRef && innerRef(reference);
+      },
+      onBlur: utils.composeEventHandlers(onBlur, () => {
+        this.setState({ isOpen: !this.state.isOpen });
+      }),
+      onKeyDown: utils.composeEventHandlers(onKeyDown, event => {
+        if (event.keyCode === KEY_CODES.ESCAPE) {
+          this.setState({ isOpen: false }, () => {
+            this.triggerRef.focus();
+          });
+        }
+      }),
+      ...other
+    };
+  }
 
-    render() {
-      const { children, placement, content, onSelection } = this.props;
-      const { isOpen, selectedIndex } = this.state;
+  render() {
+    const { children, placement, content, onSelection } = this.props;
+    const { isOpen, selectedIndex } = this.state;
 
-      return (
-        <Manager>
-          <Target>
-            {({ targetProps }) => (
-              children({
-                getTriggerProps: (props) => this.getTriggerProps({ ...props, ...targetProps })
-              })
-            )}
-          </Target>
-          {isOpen && <Popper placement={placement}>
-            {({ popperProps, restProps }) => (
-              <SelectionContainer
-                vertical
-                selectedIndex={typeof this.props.selectedIndex !== 'undefined' ? this.props.selectedIndex : selectedIndex}
-                onSelection={(newSelectedIndex, selectedItem) => {
-                  if (onSelection) {
-                    const shouldStayOpen = onSelection(newSelectedIndex, selectedItem);
+    return (
+      <Manager>
+        <Target>
+          {({ targetProps }) => (
+            children({
+              getTriggerProps: (props) => this.getTriggerProps({ ...props, ...targetProps })
+            })
+          )}
+        </Target>
+        {isOpen && <Popper placement={placement}>
+          {({ popperProps, restProps }) => (
+            <SelectionContainer
+              vertical
+              selectedIndex={typeof this.props.selectedIndex !== 'undefined' ? this.props.selectedIndex : selectedIndex}
+              onSelection={(newSelectedIndex, selectedItem) => {
+                if (onSelection) {
+                  const shouldStayOpen = onSelection(newSelectedIndex, selectedItem);
 
-                    this.setState({ isOpen: shouldStayOpen }, () => {
-                      if (!shouldStayOpen) {
-                        this.triggerRef.focus();
-                      }
-                    });
-                  } else {
-                    this.setState({ selectedIndex: newSelectedIndex, isOpen: false }, () => {
+                  this.setState({ isOpen: shouldStayOpen }, () => {
+                    if (!shouldStayOpen) {
                       this.triggerRef.focus();
-                    });
-                  }
-                }}>
-                {({ getContainerProps, getItemProps, selectedIndex, highlightedIndex }) => (
-                  content({
-                    getMenuProps: (props) => getContainerProps(this.getMenuProps({ ...props, ...popperProps })),
-                    getMenuItemProps: getItemProps,
-                    selectedIndex,
-                    highlightedIndex
-                  })
-                )}
-              </SelectionContainer>
-            )}
-          </Popper>}
-        </Manager>
-      );
-    }
+                    }
+                  });
+                } else {
+                  this.setState({ selectedIndex: newSelectedIndex, isOpen: false }, () => {
+                    this.triggerRef.focus();
+                  });
+                }
+              }}>
+              {({ getContainerProps, getItemProps, selectedIndex, highlightedIndex }) => (
+                content({
+                  getMenuProps: (props) => getContainerProps(this.getMenuProps({ ...props, ...popperProps })),
+                  getMenuItemProps: getItemProps,
+                  selectedIndex,
+                  highlightedIndex
+                })
+              )}
+            </SelectionContainer>
+          )}
+        </Popper>}
+      </Manager>
+    );
+  }
 };

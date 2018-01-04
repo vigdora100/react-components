@@ -14,13 +14,14 @@
   ],
   "scripts": {
     "build": "NODE_ENV=production babel ./src --out-dir=dist",
-    "start": "styleguidist server --config ../../utils/styleguide/styleguide.base.config.js",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:css": "stylelint './src/**/*.js'",
     "lint:js": "eslint -c '../../.eslintrc.json' './src/**/*.js'",
+    "start": "styleguidist server --config ../../utils/styleguide/styleguide.base.config.js",
     "styleguide": "styleguidist build --config ../../utils/styleguide/styleguide.base.config.js"
   },
   "dependencies": {
+    "@zendesk/garden-css-arrows": "^1.0.1",
     "@zendesk/garden-css-menus": "^5.0.1",
     "@zendeskgarden/react-selection": "^0.0.1",
     "@zendeskgarden/react-theming": "^0.0.1",
