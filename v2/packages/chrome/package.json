@@ -13,11 +13,13 @@
     "dist"
   ],
   "scripts": {
-    "build": "NODE_ENV=production babel ./src --out-dir=dist",
-    "start": "styleguidist server --config ../../utils/styleguide/styleguide.base.config.js",
+    "build": "npm run build:umd && npm run build:commonjs",
+    "build:commonjs": "NODE_ENV=production babel ./src --out-dir=dist",
+    "build:umd": "webpack --config ../../utils/build/webpack.umd.config.js",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:css": "stylelint './src/**/*.js'",
     "lint:js": "eslint -c '../../.eslintrc.json' './src/**/*.js'",
+    "start": "styleguidist server --config ../../utils/styleguide/styleguide.base.config.js",
     "styleguide": "styleguidist build --config ../../utils/styleguide/styleguide.base.config.js"
   },
   "dependencies": {
