@@ -1,6 +1,8 @@
 /**
- * Inspiration from the jQuery UI keyCode constants
+ * Inspired by the jQuery UI keyCode constants
  * https://api.jqueryui.com/jQuery.ui.keyCode/
+ *
+ * @component
  */
 export default {
   BACKSPACE: 8,

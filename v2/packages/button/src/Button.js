@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import ButtonStyles from '@zendesk/garden-css-buttons';
-import { KeyboardFocusContainer } from '@zendeskgarden/react-selection';
+import { keyboardFocusable } from '@zendeskgarden/react-selection';
 import { utils } from '@zendeskgarden/react-theming';
 
-const StyledButton = styled.button.attrs({
+const Button = styled.button.attrs({
   className: props => classNames(ButtonStyles['c-btn'], {
     // Danger styling
     [ButtonStyles['c-btn--danger']]: props.danger,
@@ -27,18 +27,6 @@ const StyledButton = styled.button.attrs({
   ${props => utils.retrieveTheme('button', props)}
 `;
 
-const Button = ({ focused, children, ...other}) => (
-  <KeyboardFocusContainer>
-    {({ getFocusProps, keyboardFocused }) => (
-      <StyledButton
-        {...getFocusProps(other)}
-        focused={focused || keyboardFocused}>
-        {children}
-      </StyledButton>
-    )}
-  </KeyboardFocusContainer>
-);
-
 Button.propTypes = {
   danger: PropTypes.bool,
   size: PropTypes.oneOf(['medium', 'large']),
@@ -52,4 +40,4 @@ Button.propTypes = {
 };
 
 /** @component */
-export default Button;
+export default keyboardFocusable(Button);

@@ -5,7 +5,9 @@
 
 // Styleguide components
 import Grid from './Grid';
+import State from './State';
 global.Grid = Grid;
+global.State = State;
 
 // Garden components
 import * as Button from '../../packages/button';

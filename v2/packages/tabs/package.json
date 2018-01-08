@@ -1,6 +1,6 @@
 {
-  "name": "@zendeskgarden/react-selection",
-  "description": "Garden Chrome Selection Utilities",
+  "name": "@zendeskgarden/react-tabs",
+  "description": "Zendesk Garden Design System Tabs Components",
   "author": "Zendesk Garden <garden@zendesk.com>",
   "license": "UNLISCENSED",
   "repository": {
@@ -23,6 +23,7 @@
     "styleguide": "styleguidist build --config ../../utils/styleguide/styleguide.base.config.js"
   },
   "dependencies": {
+    "@zendeskgarden/react-selection": "^0.0.1",
     "@zendeskgarden/react-theming": "^0.0.1",
     "classnames": "^2.2.5",
     "prop-types": "^15.6.0",
@@ -34,6 +35,6 @@
     "react-dom": "^0.14.0 || ^15.0.0 || ^16.0.0"
   },
   "devDependencies": {
-    "@zendesk/garden-css-chrome": "^1.0.0"
+    "@zendesk/garden-css-tabs": "^3.2.0"
   }
 }

@@ -2,21 +2,17 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid/v1';
 import { utils } from '@zendeskgarden/react-theming';
-import KEY_CODES from './constants/KEY_CODES';
+import { KEY_CODES } from '@zendeskgarden/react-selection';
 
 const selectionContainerHOC = (WrappedComponent, { vertical } = {}) => {
   class selectionContainer extends PureComponent {
     static propTypes = {
       tabIndex: PropTypes.number,
       focusedIndex: PropTypes.number,
-      selectedIndex: PropTypes.number,
+      selectedIndex: PropTypes.string,
       onStateChange: PropTypes.func,
       children: PropTypes.node,
-      id: PropTypes.string,
-      onKeyDown: PropTypes.func,
-      onBlur: PropTypes.func,
-      theme: PropTypes.object,
-      innerRef: PropTypes.func
+      id: PropTypes.string
     };
 
     static defaultProps = {
@@ -128,8 +124,7 @@ const selectionContainerHOC = (WrappedComponent, { vertical } = {}) => {
       const { onStateChange } = this.props;
 
       if (onStateChange) {
-        console.log(Object.assign(this._getState(), newState));
-        onStateChange(Object.assign(this._getState(), newState));
+        onStateChange(Object.assign(this.state, newState));
       } else {
         this.setState(newState);
       }
@@ -141,7 +136,7 @@ const selectionContainerHOC = (WrappedComponent, { vertical } = {}) => {
       let baseIndex;
 
       if (typeof focusedIndex === 'undefined') {
-        if (typeof selectedIndex !== 'undefined') {
+        if (selectedIndex) {
           baseIndex = selectedIndex;
         } else {
           baseIndex = -1;
@@ -159,7 +154,7 @@ const selectionContainerHOC = (WrappedComponent, { vertical } = {}) => {
       let baseIndex;
 
       if (typeof focusedIndex === 'undefined' || focusedIndex === -1) {
-        if (typeof selectedIndex !== 'undefined') {
+        if (selectedIndex) {
           baseIndex = selectedIndex;
         } else {
           baseIndex = this.items.length;
@@ -171,7 +166,7 @@ const selectionContainerHOC = (WrappedComponent, { vertical } = {}) => {
       this._setControlledState({ focusedIndex: baseIndex > 0 ? baseIndex - 1 : this._numSelectables });
     };
 
-    _getItemId = index => typeof index !== 'undefined' ? `${this.props.id}--${index}` : '';
+    getItemId = index => typeof index !== 'undefined' ? `${this.props.id}--${index}` : '';
 
     _renderChildren = () => {
       const { children } = this.props;
@@ -179,7 +174,7 @@ const selectionContainerHOC = (WrappedComponent, { vertical } = {}) => {
       this._numSelectables = -1;
 
       return React.Children.map(children, (child, index) => {
-        if (!child.type.isSelectable || child.props.disabled) {
+        if (!child.type.isSelection) {
           return child;
         }
 
@@ -189,7 +184,7 @@ const selectionContainerHOC = (WrappedComponent, { vertical } = {}) => {
         return React.cloneElement(child, {
           focused: selectionIndex === focusedIndex,
           selected: selectionIndex === selectedIndex,
-          id: this._getItemId(selectionIndex),
+          id: this.getItemId(selectionIndex),
           onClick: event => {
             this._setControlledState({
               selectedIndex: selectionIndex,
@@ -238,18 +233,16 @@ const selectionContainerHOC = (WrappedComponent, { vertical } = {}) => {
     };
 
     render() {
-      /** eslint-disable no-unused-vars */
-      const { theme, innerRef, selectedIndex, focusedIndex, onStateChange, ...validProps } = this.props;
-      /** eslint-enable no-unused-vars */
-      console.log('render');
+      const { focusedIndex } = this._getState();
+
       return (
         <WrappedComponent
-          {...validProps}
+          {...this.props}
           onKeyDown={this._onKeyDown}
           onBlur={this._onBlur}
           onFocus={this._onFocus}
           onMouseDown={this._onMouseDown}
-          aria-activedescendant={this._getItemId(this._getState().focusedIndex)}>
+          aria-activedescendant={this.getItemId(focusedIndex)}>
           {this._renderChildren()}
         </WrappedComponent>
       );
@@ -261,6 +254,4 @@ const selectionContainerHOC = (WrappedComponent, { vertical } = {}) => {
 };
 
 const selectionContainer = options => (WrappedComponent) => utils.withTheme(selectionContainerHOC(WrappedComponent, options));
-
-/** @component */
 export default selectionContainer;

@@ -4,9 +4,14 @@
  */
 
 module.exports = {
-    sections: [{
-        name: "General",
-        content: "../../packages/selection/README.md",
-        components: "../../packages/selection/src/**/[A-Z]*.js"
-    }]
+  sections: [{
+    name: 'General',
+    content: "../../packages/selection/README.md"
+  }, {
+    name: "Higher Order Components",
+    components: "../../packages/selection/src/[A-Z]*.js"
+  }, {
+    name: "Constants",
+    components: "../../packages/selection/src/constants/[A-Z]*.js"
+  }]
 };
