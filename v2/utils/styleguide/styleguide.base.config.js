@@ -25,7 +25,7 @@ const defaultStyleguideConfig = {
   styleguideComponents: {
     Wrapper: path.resolve(__dirname, 'Wrapper'),
     TableOfContentsRenderer: path.resolve(__dirname, 'TableOfContentsRenderer'),
-    StyleGuideRenderer: path.resolve(__dirname, 'StyleGuideRenderer'),
+    // StyleGuideRenderer: path.resolve(__dirname, 'StyleGuideRenderer'),
     LogoRenderer: path.resolve(__dirname, 'LogoRenderer')
   },
   webpackConfig: {
