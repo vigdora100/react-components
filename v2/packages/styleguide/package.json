@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "@zendeskgarden/react-styleguide",
+  "name": "@local/react-styleguide",
   "description": "Gatsby default starter",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "license": "MIT",

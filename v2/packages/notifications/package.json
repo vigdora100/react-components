@@ -1,5 +1,5 @@
 {
-  "name": "@zendeskgarden/react-notifications",
+  "name": "@local/react-notifications",
   "description": "Garden Notifications React Component",
   "author": "Zendesk Garden <garden@zendesk.com>",
   "license": "UNLISCENSED",
@@ -8,12 +8,13 @@
     "url": "https://github.com/zendeskgarden/react-components"
   },
   "version": "0.0.1",
-  "main": "dist",
+  "main": "dist/main.js",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "npm run build:umd && npm run build:commonjs",
+    "build": "npm run build:umd",
+    "build:old": "npm run build:umd && npm run build:commonjs",
     "build:commonjs": "NODE_ENV=production babel ./src --out-dir=dist",
     "build:umd": "webpack --config ../../utils/build/webpack.umd.config.js",
     "lint": "npm run lint:js && npm run lint:css",

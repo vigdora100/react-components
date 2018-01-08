@@ -1,17 +1,18 @@
 const path = require('path');
 const webpack = require('webpack');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
-const packageBaseName = path.basename(path.resolve());
+// const packageBaseName = path.basename(path.resolve());
+// const uppercaseString = string => string.charAt(0).toUpperCase() + string.slice(1);
 
-module.exports = {
+const config = {
   entry: path.resolve('src', 'index.js'),
   output: {
-    path: path.resolve('dist', 'umd'),
-    publicPath: 'dist/umd',
-    filename: `garden-${packageBaseName}.min.js`,
-    sourceMapFilename: `garden-${packageBaseName}.sourcemap.js`,
-    libraryTarget: 'commonjs',
-    library: `Garden${packageBaseName}`
+    path: path.resolve('dist'),
+    publicPath: 'dist',
+    filename: `index.js`,
+    sourceMapFilename: `[name].sourcemap.js`,
+    libraryTarget: 'umd'
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -33,14 +34,15 @@ module.exports = {
       }
     ]
   },
-  plugins: [new webpack.optimize.UglifyJsPlugin({
-    compress: {
-      warnings: false,
-    },
-    mangle: {
-      except: ['React', 'ReactDOM'],
-    },
-  })],
+  // plugins: [new webpack.optimize.UglifyJsPlugin({
+  //   compress: {
+  //     warnings: false,
+  //   },
+  //   mangle: {
+  //     except: ['React', 'ReactDOM'],
+  //   },
+  // })],
+  plugins: [],
   externals: {
     'react': {
       root: 'React',
@@ -65,6 +67,19 @@ module.exports = {
       commonjs2: 'styled-components',
       commonjs: 'styled-components',
       amd: 'styled-components'
-    }
+    },
+    'classnames': {
+      root: 'classnames',
+      commonjs2: 'classnames',
+      commonjs: 'classnames',
+      amd: 'classnames'
+    },
+    'zendesk': /@zendesk/
   }
 };
+
+if (process.env.BUNDLE_ANALYZER === "true") {
+  config.plugins.push(new BundleAnalyzerPlugin());
+}
+
+module.exports = config;
