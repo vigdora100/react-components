@@ -1,5 +1,5 @@
 {
-  "name": "@local/react-selection",
+  "name": "react-selection",
   "description": "Garden Chrome Selection Utilities",
   "author": "Zendesk Garden <garden@zendesk.com>",
   "license": "UNLISCENSED",
@@ -7,13 +7,16 @@
     "type": "git",
     "url": "https://github.com/zendeskgarden/react-components"
   },
-  "version": "0.0.5",
+  "publishConfig": {
+    "registry": "http://localhost:4873"
+  },
+  "version": "0.0.6",
   "main": "dist",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "npm run build:umd && npm run build:commonjs",
+    "build": "npm run build:umd",
     "build:commonjs": "NODE_ENV=production babel ./src --out-dir=dist",
     "build:umd": "webpack --config ../../utils/build/webpack.umd.config.js",
     "lint": "npm run lint:js && npm run lint:css",
@@ -23,7 +26,7 @@
     "styleguide": "styleguidist build --config ../../utils/styleguide/styleguide.base.config.js"
   },
   "dependencies": {
-    "@zendeskgarden/react-theming": "^0.0.1",
+    "@zendeskgarden/react-theming": "^4.0.0",
     "classnames": "^2.2.5",
     "prop-types": "^15.6.0",
     "styled-components": "^2.3.3",
