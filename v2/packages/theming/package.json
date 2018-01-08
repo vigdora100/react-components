@@ -1,5 +1,5 @@
 {
-  "name": "@sinopia/react-theming",
+  "name": "react-theming",
   "description": "Garden Theming Components",
   "author": "Zendesk Garden <garden@zendesk.com>",
   "license": "UNLISCENSED",
@@ -8,9 +8,9 @@
     "url": "https://github.com/zendeskgarden/react-components"
   },
   "publishConfig": {
-    "access": "public"
+    "registry": "http://localhost:4873"
   },
-  "version": "0.0.6",
+  "version": "0.0.7",
   "main": "dist",
   "files": [
     "dist"
