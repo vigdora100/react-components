@@ -1,12 +1,13 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import ChromeStyles from '@zendesk/garden-css-chrome';
 
 import { utils } from '@zendeskgarden/react-theming';
-import { keyboardFocusable } from '@zendeskgarden/react-selection';
+import { KeyboardFocusContainer } from '@zendeskgarden/react-selection';
 
-const NavItem = styled.a.attrs({
+const StyledNavItem = styled.a.attrs({
   className: props => classNames(ChromeStyles['c-chrome__nav__item'], {
     [ChromeStyles['c-chrome__nav__item--logo']]: props.logo,
     [ChromeStyles['is-current']]: props.current,
@@ -34,6 +35,18 @@ const NavItem = styled.a.attrs({
   ${props => utils.retrieveTheme('chrome.nav_item', props)}
 `;
 
+const NavItem = ({ focused, ...other }) => (
+  <KeyboardFocusContainer>
+    {({ getFocusProps, keyboardFocused }) => (
+      <StyledNavItem
+        {...getFocusProps({
+          ...other,
+          focused: focused || keyboardFocused
+        })} />
+    )}
+  </KeyboardFocusContainer>
+);
+
 NavItem.propTypes = {
   logo: PropTypes.bool,
   current: PropTypes.bool,
@@ -45,4 +58,4 @@ NavItem.propTypes = {
 };
 
 /** @component */
-export default keyboardFocusable(NavItem);
+export default NavItem;

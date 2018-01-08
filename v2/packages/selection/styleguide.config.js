@@ -8,10 +8,13 @@ module.exports = {
     name: 'General',
     content: "../../packages/selection/README.md"
   }, {
-    name: "Higher Order Components",
+    name: "Containers",
     components: "../../packages/selection/src/[A-Z]*.js"
   }, {
-    name: "Constants",
-    components: "../../packages/selection/src/constants/[A-Z]*.js"
+    name: "Contants",
+    components: "../../packages/selection/src/constants/*.js"
+  }, {
+    name: "Utils",
+    components: "../../packages/selection/src/utils/*.js"
   }]
 };

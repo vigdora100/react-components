@@ -1,12 +1,13 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import ChromeStyles from '@zendesk/garden-css-chrome';
 
 import { utils } from '@zendeskgarden/react-theming';
-import { keyboardFocusable } from '@zendeskgarden/react-selection';
+import { KeyboardFocusContainer } from '@zendeskgarden/react-selection';
 
-const HeaderItem = styled.button.attrs({
+const StyledHeaderItem = styled.button.attrs({
   className: props => classNames(ChromeStyles['c-chrome__body__header__item'], {
     [ChromeStyles['c-chrome__body__header__item--logo']]: props.logo,
     [ChromeStyles['c-chrome__body__header__item--max-x']]: props.maxX,
@@ -15,11 +16,22 @@ const HeaderItem = styled.button.attrs({
     [ChromeStyles['is-hovered']]: props.hovered,
     [ChromeStyles['is-active']]: props.active,
     [ChromeStyles['is-focused']]: props.focused
-  }),
-  tabIndex: props => props.tabIndex || 0
+  })
 })`
   ${props => utils.retrieveTheme('chrome.header_item', props)}
 `;
+
+const HeaderItem = ({ focused, ...other }) => (
+  <KeyboardFocusContainer>
+    {({ getFocusProps, keyboardFocused }) => (
+      <StyledHeaderItem
+        {...getFocusProps({
+          ...other,
+          focused: focused || keyboardFocused
+        })} />
+    )}
+  </KeyboardFocusContainer>
+);
 
 HeaderItem.propTypes = {
   /** Style the product logo shown as the first item in the header */
@@ -40,4 +52,4 @@ HeaderItem.propTypes = {
 };
 
 /** @component */
-export default keyboardFocusable(HeaderItem);
+export default HeaderItem;

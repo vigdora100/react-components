@@ -1,106 +1,126 @@
-The `selectionContainer` higher-order-component helps ensure that any "single-selection scenario" has the required:
+The `SelectionContainer` component helps ensure that any "single-selection scenario" has the required:
 - Keyboard Navigation support
+  - Left/Right (Up/Down in RTL) arrow movement
+  - Home/End key shortcuts
+  - Click selection
+  - Custom focused state for Keyboard-Focus vs. MouseDown-Focus
 - RTL navigation support
+  - Comptabible with element shifting when `direction: rtl` is enabled
 - Accessibility for vision-impaired users
-- Uses the W3 Aria Best-Practice "aria-activedescendant" focus management strategy
+- Uses the W3 "aria-activedescendant" focus management strategy
   - [https://www.w3.org/TR/wai-aria-practices/#kbd_focus_activedescendant](https://www.w3.org/TR/wai-aria-practices/#kbd_focus_activedescendant)
 
-### Basic Usage
+## Basic Usage
 
-`selectionContainer` can be used in an _uncontrolled_ or _controlled_ state (similar to an `input`).
+The `SelectionContainer` component follows the "Render-Prop pattern". This means that it doesn't render any UI, it just provides the required navigation and accessibility props to your UI components.
+
+It can be used in an _uncontrolled_ or _controlled_ state (similar to an `input`).
 
 - _uncontrolled_ - The component manages the focused and selected state internally
 - _controlled_ - You manage the state of the container using the provided props to give you full control of what's being visualized.
 
-#### Vertical Mode
+This render container supplies 2 render methods:
 
-With normal (horizontal) usage, keyboard navigation uses the Left/Right keys. While in this mode the Up/Down keys don't affect selection or focus.
+- `getContainerProps()` - Must be applied to a parent element for accessibility.
+- `getItemProps({ item: required })` - Apply to any selectable item. A unique item must be provided for each selectable item.
 
-For vertical navigation (Menus, ComboBox, etc.) you can pass a `vertical` attribute when wrapping your component.
+and 2 state attributes:
 
-```jsx static
-const CustomContainer = selectionContainer({ vertical: true })(Container);
-```
+- `focusedIndex`
+- `selectedItem`
 
-### Uncontrolled Example
+Any attributes passed to `getContainerProps` or `getItemProps` will be applied to the element. This usage allows you to apply events and props to the component without interfering with the containers logic. Any event that has `event.preventDefault()` called within it will not be triggered within the component.
 
-This example maintains all state within `selectionContainer`.
-
-#### Vertical
+### Uncontrolled Container
 
 ```jsx
-const Item = ({ focused, selected, children, ...other }) => (
-  <div {...other} style={{ outline: focused ? 'red auto 5px' : '', backgroundColor: selected ? 'grey' : '' }}>
-    {children}
-  </div>
-);
-const SelectableItem = selectable(Item);
-
-const Container = (props) => <div {...props} />;
-const SelectionContainer = selectionContainer({ vertical: true })(Container);
-
-<SelectionContainer>
-    <SelectableItem>Item 1</SelectableItem>
-    <SelectableItem>Item 2</SelectableItem>
-    <SelectableItem>Item 3</SelectableItem>
-    <SelectableItem>Item 4</SelectableItem>
-</SelectionContainer>
-```
-
-#### Horizontal
-
-```jsx
-const Item = ({ focused, selected, children, ...other }) => (
+const ExampleItem = ({ focused, selected, children, ...other }) => (
   <div {...other} style={{ display: 'inline-block', padding: 15, outline: focused ? 'red auto 5px' : '', backgroundColor: selected ? 'grey' : '' }}>
     {children}
   </div>
 );
-const SelectableItem = selectable(Item);
-
-const Container = (props) => <div {...props} />;
-const SelectionContainer = selectionContainer()(Container);
+const items = ['Button 1', 'Button 2', 'Button 3'];
 
 <SelectionContainer>
-    <SelectableItem>Item 1</SelectableItem>
-    <SelectableItem>Item 2</SelectableItem>
-    <SelectableItem>Item 3</SelectableItem>
-    <SelectableItem>Item 4</SelectableItem>
+ {({ getContainerProps, getItemProps, focusedIndex, selectedItem }) => (
+    <div {...getContainerProps()}>
+      {items.map((item, index) => (
+        <ExampleItem {...getItemProps({
+          item,
+          key: index,
+          selected: selectedItem === item,
+          focused: focusedIndex === index
+        })}>
+          {item}
+        </ExampleItem>
+      ))}
+    </div>
+ )}
 </SelectionContainer>
 ```
 
-### Controlled Example
-
-This example lifts all state into the example.
+### Controlled Container
 
 ```jsx
-const Item = ({ focused, selected, children, ...other }) => (
-  <div {...other} style={{ outline: focused ? 'red auto 5px' : '', backgroundColor: selected ? 'grey' : '' }}>
+const ExampleItem = ({ focused, selected, children, ...other }) => (
+  <div {...other} style={{ display: 'inline-block', padding: 15, outline: focused ? 'red auto 5px' : '', backgroundColor: selected ? 'grey' : '' }}>
     {children}
   </div>
 );
-const SelectableItem = selectable(Item);
+const items = ['Controlled 1', 'Controlled 2', 'Controlled 3'];
 
-const Container = (props) => <div {...props} />;
-const SelectionContainer = selectionContainer({ vertical: true })(Container);
+initialState = {
+  focusedIndex: 1,
+  selectedItem: items[1]
+};
 
-<State initialState={{
-  selectedIndex: 1,
-  focusedIndex: undefined
-}}>
-  {(state, setState) => (
-    <div>
-      <p>Selected: {state.selectedIndex}</p>
-      <p>Focused: {state.focusedIndex}</p>
-      <SelectionContainer
-        selectedIndex={state.selectedIndex}
-        focusedIndex={state.focusedIndex}
-        onStateChange={(newState) => setState(newState)}>
-        <SelectableItem>Item 1</SelectableItem>
-        <SelectableItem>Item 2</SelectableItem>
-        <SelectableItem>Item 3</SelectableItem>
-        <SelectableItem>Item 4</SelectableItem>
-      </SelectionContainer>
+<SelectionContainer
+  focusedIndex={state.focusedIndex}
+  selectedItem={state.selectedItem}
+  onStateChange={({ focusedIndex, selectedItem }) => setState({ focusedIndex, selectedItem })}>
+ {({ getContainerProps, getItemProps, focusedIndex, selectedItem }) => (
+    <div {...getContainerProps()}>
+      {items.map((item, index) => (
+        <ExampleItem {...getItemProps({
+          item,
+          key: index,
+          selected: selectedItem === item,
+          focused: focusedIndex === index
+        })}>
+          {item}
+        </ExampleItem>
+      ))}
     </div>
-  )}
-</State>
+ )}
+</SelectionContainer>
+```
+
+### Vertical Mode
+
+You are able to control (Left/Right) vs. (Up/Down) arrow key navigation using the `vertical` prop.
+
+```jsx
+const ExampleItem = ({ focused, selected, children, ...other }) => (
+  <div {...other} style={{ padding: 15, outline: focused ? 'red auto 5px' : '', backgroundColor: selected ? 'grey' : '' }}>
+    {children}
+  </div>
+);
+const items = ['Button 1', 'Button 2', 'Button 3'];
+
+<SelectionContainer vertical>
+ {({ getContainerProps, getItemProps, focusedIndex, selectedItem }) => (
+    <div {...getContainerProps()}>
+      {items.map((item, index) => (
+        <ExampleItem {...getItemProps({
+          item,
+          key: index,
+          selected: selectedItem === item,
+          focused: focusedIndex === index
+        })}>
+          {item}
+        </ExampleItem>
+      ))}
+    </div>
+ )}
+</SelectionContainer>
 ```

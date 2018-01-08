@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import classNames from 'classnames';
 import TabStyles from '@zendesk/garden-css-tabs';
 import { utils } from '@zendeskgarden/react-theming';
-import Selection from './Selection';
 
 const TabItem = styled.li.attrs({
   className: props => classNames(TabStyles['c-tab__list__item'], {
@@ -18,4 +17,4 @@ const TabItem = styled.li.attrs({
 `;
 
 /** @component */
-export default Selection(TabItem);
+export default TabItem;

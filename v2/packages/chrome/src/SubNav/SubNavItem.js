@@ -1,12 +1,13 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styled from 'styled-components';
 import ChromeStyles from '@zendesk/garden-css-chrome';
 
 import { utils } from '@zendeskgarden/react-theming';
-import { keyboardFocusable } from '@zendeskgarden/react-selection';
+import { KeyboardFocusContainer } from '@zendeskgarden/react-selection';
 
-const SubNavItem = styled.a.attrs({
+const StyledSubNavItem = styled.a.attrs({
   className: props => classNames(ChromeStyles['c-chrome__subnav__item'], {
     [ChromeStyles['is-current']]: props.current,
     [ChromeStyles['is-hovered']]: props.hovered,
@@ -18,6 +19,18 @@ const SubNavItem = styled.a.attrs({
   ${props => utils.retrieveTheme('chrome.sub_nav_item', props)}
 `;
 
+const SubNavItem = ({ focused, ...other }) => (
+  <KeyboardFocusContainer>
+    {({ getFocusProps, keyboardFocused }) => (
+      <StyledSubNavItem
+        {...getFocusProps({
+          ...other,
+          focused: focused || keyboardFocused
+        })} />
+    )}
+  </KeyboardFocusContainer>
+);
+
 SubNavItem.propTypes = {
   current: PropTypes.bool,
   hovered: PropTypes.bool,
@@ -27,4 +40,4 @@ SubNavItem.propTypes = {
 };
 
 /** @component */
-export default keyboardFocusable(SubNavItem);
+export default SubNavItem;
