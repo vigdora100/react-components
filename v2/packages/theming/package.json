@@ -10,7 +10,7 @@
   "publishConfig": {
     "registry": "http://localhost:4873"
   },
-  "version": "0.0.7",
+  "version": "4.0.0",
   "main": "dist",
   "files": [
     "dist"
