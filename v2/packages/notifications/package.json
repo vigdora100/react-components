@@ -7,8 +7,8 @@
     "type": "git",
     "url": "https://github.com/zendeskgarden/react-components"
   },
-  "version": "0.0.1",
-  "main": "dist/main.js",
+  "version": "0.0.5",
+  "main": "dist",
   "files": [
     "dist"
   ],
@@ -24,8 +24,8 @@
     "styleguide": "styleguidist build --config ../../utils/styleguide/styleguide.base.config.js"
   },
   "dependencies": {
-    "@zendeskgarden/react-selection": "^0.0.1",
-    "@zendeskgarden/react-theming": "^0.0.1",
+    "@local/react-selection": "^0.0.5",
+    "@local/react-theming": "^0.0.1",
     "classnames": "^2.2.5",
     "prop-types": "^15.6.0",
     "styled-components": "^2.3.3"

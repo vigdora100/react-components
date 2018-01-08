@@ -4,7 +4,7 @@
   "description": "Gatsby default starter",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "license": "MIT",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "main": "n/a",
   "scripts": {
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
