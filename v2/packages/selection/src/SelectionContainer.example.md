@@ -70,7 +70,6 @@ const ExampleItem = ({ focused, selected, children, ...other }) => (
 const items = ['Controlled 1', 'Controlled 2', 'Controlled 3'];
 
 initialState = {
-  focusedIndex: 1,
   selectedItem: items[1]
 };
 
