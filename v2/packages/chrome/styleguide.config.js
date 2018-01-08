@@ -4,19 +4,19 @@
  */
 
 module.exports = {
-    sections: [{
-        name: "General",
-        content: "../../packages/chrome/README.md",
-        components: "../../packages/chrome/src/[A-Z]*.js"
-    }, {
-        name: "Header",
-        description: "header items",
-        components: "../../packages/chrome/src/Header/*.js"
-    }, {
-        name: "Nav",
-        components: "../../packages/chrome/src/Nav/*.js"
-    }, {
-        name: "SubNav",
-        components: "../../packages/chrome/src/SubNav/*.js"
-    }]
+  sections: [{
+    name: "General",
+    content: "../../packages/chrome/README.md",
+    components: "../../packages/chrome/src/[A-Z]*.js"
+  }, {
+    name: "Header",
+    description: "header items",
+    components: "../../packages/chrome/src/Header/*.js"
+  }, {
+    name: "Nav",
+    components: "../../packages/chrome/src/Nav/*.js"
+  }, {
+    name: "SubNav",
+    components: "../../packages/chrome/src/SubNav/*.js"
+  }]
 };
