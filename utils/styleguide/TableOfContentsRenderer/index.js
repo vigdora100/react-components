@@ -22,7 +22,6 @@ const TableOfContents = ({ children, ...other}) => {
       {children}
       <RTLContainer>
         <button
-          stretched
           onClick={() => {
             if (isRtl) {
               window.location.href = '/';

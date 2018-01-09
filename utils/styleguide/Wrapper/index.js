@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import url from 'url';
 
-import ThemeProvider from '../../../packages/theming/src/ThemeProvider';
+import ThemeProvider from '../../../packages/theming/src/ThemeProvider/ThemeProvider';
 
 const Wrapper = ({ children }) => {
   const query = url.parse(window.location.href).query;

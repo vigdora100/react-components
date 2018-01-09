@@ -49,7 +49,7 @@ const PromptUserForPackages = (packages) => {
   return inquirer.prompt([{
     type: 'list',
     name: 'package',
-    message: 'What package would you like to run locally?',
+    message: 'Which package would you like to run locally?',
     choices: packageList
   }]);
 };

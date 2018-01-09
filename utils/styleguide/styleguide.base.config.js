@@ -14,6 +14,11 @@ const defaultStyleguideConfig = {
   serverPort: 5000,
   styleguideDir: `../../demo/iframes/${basePathName}`,
   showUsage: true,
+  compilerConfig: {
+    transforms: {
+      dangerousTaggedTemplateString: true,
+    },
+  },
   require: [
     'babel-polyfill',
     path.resolve(__dirname, 'setup.js'),
