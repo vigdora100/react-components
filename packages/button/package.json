@@ -24,8 +24,8 @@
   "dependencies": {
     "@zendesk/garden-css-buttons": "^3.6.1",
     "classnames": "^2.2.5",
-    "garden-react-selection": "^0.0.2",
-    "garden-react-theming": "^0.0.2",
+    "garden-react-selection": "^0.0.4",
+    "garden-react-theming": "^0.0.5",
     "prop-types": "^15.6.0",
     "styled-components": "^2.3.3"
   },
