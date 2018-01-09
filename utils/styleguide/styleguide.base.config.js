@@ -3,9 +3,6 @@ const _ = require("lodash");
 const packageManifest = require(path.resolve('package.json'));
 const customStyleguideConfig = require(path.resolve('styleguide.config.js'));
 
-const packageName = packageManifest.name &&
-    packageManifest.name.replace('@zendeskgarden/', '');
-
 const basePathName = path.basename(path.resolve('./'));
 
 const defaultStyleguideConfig = {
@@ -26,6 +23,10 @@ const defaultStyleguideConfig = {
   ],
   getExampleFilename(componentPath) {
     return componentPath.replace(/\.jsx?$/, '.example.md');
+  },
+  getComponentPathLine(componentPath) {
+    const name = path.basename(componentPath, '.js');
+    return `import ${name} from '${packageManifest.name}/${name}';`
   },
   styleguideComponents: {
     Wrapper: path.resolve(__dirname, 'Wrapper'),
