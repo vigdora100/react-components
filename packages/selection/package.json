@@ -10,7 +10,7 @@
   "publishConfig": {
     "registry": "http://localhost:4873"
   },
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "./index.js",
   "scripts": {
     "build": "gulp --gulpfile ../../utils/build/gulpfile.build.js --cwd ./",
@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
-    "garden-react-theming": "^0.0.1",
+    "garden-react-theming": "^0.0.2",
     "prop-types": "^15.6.0",
     "styled-components": "^2.3.3",
     "uuid": "^3.1.0"
