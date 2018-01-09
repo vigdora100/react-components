@@ -1,0 +1,34 @@
+{
+  "private": true,
+  "name": "styleguide",
+  "description": "Gatsby default starter",
+  "license": "MIT",
+  "version": "1.0.4",
+  "main": "n/a",
+  "scripts": {
+    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
+    "start": "gatsby develop",
+    "styleguide": "gatsby build && cp -r public/. ../../demo",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@zendesk/garden-svg-icons": "^2.5.0",
+    "garden-react-button": "*",
+    "garden-react-chrome": "*",
+    "gatsby": "^1.9.145",
+    "gatsby-1-config-css-modules": "^1.0.8",
+    "gatsby-link": "^1.6.32",
+    "gatsby-plugin-react-helmet": "^1.0.8",
+    "gatsby-plugin-webpack-bundle-analyzer": "^0.1.1",
+    "gatsby-source-filesystem": "^1.5.11",
+    "gatsby-transformer-remark": "^1.7.26",
+    "github-markdown-css": "^2.10.0"
+  },
+  "devDependencies": {
+    "gatsby-remark-images": "^1.5.36",
+    "prettier": "^1.9.2"
+  },
+  "keywords": [
+    "gatsby"
+  ]
+}
