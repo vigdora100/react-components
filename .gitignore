@@ -1,0 +1,18 @@
+# General ignores
+lerna-debug.log
+node_modules
+node_modules/
+npm-debug.log
+npm-debug.log.*
+yarn-error.log
+.released-packages
+.DS_Store
+.vscode
+
+# Package specific
+packages/**/yarn.lock
+**/local-config.js
+**/dist
+
+# Demo specific
+demo
