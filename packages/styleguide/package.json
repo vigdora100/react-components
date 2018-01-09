@@ -8,7 +8,7 @@
   "scripts": {
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
     "start": "gatsby develop",
-    "styleguide": "gatsby build && cp -r public/. ../../demo",
+    "styleguide": "gatsby build --prefix-paths && cp -r public/. ../../demo",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {

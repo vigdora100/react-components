@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Link, { navigateTo } from 'gatsby-link'
+import Link, { navigateTo, withPrefix } from 'gatsby-link'
 import Helmet from 'react-helmet'
 
 import { Chrome, Nav, NavItem, NavItemText, NavItemIcon, Body, Content,
@@ -24,7 +24,7 @@ const Navigation = ({ location }) => {
       </NavItem>
       <NavItem
         title="Home"
-        onClick={() => navigateTo('/')}
+        onClick={() => navigateTo(withPrefix('/'))}
         current={location.pathname === '/'}>
         <NavItemIcon>
           <HomeIcon />
@@ -33,7 +33,7 @@ const Navigation = ({ location }) => {
       </NavItem>
       <NavItem
         title="Documentation"
-        onClick={() => navigateTo('/documentation')}
+        onClick={() => navigateTo(withPrefix('/documentation'))}
         current={location.pathname.indexOf('/documentation') !== -1}>
         <NavItemIcon>
           <DocumentationIcon />
@@ -42,7 +42,7 @@ const Navigation = ({ location }) => {
       </NavItem>
       <NavItem
         title="Components"
-        onClick={() => navigateTo('/components')}
+        onClick={() => navigateTo(withPrefix('/components'))}
         current={location.pathname.indexOf('/components') !== -1}>
         <NavItemIcon>
           <AppIcon />

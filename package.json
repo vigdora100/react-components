@@ -14,8 +14,9 @@
     "build:single": "node ./utils/scripts/scoped-npm-command --script build",
     "lint": "lerna run lint",
     "lint:single": "node ./utils/scripts/scoped-npm-command --script lint",
-    "styleguide": "lerna run styleguide --stream --concurrency=2",
+    "styleguide": "lerna run styleguide --stream --concurrency=2 && npm run styleguide:publish",
     "styleguide:single": "node ./utils/scripts/scoped-npm-command --script styleguide",
+    "styleguide:publish": "gh-pages --dist demo --dest micro",
     "postinstall": "npm run bootstrap",
     "publish": "npm run lint && npm run build && lerna publish --skip-npm"
   },
@@ -36,6 +37,7 @@
     "eslint": "^4.15.0",
     "eslint-config-pretty-standard": "^1.1.0",
     "eslint-plugin-react": "^7.5.1",
+    "gh-pages": "^1.1.0",
     "gulp": "^4.0.0",
     "gulp-babel": "^7.0.0",
     "gulp-flatten": "^0.4.0",

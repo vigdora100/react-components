@@ -4,6 +4,7 @@ module.exports = {
   siteMetadata: {
     title: 'Zendesk Garden - React Components',
   },
+  pathPrefix: `/react-components/micro`,
   plugins: [
     'gatsby-plugin-react-helmet',
     {
