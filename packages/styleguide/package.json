@@ -3,7 +3,7 @@
   "name": "styleguide",
   "description": "Gatsby default starter",
   "license": "MIT",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "n/a",
   "scripts": {
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
