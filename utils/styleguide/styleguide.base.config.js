@@ -27,7 +27,7 @@ const defaultStyleguideConfig = {
   },
   getComponentPathLine(componentPath) {
     const name = path.basename(componentPath, '.js');
-    return `import ${name} from '${packageManifest.name}/${name}';`
+    return `import ${name} from '${packageManifest.name}/${name}'`
   },
   styleguideComponents: {
     Wrapper: path.resolve(__dirname, 'Wrapper'),

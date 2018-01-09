@@ -4,7 +4,7 @@ import url from 'url';
 import styled from 'styled-components';
 import TableOfContentsRenderer from 'react-styleguidist/lib/rsg-components/TableOfContents/TableOfContentsRenderer';
 
-// import Button from '../../../packages/button/src/Button';
+import { AnchorButton } from '../../../packages/button/src';
 
 const RTLContainer = styled.div`
     padding-left: 16px;
@@ -21,7 +21,8 @@ const TableOfContents = ({ children, ...other}) => {
     <TableOfContentsRenderer {...other}>
       {children}
       <RTLContainer>
-        <button
+        <AnchorButton
+          stretched
           onClick={() => {
             if (isRtl) {
               window.location.href = '/';
@@ -30,7 +31,7 @@ const TableOfContents = ({ children, ...other}) => {
             }
           }}>
           {!isRtl ? 'Enable RTL Locale' : 'Disable RTL Locale'}
-        </button>
+        </AnchorButton>
       </RTLContainer>
     </TableOfContentsRenderer>
   );

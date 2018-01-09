@@ -1,14 +1,11 @@
 {
-  "name": "garden-react-selection",
-  "description": "Zendesk Garden React Theming components",
+  "name": "garden-react-button",
+  "description": "Garden Chrome Button Component",
   "author": "Zendesk Garden <garden@zendesk.com>",
   "license": "UNLISCENSED",
   "repository": {
     "type": "git",
     "url": "https://github.com/zendeskgarden/react-components"
-  },
-  "publishConfig": {
-    "registry": "http://localhost:4873"
   },
   "version": "0.0.1",
   "main": "./index.js",
@@ -22,11 +19,12 @@
     "version": "gulp --gulpfile ../../utils/build/gulpfile.version.js --cwd ./ && npm publish ./dist"
   },
   "dependencies": {
-    "classnames": "^2.2.5",
+    "garden-react-selection": "^0.0.1",
     "garden-react-theming": "^0.0.1",
+    "classnames": "^2.2.5",
     "prop-types": "^15.6.0",
     "styled-components": "^2.3.3",
-    "uuid": "^3.1.0"
+    "@zendesk/garden-css-buttons": "^3.6.1"
   },
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0 || ^16.0.0",
