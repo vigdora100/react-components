@@ -1,5 +1,5 @@
 {
-  "name": "react-theming",
+  "name": "garden-react-theming",
   "description": "Zendesk Garden React Theming components",
   "author": "Zendesk Garden <garden@zendesk.com>",
   "license": "UNLISCENSED",
@@ -10,7 +10,7 @@
   "publishConfig": {
     "registry": "http://localhost:4873"
   },
-  "version": "0.0.5",
+  "version": "0.0.0",
   "main": "./index.js",
   "scripts": {
     "build": "gulp --gulpfile ../../utils/build/gulpfile.build.js --cwd ./",
@@ -19,8 +19,7 @@
     "lint:js": "eslint -c '../../.eslintrc.json' './src/**/*.js'",
     "start": "styleguidist server --config ../../utils/styleguide/styleguide.base.config.js",
     "styleguide": "styleguidist build --config ../../utils/styleguide/styleguide.base.config.js",
-    "prepublish": "gulp --gulpfile ../../utils/build/gulpfile.prepublish.js --cwd ./",
-    "preversion": "echo 'testing'"
+    "version": "gulp --gulpfile ../../utils/build/gulpfile.version.js --cwd ./ && npm publish ./dist"
   },
   "dependencies": {
     "prop-types": "^15.6.0",

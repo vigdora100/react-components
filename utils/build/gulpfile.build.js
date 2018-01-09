@@ -70,9 +70,4 @@ gulp.task('js:root', () => {
     .pipe(gulp.dest('dist'))
 });
 
-gulp.task('copy', () => {
-  return gulp.src(['package.json', 'README.md'])
-    .pipe(gulp.dest('dist'));
-});
-
-gulp.task("default", gulp.series('clean', 'js', 'copy'));
+gulp.task("default", gulp.series('clean', 'js'));
