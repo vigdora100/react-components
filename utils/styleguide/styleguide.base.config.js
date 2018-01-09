@@ -15,6 +15,7 @@ const defaultStyleguideConfig = {
     transforms: {
       dangerousTaggedTemplateString: true,
     },
+    objectAssign: 'Object.assign'
   },
   require: [
     'babel-polyfill',
