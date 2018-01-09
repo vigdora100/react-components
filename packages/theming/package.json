@@ -10,15 +10,16 @@
   "publishConfig": {
     "registry": "http://localhost:4873"
   },
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "./index.js",
   "scripts": {
-    "build": "gulp --cwd ./",
+    "build": "gulp --gulpfile ../../utils/build/gulpfile.build.js --cwd ./",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:css": "stylelint './src/**/*.js'",
     "lint:js": "eslint -c '../../.eslintrc.json' './src/**/*.js'",
     "start": "styleguidist server --config ../../utils/styleguide/styleguide.base.config.js",
-    "styleguide": "styleguidist build --config ../../utils/styleguide/styleguide.base.config.js"
+    "styleguide": "styleguidist build --config ../../utils/styleguide/styleguide.base.config.js",
+    "prepublish": "gulp --gulpfile ../../utils/build/gulpfile.prepublish.js --cwd ./"
   },
   "dependencies": {
     "prop-types": "^15.6.0",
