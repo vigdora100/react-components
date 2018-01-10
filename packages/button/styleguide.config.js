@@ -13,9 +13,12 @@ module.exports = {
     components: '../../packages/button/src/Types/[A-Z]*.js'
   }, {
     name: "ButtonGroup",
-    components: '../../packages/button/src/ButtonGroup/*.js'
+    components: '../../packages/button/src/ButtonGroup/[A-Z]*.js'
   }, {
     name: "IconButton",
-    components: '../../packages/button/src/IconButton/*.js'
+    components: '../../packages/button/src/IconButton/[A-Z]*.js'
+  }, {
+    name: "Link",
+    components: "../../packages/button/src/Link/[A-Z]*.js"
   }]
 };

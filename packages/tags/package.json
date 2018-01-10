@@ -1,0 +1,36 @@
+{
+  "name": "garden-react-tags",
+  "description": "Garden React Tag Components",
+  "author": "Zendesk Garden <garden@zendesk.com>",
+  "license": "UNLISCENSED",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zendeskgarden/react-components"
+  },
+  "publishConfig": {
+    "registry": "http://localhost:4873"
+  },
+  "version": "0.0.8",
+  "main": "./index.js",
+  "scripts": {
+    "build": "gulp --gulpfile ../../utils/build/gulpfile.build.js --cwd ./",
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:css": "stylelint './src/**/*.js'",
+    "lint:js": "eslint -c '../../.eslintrc.json' './src/**/*.js'",
+    "start": "styleguidist server --config ../../utils/styleguide/styleguide.base.config.js",
+    "styleguide": "styleguidist build --config ../../utils/styleguide/styleguide.base.config.js",
+    "version": "gulp --gulpfile ../../utils/build/gulpfile.version.js --cwd ./ && npm publish ./dist"
+  },
+  "dependencies": {
+    "@zendesk/garden-css-labels": "^1.1.0",
+    "classnames": "^2.2.5",
+    "garden-react-selection": "^0.0.5",
+    "garden-react-theming": "^0.0.5",
+    "prop-types": "^15.6.0",
+    "styled-components": "^2.3.3"
+  },
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0 || ^16.0.0",
+    "react-dom": "^0.14.0 || ^15.0.0 || ^16.0.0"
+  }
+}

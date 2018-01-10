@@ -42,6 +42,20 @@ module.exports = {
         name: "theming",
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: path.join(__dirname, '..', 'notifications'),
+        name: "notifications",
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: path.join(__dirname, '..', 'tags'),
+        name: "tags",
+      },
+    },
     `gatsby-transformer-remark`,
     {
       resolve: `gatsby-transformer-remark`,

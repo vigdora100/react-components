@@ -28,7 +28,7 @@ These initial components are created with 2 main API principles:
   - All UI should be through granular, presentation components
   - These components are simply styled native elements and support 100% of the native React props
   - Use styled-components to apply default Garden styling with CSS-Modules
-    - Allows easier theming and global local controls (no more per-component `rtl` prop)
+    - Allows easier theming and global locale controls (no more per-component `rtl` prop)
 - ### RENDER CONTAINERS
   - All advanced state should be managed by Containers that follow the render-prop pattern.
   - These containers will only use native props and events to allow them to work with our presentation components easily, but with other components as well.

@@ -14,7 +14,7 @@
     "build:single": "node ./utils/scripts/scoped-npm-command --script build",
     "lint": "lerna run lint",
     "lint:single": "node ./utils/scripts/scoped-npm-command --script lint",
-    "styleguide": "lerna run styleguide --stream --concurrency=2 && npm run styleguide:publish",
+    "styleguide": "lerna run styleguide --stream --concurrency=2",
     "styleguide:single": "node ./utils/scripts/scoped-npm-command --script styleguide",
     "styleguide:publish": "gh-pages --dist demo --dest micro",
     "postinstall": "npm run bootstrap",
