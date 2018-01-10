@@ -7,6 +7,7 @@ module.exports = {
   pathPrefix: `/react-components/micro`,
   plugins: [
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-styled-components',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -56,7 +57,6 @@ module.exports = {
         name: "tags",
       },
     },
-    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {

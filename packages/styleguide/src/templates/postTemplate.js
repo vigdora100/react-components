@@ -1,4 +1,5 @@
 import React from "react";
+import { Title, PublishDate } from '../components';
 import 'github-markdown-css/github-markdown.css';
 
 export default function Template({
@@ -7,12 +8,14 @@ export default function Template({
   const { markdownRemark } = data; // data.markdownRemark holds our post data
   const { frontmatter, html } = markdownRemark;
   return (
-    <div className="blog-post-container">
-      <div className="blog-post">
-        <h1>{frontmatter.title}</h1>
-        <h3>{frontmatter.date}</h3>
+    <div>
+      <div>
+        <Title>{frontmatter.title}</Title>
+        <PublishDate>{frontmatter.date}</PublishDate>
+        <hr />
         <div
           className="markdown-body"
+          style={{ marginTop: 16 }}
           dangerouslySetInnerHTML={{ __html: html }}
         />
       </div>

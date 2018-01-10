@@ -47,11 +47,12 @@ export default class KeyboardFocusContainer extends PureComponent {
     this.setState({ keyboardFocused: false });
   }
 
-  getFocusProps = ({ onBlur, onFocus, onMouseDown, ...otherProps } = {}) => {
+  getFocusProps = ({ tabIndex, onBlur, onFocus, onMouseDown, ...otherProps } = {}) => {
     return {
       onBlur: composeEventHandlers(onBlur, this.onBlur),
       onFocus: composeEventHandlers(onFocus, this.onFocus),
       onMouseDown: composeEventHandlers(onMouseDown, this.onMouseDown),
+      tabIndex: tabIndex || 0,
       ...otherProps
     };
   };

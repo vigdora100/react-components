@@ -1,12 +1,34 @@
-import React from 'react'
-import Link from 'gatsby-link'
+import React from 'react';
+// import Link from 'gatsby-link';
+import { Title, Link } from '../components';
 
-const ComponentsPage = () => (
+const ComponentsPage = ({ data }) => (
   <div>
-    <h1>This is the components homepage</h1>
+    <Title>This is the components homepage</Title>
     <p>Will probably be a simple splashscreen</p>
-    <Link to="/">Go back to the homepage</Link>
+    <h2>Components</h2>
+    <ul>
+      {data.allDirectory.edges.map((edge, index) => (
+        <li key={index}>
+          <Link to={`/components/${edge.node.name}`}>@zendeskgarden/react-{edge.node.name}</Link>
+        </li>
+      ))}
+    </ul>
   </div>
 );
 
-export default ComponentsPage
+export default ComponentsPage;
+
+export const query = graphql`
+  query Components {
+    allDirectory(filter: {sourceInstanceName: { ne: "markdown-pages" }, relativeDirectory: {eq: ".."}, relativePath: {ne: "styleguide"}}) {
+      totalCount
+      edges {
+        node {
+          name,
+          absolutePath,
+        }
+      }
+    }
+  }
+`;

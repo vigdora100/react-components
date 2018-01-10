@@ -7,7 +7,7 @@ import ChromeStyles from '@zendesk/garden-css-chrome';
 import { retrieveTheme } from 'garden-react-theming';
 import { KeyboardFocusContainer } from 'garden-react-selection';
 
-const StyledHeaderItem = styled.button.attrs({
+const StyledHeaderItem = styled.div.attrs({
   className: props => classNames(ChromeStyles['c-chrome__body__header__item'], {
     [ChromeStyles['c-chrome__body__header__item--logo']]: props.logo,
     [ChromeStyles['c-chrome__body__header__item--max-x']]: props.maxX,
