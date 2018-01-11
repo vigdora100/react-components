@@ -84,6 +84,7 @@ module.exports = {
               //
               // Defaults to false.
               sizeByPixelDensity: false,
+              pathPrefix: `/react-components/micro`
             },
           },
         ],

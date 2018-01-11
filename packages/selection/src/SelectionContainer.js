@@ -19,8 +19,10 @@ export class SelectionContainer extends PureComponent {
      * should be used for keyboard navigation
      */
     vertical: PropTypes.bool,
+    defaultFocusedIndex: PropTypes.number,
     focusedIndex: PropTypes.number,
     selectedItem: PropTypes.any,
+    onSelect: PropTypes.func,
     /** Callback for all state objects. Used when in 'controlled' mode. */
     onStateChange: PropTypes.func,
     /** The root ID to use for descendants. A unique ID is created if none is provided. */
@@ -61,7 +63,11 @@ export class SelectionContainer extends PureComponent {
    * Used to help set state that can be controlled through props
    */
   _setControlledState = (newState = {}) => {
-    const { onStateChange } = this.props;
+    const { onStateChange, onSelect } = this.props;
+
+    if (onSelect && newState.hasOwnProperty('selectedItem')) {
+      onSelect(newState.selectedItem, Object.assign(this._getState(), newState));
+    }
 
     if (onStateChange) {
       onStateChange(Object.assign(this._getState(), newState));
@@ -190,6 +196,7 @@ export class SelectionContainer extends PureComponent {
 
   _getContainerProps = ({ role, tabIndex, onKeyDown, onFocus, onBlur, ...other } = {}) => {
     const { focusedIndex } = this._getState();
+    const { defaultFocusedIndex } = this.props;
 
     return {
       role: role || 'listbox',
@@ -201,13 +208,15 @@ export class SelectionContainer extends PureComponent {
       }),
       onFocus: composeEventHandlers(onFocus, event => {
         if (!this.containerMouseDown) {
-          let selectedIndex = this.items.indexOf(this._getState().selectedItem);
+          if (typeof focusedIndex === 'undefined') {
+            let selectedIndex = this.items.indexOf(this._getState().selectedItem);
 
-          if (selectedIndex === -1) {
-            selectedIndex = 0;
+            if (selectedIndex === -1) {
+              selectedIndex = defaultFocusedIndex;
+            }
+
+            this._focusItem(selectedIndex);
           }
-
-          this._focusItem(selectedIndex);
         }
       }),
       onBlur: composeEventHandlers(onBlur, event => {
