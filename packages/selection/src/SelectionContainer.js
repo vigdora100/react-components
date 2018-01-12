@@ -1,9 +1,10 @@
 import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import uuid from 'uuid/v1';
 
 import { isRtl, withTheme } from 'garden-react-theming';
 import composeEventHandlers from './utils/composeEventHandlers';
+import scrollIntoView from './utils/scrollIntoView';
+import idManagement from './utils/idManagement';
 import KEY_CODES from './constants/KEY_CODES';
 
 export class SelectionContainer extends PureComponent {
@@ -30,17 +31,25 @@ export class SelectionContainer extends PureComponent {
   };
   /* eslint-enable react/no-unused-prop-types */
 
-  static defaultProps = {
-    id: `garden-${uuid()}`
-  };
-
   constructor(...args) {
     super(...args);
 
     this.state = {
       focusedIndex: undefined,
-      selectedItem: undefined
+      selectedItem: undefined,
+      id: idManagement.generateId()
     };
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const current = this.props.focusedIndex === undefined ? this.state : this.props
+    const prev = prevProps.focusedIndex === undefined ? prevState : prevProps
+
+    if (current.focusedIndex !== prev.focusedIndex) {
+      const itemNode = document.getElementById(this._getItemId(current.focusedIndex));
+      const containerNode = document.getElementById(this._getContainerId());
+      scrollIntoView(itemNode, containerNode);
+    }
   }
 
   _isControlledProp(key) {
@@ -126,12 +135,7 @@ export class SelectionContainer extends PureComponent {
 
       if (vertical) {
         event.preventDefault();
-
-        if (isRtl(this.props)) {
-          this._incrementIndex()
-        } else {
-          this._decrementIndex();
-        }
+        this._decrementIndex();
       }
     },
     [KEY_CODES.DOWN]: event => {
@@ -139,12 +143,7 @@ export class SelectionContainer extends PureComponent {
 
       if (vertical) {
         event.preventDefault();
-
-        if (isRtl(this.props)) {
-          this._decrementIndex()
-        } else {
-          this._incrementIndex();
-        }
+        this._incrementIndex();
       }
     }
   };
@@ -194,11 +193,14 @@ export class SelectionContainer extends PureComponent {
     this._focusItem(baseIndex > 0 ? baseIndex - 1 : this.items.length - 1);
   };
 
+  _getContainerId = () => `${this._getState().id}--container`;
+
   _getContainerProps = ({ role, tabIndex, onKeyDown, onFocus, onBlur, ...other } = {}) => {
     const { focusedIndex } = this._getState();
     const { defaultFocusedIndex } = this.props;
 
     return {
+      id: this._getContainerId(),
       role: role || 'listbox',
       'aria-activedescendant': this._getItemId(focusedIndex),
       tabIndex: tabIndex || 0,
@@ -226,7 +228,7 @@ export class SelectionContainer extends PureComponent {
     };
   }
 
-  _getItemId = index => typeof index !== 'undefined' ? `${this.props.id}--${index}` : '';
+  _getItemId = index => typeof index !== 'undefined' ? `${this._getState().id}--item-${index}` : '';
 
   _getItemProps = ({ item, index, role, onClick, onMouseDown, ...props } = {}) => {
     if (typeof item === 'undefined') {

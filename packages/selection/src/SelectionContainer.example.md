@@ -104,11 +104,13 @@ const ExampleItem = ({ focused, selected, children, ...other }) => (
     {children}
   </div>
 );
-const items = ['Button 1', 'Button 2', 'Button 3'];
+const items = ['Button 1', 'Button 2', 'Button 3', '4', '5', '6', '7', '8'];
 
 <SelectionContainer vertical>
  {({ getContainerProps, getItemProps, focusedIndex, selectedItem }) => (
-    <div {...getContainerProps()}>
+    <div {...getContainerProps({
+      style: { height: 200, overflowY: 'auto' }
+    })}>
       {items.map((item, index) => (
         <ExampleItem {...getItemProps({
           item,

@@ -22,14 +22,14 @@
     "version": "gulp --gulpfile ../../utils/build/gulpfile.version.js --cwd ./ && npm publish ./dist"
   },
   "dependencies": {
+    "@zendesk/garden-css-arrows": "^1.0.1",
     "@zendesk/garden-css-menus": "^5.0.1",
     "classnames": "^2.2.5",
     "garden-react-selection": "^0.0.5",
     "garden-react-theming": "^0.0.5",
     "prop-types": "^15.6.0",
     "react-popper": "^0.7.5",
-    "styled-components": "^2.3.3",
-    "uuid": "^3.1.0"
+    "styled-components": "^2.3.3"
   },
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0 || ^16.0.0",

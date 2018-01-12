@@ -1,24 +1,27 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import uuid from 'uuid/v1';
 import { Manager, Popper, Target } from 'react-popper';
-import { SelectionContainer, composeEventHandlers, KEY_CODES } from 'garden-react-selection';
+import { SelectionContainer, composeEventHandlers, KEY_CODES, idManagement } from 'garden-react-selection';
 
 export default class MenuContainer extends PureComponent {
   static propTypes = {
-    focusedIndex: PropTypes.number,
-    isOpen: PropTypes.bool,
     /** Callback for all state objects. Used when in 'controlled' mode. */
     onStateChange: PropTypes.func,
     onSelect: PropTypes.func,
-    /** The root ID to use for descendants. A unique ID is created if none is provided. */
-    id: PropTypes.string,
     children: PropTypes.func,
-    placement: PropTypes.string
+    /** All valid [Popper.JS Placements](https://popper.js.org/popper-documentation.html#Popper.placements) */
+    placement: PropTypes.oneOf(['auto', 'top', 'top-start', 'top-end', 'right', 'right-start',
+      'right-end', 'bottom', 'bottom-start', 'bottom-end', 'left', 'left-start', 'left-end']),
+    /* State that can be be optionally provided for controlled usage*/
+    /* eslint-disable react/no-unused-prop-types */
+    /** The root ID to use for descendants. A unique ID is created if none is provided. */
+    focusedIndex: PropTypes.number,
+    isOpen: PropTypes.bool,
+    id: PropTypes.string
+    /* eslint-enable react/no-unused-prop-types */
   };
 
   static defaultProps = {
-    id: `garden-${uuid()}`,
     placement: 'bottom-start'
   };
 
@@ -27,7 +30,8 @@ export default class MenuContainer extends PureComponent {
 
     this.state = {
       isOpen: false,
-      focusedIndex: undefined
+      focusedIndex: undefined,
+      id: idManagement.generateId()
     };
   }
 
@@ -86,7 +90,7 @@ export default class MenuContainer extends PureComponent {
     }
   };
 
-  _getTriggerId = () => `garden-${this.props.id}--trigger`;
+  _getTriggerId = () => `garden-${this._getState().id}--trigger`;
 
   getTriggerProps = ({ id, refKey = 'innerRef', ref, role, onKeyDown, onClick, ...other } = {}) => {
     const { isOpen } = this._getState();
@@ -123,7 +127,9 @@ export default class MenuContainer extends PureComponent {
     const { isOpen } = this._getState();
     return {
       role: role || 'menu',
-      style: isOpen ? style : { display: 'none' },
+      // style: isOpen ? style : { display: 'none' },
+      style,
+      'aria-hidden': !isOpen,
       'aria-labelledby': this._getTriggerId(),
       [refKey]: reference => {
         this.menuRef = reference;
@@ -141,7 +147,7 @@ export default class MenuContainer extends PureComponent {
     };
   };
 
-  getMenuItemProps = ({ role, ...other } = {}) => {
+  getMenuItemProps = ({ refKey = 'innerRef', role, ...other } = {}) => {
     return {
       role: role || 'menuitem',
       ...other
@@ -149,8 +155,8 @@ export default class MenuContainer extends PureComponent {
   };
 
   render() {
-    const { children, id, onSelect, menu, placement } = this.props;
-    const { isOpen, focusedIndex } = this._getState();
+    const { children, onSelect, menu, placement } = this.props;
+    const { isOpen, focusedIndex, id } = this._getState();
 
     return (
       <Manager>
@@ -163,32 +169,39 @@ export default class MenuContainer extends PureComponent {
             })
           )}
         </Target>
-        {isOpen && <Popper placement={placement}>
-          {({ popperProps, restProps }) => (
-            <SelectionContainer
-              vertical
-              id={id}
-              focusedIndex={focusedIndex}
-              defaultFocusIndex={-1}
-              onSelect={selectedItem => {
-                onSelect && onSelect(selectedItem);
-                this._setControlledState({ isOpen: false })
-              }}
-              onStateChange={({ focusedIndex }) => {
-                this._setControlledState({ focusedIndex });
-              }}>
-              {({ getContainerProps, getItemProps, focusedIndex }) => (
-                menu({
-                  getMenuProps: props => getContainerProps(this.getMenuProps({ ...popperProps, ...props })),
-                  getMenuItemProps: props => getItemProps(this.getMenuItemProps(props)),
-                  focusedIndex,
-                  isOpen
-                })
-              )}
-            </SelectionContainer>
-          )}
+        <Popper placement={placement}>
+          {({ popperProps, restProps, scheduleUpdate }) => {
+            this.popperScheduleUpdate = scheduleUpdate;
+            console.log(popperProps);
+            return (
+              <SelectionContainer
+                vertical
+                id={id}
+                focusedIndex={focusedIndex}
+                defaultFocusIndex={-1}
+                onSelect={selectedItem => {
+                  onSelect && onSelect(selectedItem);
+                  this._setControlledState({ isOpen: false })
+                }}
+                onStateChange={({ focusedIndex }) => {
+                  this._setControlledState({ focusedIndex });
+                }}>
+                {({ getContainerProps, getItemProps, focusedIndex }) => (
+                  menu({
+                    getMenuProps: props => getContainerProps(this.getMenuProps({
+                      ...popperProps,
+                      ...props,
+                      style: Object.assign(popperProps.style, props && props.style)
+                    })),
+                    getMenuItemProps: props => getItemProps(this.getMenuItemProps(props)),
+                    focusedIndex,
+                    isOpen
+                  })
+                )}
+              </SelectionContainer>
+            );
+          }}
         </Popper>
-        }
       </Manager>
     );
   }

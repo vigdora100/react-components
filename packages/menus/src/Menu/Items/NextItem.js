@@ -5,11 +5,11 @@ import { retrieveTheme } from 'garden-react-theming';
 
 import Item from './Item';
 
-const Add = styled(Item).attrs({
-  className: props => classNames(MenuStyles['c-menu__item--add'])
+const NextItem = styled(Item).attrs({
+  className: props => classNames(MenuStyles['c-menu__item--next'])
 })`
-  ${props => retrieveTheme('menu.item_add', props)}
+  ${props => retrieveTheme('menu.item_next', props)}
 `;
 
 /** @component */
-export default Add;
+export default NextItem;
