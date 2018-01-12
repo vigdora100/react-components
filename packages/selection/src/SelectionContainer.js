@@ -1,4 +1,4 @@
-import { PureComponent } from 'react';
+import ControlledComponent from './ControlledComponent';
 import PropTypes from 'prop-types';
 
 import { isRtl, withTheme } from 'garden-react-theming';
@@ -7,7 +7,7 @@ import scrollIntoView from './utils/scrollIntoView';
 import idManagement from './utils/idManagement';
 import KEY_CODES from './constants/KEY_CODES';
 
-export class SelectionContainer extends PureComponent {
+export class SelectionContainer extends ControlledComponent {
   /* eslint-disable react/no-unused-prop-types */
   static propTypes = {
     /**
@@ -52,48 +52,15 @@ export class SelectionContainer extends PureComponent {
     }
   }
 
-  _isControlledProp(key) {
-    return this.props[key] !== undefined
-  }
-
-  /**
-   * Used to help retrieve state that can be controlled through props
-   */
-  _getState = (stateToMerge = this.state) => {
-    return Object.keys(stateToMerge).reduce((state, key) => {
-      state[key] = this._isControlledProp(key)
-        ? this.props[key]
-        : stateToMerge[key]
-      return state
-    }, {});
-  };
-
-  /**
-   * Used to help set state that can be controlled through props
-   */
-  _setControlledState = (newState = {}) => {
-    const { onStateChange, onSelect } = this.props;
-
-    if (onSelect && newState.hasOwnProperty('selectedItem')) {
-      onSelect(newState.selectedItem, Object.assign(this._getState(), newState));
-    }
-
-    if (onStateChange) {
-      onStateChange(Object.assign(this._getState(), newState));
-    } else {
-      this.setState(newState);
-    }
-  };
-
   _keyDownEventHandlers = {
     [KEY_CODES.ENTER]: event => {
       event.preventDefault();
-      const { focusedIndex } = this._getState();
+      const { focusedIndex } = this.getControlledState();
       this._selectItem(focusedIndex, focusedIndex);
     },
     [KEY_CODES.SPACE]: event => {
       event.preventDefault();
-      const { focusedIndex } = this._getState();
+      const { focusedIndex } = this.getControlledState();
       this._selectItem(focusedIndex, focusedIndex);
     },
     [KEY_CODES.END]: event => {
@@ -150,15 +117,15 @@ export class SelectionContainer extends PureComponent {
 
   _selectItem = (selectedIndex, focusedIndex) => {
     const selectedItem = this.items[selectedIndex];
-    this._setControlledState({ selectedItem, focusedIndex });
+    this.setControlledState({ selectedItem, focusedIndex });
   };
 
   _focusItem = focusedIndex => {
-    this._setControlledState({ focusedIndex });
+    this.setControlledState({ focusedIndex });
   };
 
   _incrementIndex = () => {
-    const { focusedIndex, selectedItem } = this._getState();
+    const { focusedIndex, selectedItem } = this.getControlledState();
 
     let baseIndex;
 
@@ -176,7 +143,7 @@ export class SelectionContainer extends PureComponent {
   };
 
   _decrementIndex = () => {
-    const { focusedIndex, selectedItem } = this._getState();
+    const { focusedIndex, selectedItem } = this.getControlledState();
 
     let baseIndex;
 
@@ -193,10 +160,10 @@ export class SelectionContainer extends PureComponent {
     this._focusItem(baseIndex > 0 ? baseIndex - 1 : this.items.length - 1);
   };
 
-  _getContainerId = () => `${this._getState().id}--container`;
+  _getContainerId = () => `${this.getControlledState().id}--container`;
 
   _getContainerProps = ({ role, tabIndex, onKeyDown, onFocus, onBlur, ...other } = {}) => {
-    const { focusedIndex } = this._getState();
+    const { focusedIndex } = this.getControlledState();
     const { defaultFocusedIndex } = this.props;
 
     return {
@@ -211,7 +178,7 @@ export class SelectionContainer extends PureComponent {
       onFocus: composeEventHandlers(onFocus, event => {
         if (!this.containerMouseDown) {
           if (typeof focusedIndex === 'undefined') {
-            let selectedIndex = this.items.indexOf(this._getState().selectedItem);
+            let selectedIndex = this.items.indexOf(this.getControlledState().selectedItem);
 
             if (selectedIndex === -1) {
               selectedIndex = defaultFocusedIndex;
@@ -228,7 +195,7 @@ export class SelectionContainer extends PureComponent {
     };
   }
 
-  _getItemId = index => typeof index !== 'undefined' ? `${this._getState().id}--item-${index}` : '';
+  _getItemId = index => typeof index !== 'undefined' ? `${this.getControlledState().id}--item-${index}` : '';
 
   _getItemProps = ({ item, index, role, onClick, onMouseDown, ...props } = {}) => {
     if (typeof item === 'undefined') {
@@ -245,7 +212,7 @@ export class SelectionContainer extends PureComponent {
     return {
       id: this._getItemId(index),
       role: role || 'option',
-      'aria-selected': item === this._getState().selectedItem,
+      'aria-selected': item === this.getControlledState().selectedItem,
       onClick: composeEventHandlers(onClick, event => {
         this._selectItem(index, undefined);
       }),
@@ -262,7 +229,7 @@ export class SelectionContainer extends PureComponent {
 
   render() {
     const { children } = this.props;
-    const { focusedIndex, selectedItem } = this._getState();
+    const { focusedIndex, selectedItem } = this.getControlledState();
     this.items = [];
 
     return children({

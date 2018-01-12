@@ -36,6 +36,7 @@ const defaultStyleguideConfig = {
     LogoRenderer: path.resolve(__dirname, 'LogoRenderer')
   },
   webpackConfig: {
+    devtool: 'eval-source-map',
     module: {
       rules: [
         // Babel loader, will use your project’s .babelrc

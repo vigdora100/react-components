@@ -78,8 +78,7 @@ Menu.propTypes = {
 };
 
 Menu.defaultProps = {
-  arrow: false,
-  'data-placement': ''
+  arrow: false
 };
 
 /** @component */

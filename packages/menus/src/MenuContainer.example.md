@@ -2,21 +2,23 @@
 
 ```jsx
 const Button = Garden.Button.Button;
-const items = ['Example Item 1', 'Example Item 2'];
 
 <MenuContainer
   onSelect={selectedItem => alert(selectedItem)}
   menu={({ getMenuProps, getMenuItemProps, focusedIndex }) => (
     <Menu {...getMenuProps()}>
-      {items.map((item, index) => (
-        <Item {...getMenuItemProps({
-          item,
-          key: index,
-          focused: focusedIndex === index
-        })}>
-          {item}
-        </Item>
-      ))}
+      <Item {...getMenuItemProps({
+        item: 'item-1',
+        focused: focusedIndex === 0
+      })}>
+        Example Item 1
+      </Item>
+      <Item {...getMenuItemProps({
+        item: 'item-2',
+        focused: focusedIndex === 1
+      })}>
+        Example Item 2
+      </Item>
     </Menu>
   )}>
   {({ getTriggerProps }) => (
@@ -190,7 +192,7 @@ initialState = {
   focusedIndex={state.focusedIndex}
   onSelect={(selectedItem, otherState) => setState({ selectedItem })}
   onStateChange={(newState) => {
-    setState({ isOpen: newState.isOpen, focusedIndex: newState.focusedIndex });
+    setState(newState);
   }}
   menu={({ getMenuProps, getMenuItemProps, focusedIndex, selectedItem }) => (
     <Menu {...getMenuProps()}>

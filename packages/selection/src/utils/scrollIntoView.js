@@ -30,6 +30,8 @@ const getClosestScrollParent = findParent.bind(
  * Scroll node into view if necessary
  * @param {HTMLElement} node - the element that should scroll into view
  * @param {HTMLElement} rootNode - the root element of the component
+ *
+ * @component
  */
 // eslint-disable-next-line complexity
 export default function scrollIntoView(node, rootNode) {

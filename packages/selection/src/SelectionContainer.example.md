@@ -76,7 +76,7 @@ initialState = {
 <SelectionContainer
   focusedIndex={state.focusedIndex}
   selectedItem={state.selectedItem}
-  onStateChange={({ focusedIndex, selectedItem }) => setState({ focusedIndex, selectedItem })}>
+  onStateChange={newState => setState(newState)}>
  {({ getContainerProps, getItemProps, focusedIndex, selectedItem }) => (
     <div {...getContainerProps()}>
       {items.map((item, index) => (
