@@ -33,7 +33,6 @@ const getClosestScrollParent = findParent.bind(
  *
  * @component
  */
-// eslint-disable-next-line complexity
 export default function scrollIntoView(node, rootNode) {
   const scrollParent = getClosestScrollParent(node, rootNode)
   if (scrollParent === null) {

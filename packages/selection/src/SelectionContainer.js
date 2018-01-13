@@ -31,6 +31,10 @@ export class SelectionContainer extends ControlledComponent {
   };
   /* eslint-enable react/no-unused-prop-types */
 
+  static defaultProps = {
+    defaultFocusedIndex: 0
+  };
+
   constructor(...args) {
     super(...args);
 

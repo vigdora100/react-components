@@ -1,6 +1,11 @@
 import { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 
 export default class ControlledComponent extends PureComponent {
+  static propTypes = {
+    onStateChange: PropTypes.func
+  };
+
   isControlledProp = (key) => {
     return this.props.hasOwnProperty(key)
   }
