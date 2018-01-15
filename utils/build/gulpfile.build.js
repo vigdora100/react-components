@@ -50,24 +50,12 @@ gulp.task('js', () => {
     .pipe(gulp.dest('dist'))
 });
 
-gulp.task('js:root', () => {
-  return gulp
-    .src(['./src/index.js'])
-    .pipe(babel({
-      babelrc: false,
-      plugins: [
-        "inline-react-svg",
-        "transform-object-assign",
-        "babel-plugin-styled-components"
-      ],
-      presets: [
-        "es2015",
-        "react",
-        "stage-0"
-      ],
-      comments: false
-    }))
-    .pipe(gulp.dest('dist'))
+/**
+ * Copy package.json and other NPM related assets to enable "flat-pack" module imports
+ */
+gulp.task('copy', () => {
+  return gulp.src(['package.json', 'README.md'])
+    .pipe(gulp.dest('./dist'));
 });
 
-gulp.task("default", gulp.series('clean', 'js'));
+gulp.task("default", gulp.series('clean', 'js', 'copy'));

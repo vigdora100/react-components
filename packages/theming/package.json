@@ -10,7 +10,7 @@
   "publishConfig": {
     "registry": "http://localhost:4873"
   },
-  "version": "0.0.6",
+  "version": "0.0.7",
   "main": "./index.js",
   "scripts": {
     "build": "gulp --gulpfile ../../utils/build/gulpfile.build.js --cwd ./",
@@ -21,7 +21,7 @@
     "test:develop": "jest --config=../../utils/test/jest.config.js --watch",
     "start": "styleguidist server --config ../../utils/styleguide/styleguide.base.config.js",
     "styleguide": "styleguidist build --config ../../utils/styleguide/styleguide.base.config.js",
-    "version": "gulp --gulpfile ../../utils/build/gulpfile.version.js --cwd ./ && npm publish ./dist"
+    "version1": "gulp --gulpfile ../../utils/build/gulpfile.version.js --cwd ./ && npm publish ./dist"
   },
   "dependencies": {
     "prop-types": "^15.6.0",

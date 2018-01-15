@@ -5,6 +5,7 @@ module.exports = {
   "moduleNameMapper": {
     "\\.(css)$": "<rootDir>/utils/test/styleMock.js"
   },
+  "modulePathIgnorePatterns": ["dist"],
   "transform": {
     "^.+\\.js$": "babel-jest"
   },

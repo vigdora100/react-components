@@ -10,7 +10,7 @@
   "publishConfig": {
     "registry": "http://localhost:4873"
   },
-  "version": "0.0.10",
+  "version": "0.0.11",
   "main": "./index.js",
   "scripts": {
     "build": "gulp --gulpfile ../../utils/build/gulpfile.build.js --cwd ./",
@@ -19,13 +19,13 @@
     "lint:js": "eslint -c '../../.eslintrc.json' './src/**/*.js'",
     "start": "styleguidist server --config ../../utils/styleguide/styleguide.base.config.js",
     "styleguide": "styleguidist build --config ../../utils/styleguide/styleguide.base.config.js",
-    "version": "gulp --gulpfile ../../utils/build/gulpfile.version.js --cwd ./ && npm publish ./dist"
+    "version1": "gulp --gulpfile ../../utils/build/gulpfile.version.js --cwd ./ && npm publish ./dist"
   },
   "dependencies": {
     "@zendesk/garden-css-labels": "^1.1.0",
     "classnames": "^2.2.5",
-    "garden-react-selection": "^0.0.6",
-    "garden-react-theming": "^0.0.6",
+    "garden-react-selection": "^0.0.7",
+    "garden-react-theming": "^0.0.7",
     "prop-types": "^15.6.0",
     "styled-components": "^2.3.3"
   },
