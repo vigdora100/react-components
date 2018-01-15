@@ -19,7 +19,6 @@
     "lint:js": "eslint -c '../../.eslintrc.json' './src/**/*.js'",
     "start": "styleguidist server --config ../../utils/styleguide/styleguide.base.config.js",
     "styleguide": "styleguidist build --config ../../utils/styleguide/styleguide.base.config.js",
-    "prepublish": "echo 'TESTING'",
     "version1": "gulp --gulpfile ../../utils/build/gulpfile.version.js --cwd ./ && npm publish ./dist"
   },
   "dependencies": {
