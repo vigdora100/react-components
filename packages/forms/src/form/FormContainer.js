@@ -1,41 +1,48 @@
-import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import uuid from 'uuid/v1';
+import { idManagement, ControlledComponent } from 'garden-react-selection';
 
-export default class FormContainer extends PureComponent {
+export default class FormContainer extends ControlledComponent {
     static propTypes = {
       /** Receives: { getLabelProps, getInputProps } as a parameter */
       children: PropTypes.func,
       id: PropTypes.string
     };
 
-    static defaultProps = {
-      id: `garden-${uuid()}`
-    };
+    constructor(...args) {
+      super(...args);
 
-    getInputId = () => `${this.props.id}--input`;
+      this.state = {
+        id: idManagement.generateId()
+      };
+    }
 
-    getValidationId = () => `${this.props.id}--validation`;
+    _getInputId = () => `${this.getControlledState().id}--input`;
 
-    getLabelProps = props => {
+    _getLabelId = () => `${this.getControlledState().id}--label`;
+
+    _getValidationId = () => `${this.getControlledState().id}--validation`;
+
+    _getLabelProps = ({ id, htmlFor, ...other } = {}) => {
       return {
-        htmlFor: this.getInputId(),
-        ...props
+        id: id || this._getLabelId(),
+        htmlFor: htmlFor || this._getInputId(),
+        ...other
       };
     };
 
-    getInputProps = props => {
+    _getInputProps = ({ id, ...other } = {}) => {
       return {
-        id: this.getInputId(),
-        'aria-describedby': this.getValidationId(),
-        ...props
+        id: id || this._getInputId(),
+        'aria-labelledby': this._getLabelId(),
+        'aria-describedby': this._getValidationId(),
+        ...other
       };
     };
 
-    getValidationProps = props => {
+    _getMessageProps = ({ id, ...other } = {}) => {
       return {
-        id: this.getValidationId(),
-        ...props
+        id: id || this._getValidationId(),
+        ...other
       };
     };
 
@@ -43,9 +50,9 @@ export default class FormContainer extends PureComponent {
       const { children } = this.props;
 
       return children({
-        getLabelProps: this.getLabelProps,
-        getInputProps: this.getInputProps,
-        getValidationProps: this.getValidationProps,
+        getLabelProps: this._getLabelProps,
+        getInputProps: this._getInputProps,
+        getMessageProps: this._getMessageProps,
       });
     }
 }

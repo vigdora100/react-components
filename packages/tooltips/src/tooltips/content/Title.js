@@ -9,4 +9,5 @@ const Title = styled.div`
   ${props => retrieveTheme('tooltip.title', props)}
 `;
 
+/** @component */
 export default Title;

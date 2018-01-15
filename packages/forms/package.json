@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
+    "garden-react-selection": "^0.0.8",
     "garden-react-theming": "^0.0.8",
     "prop-types": "^15.6.0",
     "styled-components": "^2.3.3",

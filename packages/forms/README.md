@@ -4,12 +4,12 @@ Forms example:
 
 ```jsx
 <FormContainer>
-  {({ getLabelProps, getInputProps, getValidationProps }) => (
+  {({ getLabelProps, getInputProps, getMessageProps }) => (
     <div>
       <Label {...getLabelProps()}>Accessible Label</Label>
       <Hint>Example hint</Hint>
       <Input {...getInputProps({ placeholder: 'Accessible Input' })} />
-      <Message {...getValidationProps({ validation: "error" })}>
+      <Message {...getMessageProps({ validation: "error" })}>
         Example error message
       </Message>
     </div>
