@@ -159,7 +159,7 @@ export default class MenuContainer extends ControlledComponent {
               vertical
               id={id}
               focusedIndex={focusedIndex}
-              defaultFocusIndex={-1}
+              defaultFocusedIndex={-1}
               onStateChange={({ selectedItem, focusedIndex }) => {
                 const wasItemSelected = typeof selectedItem !== 'undefined';
                 const newMenuState = { focusedIndex };
