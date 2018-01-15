@@ -1,5 +1,6 @@
 import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+
 import composeEventHandlers from '../utils/composeEventHandlers';
 
 export default class KeyboardFocusContainer extends PureComponent {

@@ -1,11 +1,11 @@
-import ControlledComponent from './ControlledComponent';
 import PropTypes from 'prop-types';
-
 import { isRtl, withTheme } from 'garden-react-theming';
-import composeEventHandlers from './utils/composeEventHandlers';
-import scrollIntoView from './utils/scrollIntoView';
-import idManagement from './utils/idManagement';
-import KEY_CODES from './constants/KEY_CODES';
+
+import ControlledComponent from '../utils/ControlledComponent';
+import composeEventHandlers from '../utils/composeEventHandlers';
+import scrollIntoView from '../utils/scrollIntoView';
+import idManagement from '../utils/idManagement';
+import KEY_CODES from '../constants/KEY_CODES';
 
 export class SelectionContainer extends ControlledComponent {
   static propTypes = {

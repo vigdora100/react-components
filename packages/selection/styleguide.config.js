@@ -9,12 +9,12 @@ module.exports = {
     content: "../../packages/selection/README.md"
   }, {
     name: "Containers",
-    components: "../../packages/selection/src/[A-Z]*.js"
-  }, {
-    name: "Contants",
-    components: "../../packages/selection/src/constants/*.js"
+    components: "../../packages/selection/src/containers/[A-Z]*.js"
   }, {
     name: "Utils",
     components: "../../packages/selection/src/utils/*.js"
+  }, {
+    name: "Contants",
+    components: "../../packages/selection/src/constants/*.js"
   }]
 };
