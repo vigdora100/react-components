@@ -17,7 +17,7 @@ initialState = {
 <ButtonGroupContainer
   focusedIndex={state.focusedIndex}
   selectedItem={state.selectedItem}
-  onStateChange={({ focusedIndex, selectedItem }) => setState({ focusedIndex, selectedItem })}>
+  onStateChange={newState => setState(newState)}>
  {({ getButtonGroupProps, getButtonProps, focusedIndex, selectedItem }) => (
     <ButtonGroup {...getButtonGroupProps()}>
       {items.map((item, index) => (

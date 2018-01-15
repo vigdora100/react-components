@@ -42,7 +42,7 @@ const defaultStyleguideConfig = {
         // Babel loader, will use your project’s .babelrc
         {
           test: /\.jsx?$/,
-          exclude: /node_modules/,
+          exclude: /node_modules\/(?!buble)/,
           loader: 'babel-loader'
         },
         // Other loaders that are needed for your components

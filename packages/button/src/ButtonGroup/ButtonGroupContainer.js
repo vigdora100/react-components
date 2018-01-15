@@ -19,8 +19,7 @@ const getButtonGroupProps = ({ role, tabIndex, ...other } = {}) => {
 };
 
 const ButtonGroupContainer = ({ children, ...other }) => (
-  <SelectionContainer
-    {...other}>
+  <SelectionContainer {...other}>
     {({ getContainerProps, getItemProps, ...otherSelectionProps }) => (
       children({
         getButtonGroupProps: props => getContainerProps(getButtonGroupProps(props)),
@@ -32,7 +31,18 @@ const ButtonGroupContainer = ({ children, ...other }) => (
 );
 
 ButtonGroupContainer.propTypes = {
-  children: PropTypes.func
+  /**
+   * Render-prop
+   * @returns {Function} `({ getButtonGroupProps, getButtonProps, focusedIndex, selectedItem }) => {}`
+   */
+  children: PropTypes.func,
+  defaultFocusedIndex: PropTypes.number,
+  focusedIndex: PropTypes.number,
+  selectedItem: PropTypes.any,
+  /** Callback for all state objects. Used when in 'controlled' mode. */
+  onStateChange: PropTypes.func,
+  /** The root ID to use for descendants. A unique ID is created if none is provided. */
+  id: PropTypes.string
 };
 
 /** @component */

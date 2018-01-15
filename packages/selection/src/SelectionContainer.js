@@ -8,28 +8,24 @@ import idManagement from './utils/idManagement';
 import KEY_CODES from './constants/KEY_CODES';
 
 export class SelectionContainer extends ControlledComponent {
-  /* eslint-disable react/no-unused-prop-types */
   static propTypes = {
     /**
-     * Function that is provided:
-     * `getContainerProps, getItemProps, focusedIndex, selectedItem`
+     * Render-prop
+     * @returns {Function} `({ getContainerProps, getItemProps, focusedIndex, selectedItem }) => {}`
      */
     children: PropTypes.func.isRequired,
     /**
-     * Whether the up/down or left/right arrow keys
-     * should be used for keyboard navigation
+     * Whether the up/down or left/right arrow keys should be used for keyboard navigation
      */
     vertical: PropTypes.bool,
     defaultFocusedIndex: PropTypes.number,
     focusedIndex: PropTypes.number,
     selectedItem: PropTypes.any,
-    onSelect: PropTypes.func,
     /** Callback for all state objects. Used when in 'controlled' mode. */
     onStateChange: PropTypes.func,
     /** The root ID to use for descendants. A unique ID is created if none is provided. */
     id: PropTypes.string
   };
-  /* eslint-enable react/no-unused-prop-types */
 
   static defaultProps = {
     defaultFocusedIndex: 0
