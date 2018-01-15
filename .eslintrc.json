@@ -1,12 +1,14 @@
 {
   "extends": [
-    "pretty-standard"
+    "pretty-standard",
+    "plugin:jest/recommended"
   ],
   "globals": {
-    "jest": false
+    "jest": true
   },
   "plugins": [
-      "react"
+      "react",
+      "jest"
   ],
   "parser": "babel-eslint",
   "parserOptions": {

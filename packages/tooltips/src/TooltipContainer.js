@@ -15,6 +15,7 @@ const TooltipWrapper = styled.div`
     display: none;
   }
 `;
+TooltipWrapper.displayName = 'TooltipWrapper';
 
 export default class TooltipContainer extends ControlledComponent {
   static propTypes = {
@@ -120,7 +121,7 @@ export default class TooltipContainer extends ControlledComponent {
       <Manager>
         <Target>
           {({ targetProps }) => (
-            children({
+            children && children({
               getTriggerProps: props => this._getTriggerProps({ ...targetProps, ...props }),
               isVisible
             })
@@ -139,7 +140,7 @@ export default class TooltipContainer extends ControlledComponent {
                 innerRef={popperProps.ref}
                 style={popperProps.style}
                 aria-hidden={!isVisible}>
-                {tooltip({
+                {tooltip && tooltip({
                   getTooltipProps: props => this._getTooltipProps({
                     'data-placement': placement,
                     'data-x-out-of-boundaries': outOfBoundaries,
