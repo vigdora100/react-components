@@ -3,7 +3,7 @@
   "name": "styleguide",
   "description": "Gatsby default starter",
   "license": "MIT",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "main": "n/a",
   "scripts": {
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
@@ -14,8 +14,8 @@
   "dependencies": {
     "@zendesk/garden-css-variables": "^3.0.0",
     "@zendesk/garden-svg-icons": "^2.5.0",
-    "garden-react-button": "^0.0.9",
-    "garden-react-chrome": "*",
+    "garden-react-button": "^0.0.10",
+    "garden-react-chrome": "^0.0.3",
     "gatsby": "^1.9.145",
     "gatsby-1-config-css-modules": "^1.0.8",
     "gatsby-link": "^1.6.32",

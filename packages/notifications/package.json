@@ -10,7 +10,7 @@
   "publishConfig": {
     "registry": "http://localhost:4873"
   },
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "./index.js",
   "scripts": {
     "build": "gulp --gulpfile ../../utils/build/gulpfile.build.js --cwd ./",
@@ -24,8 +24,8 @@
   "dependencies": {
     "@zendesk/garden-css-callouts": "^1.1.1",
     "classnames": "^2.2.5",
-    "garden-react-selection": "^0.0.5",
-    "garden-react-theming": "^0.0.5",
+    "garden-react-selection": "^0.0.6",
+    "garden-react-theming": "^0.0.6",
     "prop-types": "^15.6.0",
     "styled-components": "^2.3.3"
   },

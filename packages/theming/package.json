@@ -10,7 +10,7 @@
   "publishConfig": {
     "registry": "http://localhost:4873"
   },
-  "version": "0.0.5",
+  "version": "0.0.6",
   "main": "./index.js",
   "scripts": {
     "build": "gulp --gulpfile ../../utils/build/gulpfile.build.js --cwd ./",
