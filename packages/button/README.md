@@ -1,6 +1,8 @@
 # @zendeskgarden/react-button
 
-The Button components include several variaties of buttons including: anchor, primary, basic, icon, etc.
+These components include several variaties of buttons including: anchor, primary, basic, icon, etc.
+
+There is also advanced containers for creating accessible ButtonGroups.
 
 ## Installation
 

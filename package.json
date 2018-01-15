@@ -22,7 +22,7 @@
     "postinstall": "npm run bootstrap",
     "publish": "npm run publish:test && lerna publish --skip-npm",
     "publish:test": "npm run lint && npm run jest && npm run build",
-    "publish:travis": "lerna exec -- npm publish dist  --since HEAD~1 --bail=false"
+    "publish:travis": "npm run publish:test && lerna exec -- npm publish dist  --since HEAD~1 --bail=false"
   },
   "devDependencies": {
     "@zendesk/garden-svg-icons": "^2.5.0",
