@@ -20,7 +20,9 @@
     "styleguide:single": "node ./utils/scripts/scoped-npm-command --script styleguide",
     "styleguide:publish": "gh-pages --dist demo --dest micro",
     "postinstall": "npm run bootstrap",
-    "publish": "npm run lint && npm run jest && npm run build && lerna publish --skip-npm"
+    "publish": "npm run publish:test && lerna publish --skip-npm",
+    "publish:test": "npm run lint && npm run jest && npm run build",
+    "publish:travis": "lerna exec -- npm publish dist  --since HEAD~1 --bail=false"
   },
   "devDependencies": {
     "@zendesk/garden-svg-icons": "^2.5.0",
