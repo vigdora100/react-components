@@ -13,13 +13,10 @@
   "version": "0.0.5",
   "main": "./index.js",
   "scripts": {
-    "build": "gulp --gulpfile ../../utils/build/gulpfile.build.js --cwd ./",
-    "lint": "npm run lint:js && npm run lint:css",
-    "lint:css": "stylelint './src/**/*.js'",
-    "lint:js": "eslint -c '../../.eslintrc.json' './src/**/*.js'",
-    "start": "styleguidist server --config ../../utils/styleguide/styleguide.base.config.js",
-    "styleguide": "styleguidist build --config ../../utils/styleguide/styleguide.base.config.js",
-    "version1": "gulp --gulpfile ../../utils/build/gulpfile.version.js --cwd ./ && npm publish ./dist"
+    "start": "../../utils/scripts/start.sh",
+    "build": "../../utils/scripts/build.sh",
+    "build:styleguide": "../../utils/scripts/build-styleguide.sh",
+    "lint": "../../utils/scripts/lint.sh"
   },
   "dependencies": {
     "classnames": "^2.2.5",
