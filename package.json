@@ -20,7 +20,7 @@
     "styleguide": "lerna run build:styleguide --stream --concurrency=2 && npm run styleguide:publish",
     "styleguide:single": "node ./utils/scripts/scoped-npm-command --script styleguide",
     "styleguide:publish": "gh-pages --dist demo --dest micro",
-    "publish": "npm run publish:test && lerna publish --ignore=styleguide",
+    "publish": "lerna publish --ignore=styleguide --scope garden-react-button",
     "publish:test": "npm run lint && npm run test:travis && npm run build",
     "publish:travis": "npm run publish:test && yarn lerna exec -- \"npm publish ./dist\" --since=HEAD~1 --bail=false --ignore=styleguide"
   },
