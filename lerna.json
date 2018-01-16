@@ -8,6 +8,7 @@
   "commands": {
     "publish": {
       "skipNpm": "true",
+      "skipGit": "true",
       "ignore": "styleguide"
     }
   }
