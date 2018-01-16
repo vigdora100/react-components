@@ -7,7 +7,7 @@
   "version": "independent",
   "commands": {
     "publish": {
-      "skipGit": "true"
+      "skipNpm": "true"
     }
   }
 }
