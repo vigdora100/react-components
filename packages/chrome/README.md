@@ -4,6 +4,8 @@ The Chrome component is used to style Zendesk product chrome: navigation, header
 
 Live examples available at [http://garden.zendesk.com/react-components/v2/chrome](http://garden.zendesk.com/react-components/v2/chrome)
 
+ToDo more examples
+
 ## Installation
 
 ```bash
