@@ -8,7 +8,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "postinstall": "npm run bootstrap",
+    "postinstall1": "npm run bootstrap",
     "bootstrap": "lerna exec -- git clean -Xdf . && lerna bootstrap --concurrency=2",
     "start": "node ./utils/scripts/scoped-npm-command --script start",
     "build": "lerna run build --stream",
@@ -74,6 +74,7 @@
     "webpack-bundle-analyzer": "^2.9.2"
   },
   "dependencies": {
+    "jest-enzyme": "^4.0.2",
     "react-styleguidist": "^6.1.0"
   }
 }

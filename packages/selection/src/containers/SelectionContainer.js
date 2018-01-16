@@ -162,12 +162,12 @@ export class SelectionContainer extends ControlledComponent {
 
   _getContainerId = () => `${this.getControlledState().id}--container`;
 
-  _getContainerProps = ({ role, tabIndex, onKeyDown, onFocus, onBlur, ...other } = {}) => {
+  _getContainerProps = ({ id, role, tabIndex, onKeyDown, onFocus, onBlur, ...other } = {}) => {
     const { focusedIndex } = this.getControlledState();
     const { defaultFocusedIndex } = this.props;
 
     return {
-      id: this._getContainerId(),
+      id: id || this._getContainerId(),
       role: role || 'listbox',
       'aria-activedescendant': this._getItemId(focusedIndex),
       tabIndex: tabIndex || 0,
@@ -197,9 +197,9 @@ export class SelectionContainer extends ControlledComponent {
 
   _getItemId = index => typeof index !== 'undefined' ? `${this.getControlledState().id}--item-${index}` : '';
 
-  _getItemProps = ({ item, index, role, onClick, onMouseDown, ...props } = {}) => {
+  _getItemProps = ({ item, index, id, role, onClick, onMouseDown, ...props } = {}) => {
     if (typeof item === 'undefined') {
-      throw new Error('"item" must be defined');
+      throw new Error('"item" must be defined within getItemProps');
     }
 
     if (index === undefined) {
@@ -210,7 +210,7 @@ export class SelectionContainer extends ControlledComponent {
     }
 
     return {
-      id: this._getItemId(index),
+      id: id || this._getItemId(index),
       role: role || 'option',
       'aria-selected': item === this.getControlledState().selectedItem,
       onClick: composeEventHandlers(onClick, event => {

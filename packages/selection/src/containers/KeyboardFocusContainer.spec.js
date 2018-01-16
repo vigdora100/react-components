@@ -20,7 +20,7 @@ describe('KeyboardFocusContainer', () => {
         findTrigger(wrapper).simulate('mousedown');
 
         wrapper.update();
-        expect(findTrigger(wrapper).prop('data-focused')).toBe(false);
+        expect(findTrigger(wrapper)).toHaveProp('data-focused', false);
       });
 
       it('should apply focused prop if focused by keyboard', () => {
@@ -29,7 +29,7 @@ describe('KeyboardFocusContainer', () => {
         findTrigger(wrapper).simulate('focus');
 
         wrapper.update();
-        expect(findTrigger(wrapper).prop('data-focused')).toBe(true);
+        expect(findTrigger(wrapper)).toHaveProp('data-focused', true);
       });
     });
 
@@ -40,7 +40,7 @@ describe('KeyboardFocusContainer', () => {
         findTrigger(wrapper).simulate('mousedown');
 
         wrapper.update();
-        expect(findTrigger(wrapper).prop('data-focused')).toBe(false);
+        expect(findTrigger(wrapper)).toHaveProp('data-focused', false);
       });
     });
 
@@ -50,11 +50,11 @@ describe('KeyboardFocusContainer', () => {
 
         findTrigger(wrapper).simulate('focus');
         wrapper.update();
-        expect(findTrigger(wrapper).prop('data-focused')).toBe(true);
+        expect(findTrigger(wrapper)).toHaveProp('data-focused', true);
 
         findTrigger(wrapper).simulate('blur');
         wrapper.update();
-        expect(findTrigger(wrapper).prop('data-focused')).toBe(false);
+        expect(findTrigger(wrapper)).toHaveProp('data-focused', false);
       });
     });
   });

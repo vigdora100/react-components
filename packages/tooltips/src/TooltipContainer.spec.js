@@ -39,14 +39,14 @@ describe('TooltipContainer', () => {
     it('should have tabIndex of 0', () => {
       const wrapper = mount(basicExample);
 
-      expect(findTrigger(wrapper).prop('tabIndex')).toBe(0);
+      expect(findTrigger(wrapper)).toHaveProp('tabIndex', 0);
     });
 
     describe('aria-describedby', () => {
       it('should be empty when not visible', () => {
         const wrapper = mount(basicExample);
 
-        expect(findTrigger(wrapper).prop('aria-describedby')).toBe(undefined);
+        expect(findTrigger(wrapper)).toHaveProp('aria-describedby', undefined);
       });
 
       it('should reference tooltip id when visible', () => {
@@ -56,7 +56,7 @@ describe('TooltipContainer', () => {
 
         jest.runOnlyPendingTimers();
         wrapper.update();
-        expect(findTrigger(wrapper).prop('aria-describedby')).toBe('custom-test-id--tooltip');
+        expect(findTrigger(wrapper)).toHaveProp('aria-describedby', 'custom-test-id--tooltip');
       });
     });
 
@@ -65,7 +65,7 @@ describe('TooltipContainer', () => {
         const wrapper = mount(basicExample);
 
         findTrigger(wrapper).simulate('focus');
-        expect(findTooltip(wrapper).parent().prop('aria-hidden')).toBe(true);
+        expect(findTooltip(wrapper).parent()).toHaveProp('aria-hidden', true);
       });
 
       it('should display tooltip after delay when focused', () => {
@@ -75,7 +75,7 @@ describe('TooltipContainer', () => {
 
         jest.runOnlyPendingTimers();
         wrapper.update();
-        expect(findTooltip(wrapper).parent().prop('aria-hidden')).toBe(false);
+        expect(findTooltip(wrapper).parent()).toHaveProp('aria-hidden', false);
       });
     });
 
@@ -88,7 +88,7 @@ describe('TooltipContainer', () => {
 
         jest.runOnlyPendingTimers();
         wrapper.update();
-        expect(findTooltip(wrapper).parent().prop('aria-hidden')).toBe(true);
+        expect(findTooltip(wrapper).parent()).toHaveProp('aria-hidden', true);
       });
     });
 
@@ -97,7 +97,7 @@ describe('TooltipContainer', () => {
         const wrapper = mount(basicExample);
 
         findTrigger(wrapper).simulate('mouseenter');
-        expect(findTooltip(wrapper).parent().prop('aria-hidden')).toBe(true);
+        expect(findTooltip(wrapper).parent()).toHaveProp('aria-hidden', true);
       });
 
       it('should display tooltip after delay when clicked', () => {
@@ -107,7 +107,7 @@ describe('TooltipContainer', () => {
 
         jest.runOnlyPendingTimers();
         wrapper.update();
-        expect(findTooltip(wrapper).parent().prop('aria-hidden')).toBe(false);
+        expect(findTooltip(wrapper).parent()).toHaveProp('aria-hidden', false);
       });
     });
 
@@ -118,11 +118,11 @@ describe('TooltipContainer', () => {
         findTrigger(wrapper).simulate('mouseenter');
         jest.runOnlyPendingTimers();
         wrapper.update();
-        expect(findTooltip(wrapper).parent().prop('aria-hidden')).toBe(false);
+        expect(findTooltip(wrapper).parent()).toHaveProp('aria-hidden', false);
 
         findTrigger(wrapper).simulate('mouseleave');
         wrapper.update();
-        expect(findTooltip(wrapper).parent().prop('aria-hidden')).toBe(false);
+        expect(findTooltip(wrapper).parent()).toHaveProp('aria-hidden', false);
       });
 
       it('should hide tooltip aften delay when mouseleaved', () => {
@@ -133,7 +133,7 @@ describe('TooltipContainer', () => {
 
         jest.runOnlyPendingTimers();
         wrapper.update();
-        expect(findTooltip(wrapper).parent().prop('aria-hidden')).toBe(true);
+        expect(findTooltip(wrapper).parent()).toHaveProp('aria-hidden', true);
       });
     });
   });
@@ -146,7 +146,8 @@ describe('TooltipContainer', () => {
       jest.runOnlyPendingTimers();
       wrapper.update();
 
-      expect(findTooltip(wrapper).prop('id')).toBe('custom-test-id--tooltip');
+
+      expect(findTooltip(wrapper)).toHaveProp('id', 'custom-test-id--tooltip');
     });
 
     it('should not close tooltip if mouseenter during close delay period', () => {
@@ -158,7 +159,7 @@ describe('TooltipContainer', () => {
 
       jest.runOnlyPendingTimers();
       wrapper.update();
-      expect(findTooltip(wrapper).parent().prop('aria-hidden')).toBe(false);
+      expect(findTooltip(wrapper).parent()).toHaveProp('aria-hidden', false);
     });
 
     it('should close tooltip if mouseleaveed', () => {
@@ -171,7 +172,7 @@ describe('TooltipContainer', () => {
 
       jest.runOnlyPendingTimers();
       wrapper.update();
-      expect(findTooltip(wrapper).parent().prop('aria-hidden')).toBe(true);
+      expect(findTooltip(wrapper).parent()).toHaveProp('aria-hidden', true);
     });
   });
 });

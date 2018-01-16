@@ -4,5 +4,10 @@
     "packages/*"
   ],
   "npmClient": "yarn",
-  "version": "independent"
+  "version": "independent",
+  "commands": {
+    "publish": {
+      "skipGit": "true"
+    }
+  }
 }
