@@ -5,55 +5,94 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 const chalk = require('chalk');
 const git = require('simple-git')(path.resolve(__dirname, '..', '..'));
+const changelogPath = path.resolve('CHANGELOG.md');
 const updatedPackage = require(path.resolve('package.json'));
+const CHANGELOG_DELIMITER = '<!-- BEGIN_CHANGELOG -->';
 
-function welcomMessage() {
+function welcomeMessage() {
   const packageName = chalk.red(`(${updatedPackage.name})`);
   const packageVersion = chalk.yellow(`[${updatedPackage.version}]`);
   console.log(chalk.blue(`### Updating changelog of ${packageName} to ${packageVersion} ###`));
 }
 
-function retrieveChangelogContent() {
-  return fs.readFileSync(path.resolve('CHANGELOG.md'), 'utf8');
+function successMessage() {
+  console.log(chalk.green(`### Successfully updated changelog ###`));
 }
 
-let changelogContent = retrieveChangelogContent();
+function retrieveChangelogContent() {
+  return new Promise((resolve, reject) => {
+    fs.readFile(changelogPath, 'utf8', (err, data) => {
+      if (err) {
+        reject(err);
+      }
 
-git.log({ from: 'HEAD', to: 'HEAD~2'}, (err, data) => {
-  console.log(data);
-});
+      resolve(data);
+    });
+  });
+}
 
-// ### [13.10.1] (2017-12-20)
-// - [#447](https://github.com/zendeskgarden/react-components/pull/447) Revert: Add React v16 as a valid peer dependency ([Austin Green](mailto:austingreenkansas@gmail.com))
+function retrieveGitLog() {
+  return new Promise((resolve, reject) => {
+    git.log({ from: 'HEAD', to: 'HEAD~2'}, (err, data) => {
+      if (err) {
+        reject(err);
+      }
 
-// Content goes here
+      resolve(data);
+    });
+  });
+}
 
-// inquirer.prompt([{
-//   type: 'input',
-//   name: 'title',
-//   message: 'Changelog Title',
-//   default: '[#447](https://github.com/zendeskgarden/react-components/pull/447) Revert: Add React v16 as a valid peer dependency ([Austin Green](mailto:austingreenkansas@gmail.com))'
-// }, {
-//   type: 'input',
-//   name: 'content',
-//   message: 'Changelog Content'
-// }])
-//   .then(answers => {
-//     console.log(answers);
-//     console.log(changelogContent);
-//   });
+function formatNewChangelogText(changelogContent, gitLog) {
+  const commitMeta = gitLog.all[1];
+  // const defaultTitle = `### [${updatedPackage.version}](https://github.com/zendeskgarden/react-components/commit/${commitMeta.hash}) ${commitMeta.message} ([${commitMeta.author_name}](mailto:${commitMeta.author_email}))`;
 
-// function (err,data) {
-//   if (err) {
-//     return console.log(err);
-//   }
-//   var result = data.replace(/string to be replaced/g, 'replacement');
+  return inquirer.prompt([{
+    type: 'input',
+    name: 'title',
+    message: 'Changelog Title',
+    default: commitMeta.message
+  }, {
+    type: 'input',
+    name: 'content',
+    message: 'Changelog Content (optional)'
+  }])
+    .then(({ title, content }) => {
+      const packageVersion = updatedPackage.version;
+      const commitDate = commitMeta.date.split(' ')[0];
+      const author = `([${commitMeta.author_name}](mailto:${commitMeta.author_email}))`;
 
-//   fs.writeFile(someFile, result, 'utf8', function (err) {
-//      if (err) return console.log(err);
-//   });
-// }
+      let newChangelogContent = `${CHANGELOG_DELIMITER}
 
-// console.log(updatedPackage);
+## ${packageVersion} (${commitDate})
 
+${title} ${author}
+`;
 
+      if (content) {
+        newChangelogContent += `\n\n- ${content}`;
+      }
+      newChangelogContent += '\n';
+
+      return changelogContent.replace(CHANGELOG_DELIMITER, newChangelogContent);
+    });
+}
+
+function writeNewChangelog(newChangelogContent) {
+  return new Promise((resolve, reject) => {
+    fs.writeFile(changelogPath, newChangelogContent, err => {
+      if (err) {
+        reject(err);
+      }
+
+      resolve();
+    });
+  });
+}
+
+welcomeMessage();
+
+Promise.all([retrieveChangelogContent(), retrieveGitLog()])
+  .then(data => formatNewChangelogText(data[0], data[1]))
+  .then(writeNewChangelog)
+  .then(successMessage);

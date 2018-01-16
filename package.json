@@ -20,9 +20,9 @@
     "styleguide": "lerna run build:styleguide --stream --concurrency=2 && npm run styleguide:publish",
     "styleguide:single": "node ./utils/scripts/scoped-npm-command --script styleguide",
     "styleguide:publish": "gh-pages --dist demo --dest micro",
-    "tag": "lerna publish",
+    "tag": "npm run tag:test && lerna publish && npm run tag:changelog",
     "tag:test": "npm run lint && npm run test:travis && npm run build",
-    "tag:changelog": "lerna exec --concurrency 1 --since HEAD~1 -- ../../utils/scripts/update-changelog.js",
+    "tag:changelog": "lerna exec --concurrency 1 --since HEAD~1 -- ../../utils/scripts/update-changelog.js && echo 'testinggg'",
     "travis": "npm run publish:test && yarn lerna exec -- \"npm publish ./dist\" --since=HEAD~1 --bail=false --ignore=styleguide"
   },
   "devDependencies": {
