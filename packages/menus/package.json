@@ -10,7 +10,7 @@
   "publishConfig": {
     "registry": "http://localhost:4873"
   },
-  "version": "0.0.8",
+  "version": "0.0.9",
   "main": "./index.js",
   "scripts": {
     "start": "../../utils/scripts/start.sh",
@@ -22,8 +22,8 @@
     "@zendesk/garden-css-arrows": "^1.0.1",
     "@zendesk/garden-css-menus": "^5.0.1",
     "classnames": "^2.2.5",
-    "garden-react-selection": "^0.0.11",
-    "garden-react-theming": "^0.0.11",
+    "garden-react-selection": "^0.0.12",
+    "garden-react-theming": "^0.0.12",
     "prop-types": "^15.6.0",
     "react-popper": "^0.7.5",
     "styled-components": "^2.3.3"
