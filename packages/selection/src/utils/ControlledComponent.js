@@ -1,6 +1,5 @@
 import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-console.log('test');
 
 /** @component */
 export default class ControlledComponent extends PureComponent {
