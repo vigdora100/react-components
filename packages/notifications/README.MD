@@ -1,21 +1,22 @@
-# @zendeskgarden/react-notifications
+# @zendesk/garden-react-notifications
 
-The Notification components include several variaties of notifications within the Zendesk Garden Design System.
+The components include several variaties of notifications within the Zendesk Garden Design System.
 
 ## Installation
 
 ```bash
 # Yarn
-yarn add @zendeskgarden/react-notifications
+yarn add @zendesk/garden-react-notifications
 
 # NPM
-npm install --save @zendeskgarden/react-notifications
+npm install --save @zendesk/garden-react-notifications
 ```
 
 ## Usage
 
 ```jsx static
-import { Notification, Title } from '@zendeskgarden/react-notifications';
+import Notification from '@zendesk/garden-react-notifications/Notifications';
+import Title from '@zendesk/garden-react-notifications/Title';
 
 <Notification>
   <Title>Example Title</Title>

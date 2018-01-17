@@ -1,1 +1,1 @@
-Styled `<div>` for use a Callout titles.
+Styled `<div>` for use a Notification titles.

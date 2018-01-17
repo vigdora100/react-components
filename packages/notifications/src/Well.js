@@ -4,21 +4,29 @@ import classNames from 'classnames';
 import CalloutStyles from '@zendesk/garden-css-callouts';
 import { retrieveTheme, isRtl } from 'garden-react-theming';
 
-const Notification = styled.div.attrs({
+const Well = styled.div.attrs({
   className: props => classNames(CalloutStyles['c-callout'], {
+    // RTL
     [CalloutStyles['is-rtl']]: isRtl(props),
+
+    // Styles
     [CalloutStyles['c-callout--recessed']]: props.recessed,
+
+    // Validation types
     [CalloutStyles['c-callout--success']]: props.success,
     [CalloutStyles['c-callout--warning']]: props.warning,
     [CalloutStyles['c-callout--error']]: props.error,
   })
 })`
-  ${props => retrieveTheme('callout.callout', props)}
+  ${props => retrieveTheme('notifications.well', props)}
 `;
 
-Notification.propTypes = {
-  recessed: PropTypes.bool
+Well.propTypes = {
+  recessed: PropTypes.bool,
+  success: PropTypes.bool,
+  warning: PropTypes.bool,
+  error: PropTypes.bool
 };
 
 /** @component */
-export default Notification;
+export default Well;

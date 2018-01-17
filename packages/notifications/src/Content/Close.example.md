@@ -1,1 +1,1 @@
-Styled `<button>` for closing a Callout.
+Styled `<button>` for closing a notification.

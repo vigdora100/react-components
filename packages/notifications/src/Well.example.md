@@ -1,32 +1,34 @@
+The `<Paragraph>` component should be used to wrap multi-line content within a `<Well>`. Otherwise, no wrapper is necessary.
+
 Content combinations:
 
 ```jsx
 <Grid columns={1} stretched>
-  <DialogNotification>
-    <Title>DialogNotification: Standard (Multi-line)</Title>
+  <Well>
+    <Title>Well: Standard (Multi-line)</Title>
     <Paragraph>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
     </Paragraph>
-  </DialogNotification>
+  </Well>
   <Grid columns={2} stretched>
-    <DialogNotification>
-      <Title>DialogNotification: Standard (One-line)</Title>
+    <Well>
+      <Title>Well: Standard (One-line)</Title>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </DialogNotification>
-    <DialogNotification>
+    </Well>
+    <Well>
       <Close />
-      <Title>DialogNotification: Standard (Closable)</Title>
+      <Title>Well: Standard (Closable)</Title>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </DialogNotification>
-    <DialogNotification recessed>
-      <Title>Recessed DialogNotification: Standard (One-line)</Title>
+    </Well>
+    <Well recessed>
+      <Title>Recessed Well: Standard (One-line)</Title>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </DialogNotification>
-    <DialogNotification recessed>
+    </Well>
+    <Well recessed>
       <Close />
-      <Title>Recessed DialogNotification: Standard (Closable)</Title>
+      <Title>Recessed Well: Standard (Closable)</Title>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </DialogNotification>
+    </Well>
   </Grid>
 </Grid>
 ```
@@ -35,20 +37,20 @@ Validaton types:
 
 ```jsx
 <Grid columns={3} stretched>
-  <DialogNotification success>
+  <Well success>
     <Close />
-    <Title>Success DialogNotification</Title>
+    <Title>Success Well</Title>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-  </DialogNotification>
-  <DialogNotification warning>
+  </Well>
+  <Well warning>
     <Close />
-    <Title>Warning DialogNotification</Title>
+    <Title>Warning Well</Title>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-  </DialogNotification>
-  <DialogNotification error>
+  </Well>
+  <Well error>
     <Close />
-    <Title>Error DialogNotification</Title>
+    <Title>Error Well</Title>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-  </DialogNotification>
+  </Well>
 </Grid>
 ```

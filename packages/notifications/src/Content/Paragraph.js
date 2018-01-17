@@ -6,7 +6,7 @@ import { retrieveTheme } from 'garden-react-theming';
 const Paragraph = styled.div.attrs({
   className: classNames(CalloutStyles['c-callout__paragraph'])
 })`
-  ${props => retrieveTheme('callout.content', props)}
+  ${props => retrieveTheme('notifications.paragraph', props)}
 `;
 /** @component */
 export default Paragraph;

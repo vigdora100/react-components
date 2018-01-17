@@ -10,7 +10,7 @@ const Close = styled.button.attrs({
     [CalloutStyles['is-hovered']]: props.hovered
   })
 })`
-  ${props => retrieveTheme('callout.close', props)}
+  ${props => retrieveTheme('notifications.close', props)}
 `;
 
 Close.propTypes = {

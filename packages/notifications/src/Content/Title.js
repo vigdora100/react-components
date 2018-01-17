@@ -6,7 +6,7 @@ import { retrieveTheme } from 'garden-react-theming';
 const Title = styled.div.attrs({
   className: classNames(CalloutStyles['c-callout__title'])
 })`
-  ${props => retrieveTheme('callout.title', props)}
+  ${props => retrieveTheme('notifications.title', props)}
 `;
 
 /** @component */

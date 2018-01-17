@@ -1,34 +1,32 @@
-The `<Paragraph>` component should be used to wrap multi-line content within a `<Notification>`. Otherwise, no wrapper is necessary.
-
 Content combinations:
 
 ```jsx
 <Grid columns={1} stretched>
-  <Notification>
-    <Title>Notification: Standard (Multi-line)</Title>
+  <Alert>
+    <Title>Alert: Standard (Multi-line)</Title>
     <Paragraph>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
     </Paragraph>
-  </Notification>
+  </Alert>
   <Grid columns={2} stretched>
-    <Notification>
-      <Title>Notification: Standard (One-line)</Title>
+    <Alert>
+      <Title>Alert: Standard (One-line)</Title>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </Notification>
-    <Notification>
+    </Alert>
+    <Alert>
       <Close />
-      <Title>Notification: Standard (Closable)</Title>
+      <Title>Alert: Standard (Closable)</Title>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </Notification>
-    <Notification recessed>
-      <Title>Recessed Notification: Standard (One-line)</Title>
+    </Alert>
+    <Alert recessed>
+      <Title>Recessed Alert: Standard (One-line)</Title>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </Notification>
-    <Notification recessed>
+    </Alert>
+    <Alert recessed>
       <Close />
-      <Title>Recessed Notification: Standard (Closable)</Title>
+      <Title>Recessed Alert: Standard (Closable)</Title>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </Notification>
+    </Alert>
   </Grid>
 </Grid>
 ```
@@ -37,20 +35,20 @@ Validaton types:
 
 ```jsx
 <Grid columns={3} stretched>
-  <Notification success>
+  <Alert success>
     <Close />
-    <Title>Success Notification</Title>
+    <Title>Success Alert</Title>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-  </Notification>
-  <Notification warning>
+  </Alert>
+  <Alert warning>
     <Close />
-    <Title>Warning Notification</Title>
+    <Title>Warning Alert</Title>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-  </Notification>
-  <Notification error>
+  </Alert>
+  <Alert error>
     <Close />
-    <Title>Error Notification</Title>
+    <Title>Error Alert</Title>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-  </Notification>
+  </Alert>
 </Grid>
 ```

@@ -1,1 +1,1 @@
-Styled `<div>` for multi-line Callout content.
+Styled `<div>` for multi-line Notification content.
