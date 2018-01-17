@@ -10,7 +10,7 @@
   "publishConfig": {
     "registry": "http://localhost:4873"
   },
-  "version": "0.0.4",
+  "version": "0.1.0",
   "main": "./index.js",
   "scripts": {
     "start": "../../utils/scripts/start.sh",
@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
-    "garden-react-theming": "*",
+    "garden-react-theming": "^0.1.0",
     "prop-types": "^15.6.0",
     "styled-components": "^2.3.3"
   },
