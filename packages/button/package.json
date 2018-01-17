@@ -10,7 +10,7 @@
   "publishConfig": {
     "registry": "http://localhost:4873"
   },
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "./index.js",
   "scripts": {
     "start": "../../utils/scripts/start.sh",
