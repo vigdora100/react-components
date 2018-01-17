@@ -9,7 +9,7 @@ const defaultStyleguideConfig = {
   title: 'Zendesk Garden',
   skipComponentsWithoutExample: false,
   serverPort: 5000,
-  styleguideDir: `../../demo/iframes/${basePathName}`,
+  styleguideDir: `../../demo/components/${basePathName}`,
   showUsage: true,
   compilerConfig: {
     transforms: {

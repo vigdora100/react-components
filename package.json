@@ -18,7 +18,7 @@
     "lint:single": "node ./utils/scripts/scoped-npm-command --script lint",
     "test": "jest --watch --config=utils/test/jest.config.js",
     "test:travis": "jest --runInBand --config=utils/test/jest.config.js",
-    "styleguide": "lerna run build:styleguide --stream --concurrency=2 && npm run styleguide:publish",
+    "styleguide": "lerna run build:styleguide --stream --concurrency=2",
     "styleguide:single": "node ./utils/scripts/scoped-npm-command --script styleguide",
     "styleguide:publish": "gh-pages --dist demo --dest micro",
     "tag": "lerna publish --conventional-commits --skip-npm",
