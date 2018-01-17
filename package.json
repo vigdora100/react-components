@@ -21,10 +21,10 @@
     "styleguide": "lerna run build:styleguide --stream --concurrency=2",
     "styleguide:single": "node ./utils/scripts/scoped-npm-command --script styleguide",
     "styleguide:publish": "gh-pages --dist demo --dest micro",
-    "tag": "lerna publish --conventional-commits --skip-npm",
-    "tag:test1": "npm run lint && npm run test:travis && npm run build",
-    "tag:changelog1": "lerna exec --concurrency 1 --ignore styleguide --since HEAD~1 -- ../../utils/scripts/update-changelog.js && echo 'testinggg'",
-    "travis": "npm run publish:test && yarn lerna exec -- \"npm publish ./dist\" --since=HEAD~1 --bail=false --ignore=styleguide"
+    "publish": "lerna publish --conventional-commits --skip-npm",
+    "publish:test": "npm run lint && npm run test:travis && npm run build",
+    "publish:changelog1": "lerna exec --concurrency 1 --since HEAD~1 -- ../../utils/scripts/update-changelog.js && echo 'testinggg'",
+    "travis": "npm run publish:test && yarn lerna exec -- \"npm publish ./dist\" --since=HEAD~1 --bail=false"
   },
   "config": {
     "commitizen": {
