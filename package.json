@@ -8,7 +8,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "postinstall1": "npm run bootstrap",
+    "postinstall": "npm run bootstrap",
     "bootstrap": "lerna exec -- git clean -Xdf . && lerna bootstrap --concurrency=2",
     "commit": "git-cz",
     "start": "node ./utils/scripts/scoped-npm-command --script start",
@@ -23,7 +23,6 @@
     "styleguide:publish": "gh-pages --dist demo --dest micro",
     "publish": "lerna publish --conventional-commits --skip-npm",
     "publish:test": "npm run lint && npm run test:travis && npm run build",
-    "publish:changelog1": "lerna exec --concurrency 1 --since HEAD~1 -- ../../utils/scripts/update-changelog.js && echo 'testinggg'",
     "travis": "npm run publish:test && yarn lerna exec -- \"npm publish ./dist\" --since=HEAD~1 --bail=false"
   },
   "config": {
