@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render default close styling 1`] = `
+<button
+  className="Close-hpSOeC c-callout__close fyEEYD"
+/>
+`;
+
+exports[`state should render focused styling correctly 1`] = `
+<button
+  className="Close-hpSOeC c-callout__close is-focused fyEEYD"
+/>
+`;
+
+exports[`state should render hovered styling correctly 1`] = `
+<button
+  className="Close-hpSOeC c-callout__close is-hovered fyEEYD"
+/>
+`;

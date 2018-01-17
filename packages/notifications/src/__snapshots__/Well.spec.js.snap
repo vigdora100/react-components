@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should apply RTL styling styling if applied 1`] = `
+<div
+  className="Well-kOxQyt c-callout is-rtl ikqmIv"
+/>
+`;
+
+exports[`should render default well styling 1`] = `
+<div
+  className="Well-kOxQyt c-callout ikqmIv"
+/>
+`;
+
+exports[`validation should render error styling correctly 1`] = `
+<div
+  className="Well-kOxQyt c-callout c-callout--error ikqmIv"
+/>
+`;
+
+exports[`validation should render success styling correctly 1`] = `
+<div
+  className="Well-kOxQyt c-callout c-callout--success ikqmIv"
+/>
+`;
+
+exports[`validation should render warning styling correctly 1`] = `
+<div
+  className="Well-kOxQyt c-callout c-callout--warning ikqmIv"
+/>
+`;

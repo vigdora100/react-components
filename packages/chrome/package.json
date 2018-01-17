@@ -15,8 +15,7 @@
   "scripts": {
     "start": "../../utils/scripts/start.sh",
     "build": "../../utils/scripts/build.sh",
-    "build:styleguide": "../../utils/scripts/build-styleguide.sh",
-    "lint": "../../utils/scripts/lint.sh"
+    "build:styleguide": "../../utils/scripts/build-styleguide.sh"
   },
   "dependencies": {
     "@zendesk/garden-css-chrome": "^1.0.0",

@@ -3,10 +3,10 @@ module.exports = {
   "setupTestFrameworkScriptFile": "<rootDir>/utils/test/jest.setup.js",
   // "projects": ["<rootDir>/packages/*"],
   "moduleNameMapper": {
-    "\\.(css)$": "<rootDir>/utils/test/styleMock.js",
+    "\\.(css)$": "identity-obj-proxy",
     "^utils": "<rootDir>/utils/test/jest.utils.js"
   },
-  "modulePathIgnorePatterns": ["dist"],
+  "modulePathIgnorePatterns": ['packages\/.[a-z]*\/dist'],
   "transform": {
     "^.+\\.js$": "babel-jest"
   },

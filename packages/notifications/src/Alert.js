@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import CalloutStyles from '@zendesk/garden-css-callouts';
+import CalloutStyles from '@zendesk/garden-css-callouts/dist/index.css';
 import { retrieveTheme } from 'garden-react-theming';
 
 import Well from './Well';
