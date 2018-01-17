@@ -8,8 +8,9 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "postinstall": "npm run bootstrap",
+    "postinstall1": "npm run bootstrap",
     "bootstrap": "lerna exec -- git clean -Xdf . && lerna bootstrap --concurrency=2",
+    "commit": "git-cz",
     "start": "node ./utils/scripts/scoped-npm-command --script start",
     "build": "lerna run build --stream",
     "build:single": "node ./utils/scripts/scoped-npm-command --script build",
@@ -20,10 +21,15 @@
     "styleguide": "lerna run build:styleguide --stream --concurrency=2 && npm run styleguide:publish",
     "styleguide:single": "node ./utils/scripts/scoped-npm-command --script styleguide",
     "styleguide:publish": "gh-pages --dist demo --dest micro",
-    "tag": "lerna publish --skip-git --skip-npm",
+    "tag": "lerna publish --conventional-commits --skip-npm",
     "tag:test1": "npm run lint && npm run test:travis && npm run build",
     "tag:changelog1": "lerna exec --concurrency 1 --ignore styleguide --since HEAD~1 -- ../../utils/scripts/update-changelog.js && echo 'testinggg'",
     "travis": "npm run publish:test && yarn lerna exec -- \"npm publish ./dist\" --since=HEAD~1 --bail=false --ignore=styleguide"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-lerna-changelog"
+    }
   },
   "devDependencies": {
     "@zendesk/garden-svg-icons": "^2.5.0",
@@ -40,6 +46,8 @@
     "babel-preset-stage-0": "^6.24.1",
     "chalk": "^2.3.0",
     "commander": "^2.12.2",
+    "commitizen": "^2.9.6",
+    "cz-lerna-changelog": "^1.2.1",
     "del": "^3.0.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
