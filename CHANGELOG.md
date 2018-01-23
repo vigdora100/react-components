@@ -1,3 +1,8 @@
+### v13.10.5 (2018-01-23)
+
+- [#463](https://github.com/zendeskgarden/react-components/pull/463) Allow Toggle to receive focus styling on first keyboard focus ([Austin Green](mailto:austingreenkansas@gmail.com))
+- [#461](https://github.com/zendeskgarden/react-components/pull/461) Support inline publishing of @next documentation ([Austin Green](mailto:austingreenkansas@gmail.com))
+
 ### v13.10.4 (2018-01-22)
 
 - [#460](https://github.com/zendeskgarden/react-components/pull/460) Fix typo in passing placeholderText from <MultiSelect /> to <TextInput.Core /> ([Sune Simonsen](mailto:sune@we-knowhow.dk))
@@ -337,6 +342,9 @@
 
 - [#265](https://github.com/zendeskgarden/react-components/pull/265) Ellipsis: Add support for rich content in title/tooltips ([Marc Høegh](mailto:Anifacted@users.noreply.github.com))
 - [#262](https://github.com/zendeskgarden/react-components/pull/262) Reformat the rest of the files ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+
+### v8.1.1 (2017-08-15)
+
 - [#260](https://github.com/zendeskgarden/react-components/pull/260) Bump version of css-labels to allow for ellipsis overflows ([Austin Green](mailto:austingreenkansas@gmail.com))
 
 ### v8.1.0 (2017-08-14)
