@@ -20,6 +20,7 @@
     "stylelint": "stylelint `find src -name '*.css'`",
     "test": "jest --watch",
     "travis:before_deploy": "styleguidist build",
+    "travis:gh-pages": "./publish-gh-pages.js",
     "travis:script": "npm run stylelint && npm run eslint && npm run jest",
     "preversion": "git pull && npm run travis:script",
     "version": "npm run build && git add -A lib",
