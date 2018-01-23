@@ -45,6 +45,8 @@ export default class Toggle extends ThemedComponent {
       "39": this.onArrowRight
     };
 
+    this.keyboard = true;
+
     this.state = {
       focused: false
     };

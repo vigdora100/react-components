@@ -175,6 +175,35 @@ describe("Toggle", () => {
       });
     });
   });
+
+  describe("when unfocused", () => {
+    it("gains focus when input is focused with keyboard", () => {
+      return expect(
+        <Toggle checked>Toggle me!</Toggle>,
+        "when deeply rendered",
+        "with event",
+        "focus",
+        "on",
+        <input />
+      ).then(({ state }) => expect(state, "to satisfy", { focused: true }));
+    });
+
+    it("does not gain focus when input is focused with mouse", () => {
+      return expect(
+        <Toggle checked>Toggle me!</Toggle>,
+        "when deeply rendered",
+        "with event",
+        "mouseUp",
+        "on",
+        <label />
+      )
+        .then(toggle => {
+          return expect(toggle, "with event", "focus", "on", <input />);
+        })
+        .then(({ state }) => expect(state, "to satisfy", { focused: false }));
+    });
+  });
+
   describe("when focused", () => {
     it("loses focused when onBlur is called on input", () => {
       return expect(
