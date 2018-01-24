@@ -37,6 +37,16 @@ describe("Callout", () => {
     });
   });
 
+  describe("when floating", () => {
+    it("renders with floating styling", () => {
+      return expect(
+        <Callout floating>test</Callout>,
+        "to render as",
+        <View className="default floating">test</View>
+      );
+    });
+  });
+
   describe("when given a onClose handler", () => {
     it("renders a remove button with the given handler", () => {
       const onClose = () => {};
