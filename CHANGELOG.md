@@ -1,3 +1,7 @@
+### v13.11.0 (2018-01-24)
+
+- [#464](https://github.com/zendeskgarden/react-components/pull/464) Callout: Add floating prop ([Austin Green](mailto:austingreenkansas@gmail.com))
+
 ### v13.10.5 (2018-01-23)
 
 - [#463](https://github.com/zendeskgarden/react-components/pull/463) Allow Toggle to receive focus styling on first keyboard focus ([Austin Green](mailto:austingreenkansas@gmail.com))
