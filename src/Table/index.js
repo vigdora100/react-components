@@ -15,6 +15,7 @@ import KEY_CODES from "../utils/keyCodes.js";
 import retrieveStandardColumn from "./Column.js";
 import retrieveCheckboxColumn from "./CheckboxColumn.js";
 import retrieveMenuColumn from "./MenuColumn.js";
+import OverflowMenu from "./OverflowMenu.js";
 import {
   headerRowRenderer,
   rowRenderer as defaultRowRenderer,
@@ -31,6 +32,7 @@ export default class Table extends ThemedComponent {
   static Column = GardenColumn;
   static CheckboxColumn = GardenCheckboxColumn;
   static MenuColumn = GardenMenuColumn;
+  static OverflowMenu = OverflowMenu;
 
   static propTypes = {
     striped: PropTypes.bool,

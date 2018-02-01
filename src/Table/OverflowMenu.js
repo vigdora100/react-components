@@ -1,14 +1,15 @@
-import React, { Component } from "react";
+import React from "react";
+import ThemedComponent from "../utils/theming/ThemedComponent";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
 import Button from "../Button";
 import Menu from "../Menu";
+import styles from "./styles.css";
 
-export default class OverflowMenu extends Component {
+export default class OverflowMenu extends ThemedComponent {
   static propTypes = {
     isFocusable: PropTypes.bool,
-    theme: PropTypes.object.isRequired,
     children: PropTypes.node.isRequired,
     dir: PropTypes.oneOf(["ltr", "rtl"]),
     onOpen: PropTypes.func,
@@ -25,7 +26,10 @@ export default class OverflowMenu extends Component {
   };
 
   constructor(props, context) {
-    super(props, context);
+    super(props, context, {
+      namespace: "Table",
+      styles
+    });
 
     this.state = {
       isFocused: false
@@ -33,9 +37,9 @@ export default class OverflowMenu extends Component {
   }
 
   render() {
+    const { theme } = this;
     const {
       isFocusable,
-      theme,
       children,
       dir,
       onOpen,
@@ -47,7 +51,9 @@ export default class OverflowMenu extends Component {
     } = this.props;
     const { isFocused } = this.state;
 
-    const trigger = ({ open }) =>
+    const trigger = (
+      { open } // eslint-disable-line react/prop-types
+    ) =>
       <Button.Core
         className={classNames(theme.overflow_menu, {
           [theme.is_focused]: isFocused && !open,

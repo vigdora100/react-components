@@ -44,7 +44,6 @@ const MenuColumn = ({
       headerMenuItems &&
       <OverflowMenu
         isFocusable
-        theme={theme}
         dir={dir}
         marginTop={headerMenuMargin}
         marginBottom={headerMenuMargin}
@@ -64,7 +63,6 @@ const MenuColumn = ({
       rowMenuItems &&
       <OverflowMenu
         isFocusable={rowIndex === focusedRow}
-        theme={theme}
         dir={dir}
         onOpen={() => onRowFocus(rowIndex, true)}
         onClose={() => onRowFocus(rowIndex, true)}
