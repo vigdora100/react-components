@@ -1,3 +1,7 @@
+### v13.12.2 (2018-02-02)
+
+- [#472](https://github.com/zendeskgarden/react-components/pull/472) Table: Bump CSS dependency to fix text-overflow in sortable headers ([Jonathan Zempel](mailto:jzempel@gmail.com))
+
 ### v13.12.1 (2018-02-02)
 
 - [#470](https://github.com/zendeskgarden/react-components/pull/470) Adding a guard for when the popup is blocked by the browser ([Sune Simonsen](mailto:sune@we-knowhow.dk))
