@@ -1,3 +1,7 @@
+### v13.12.1 (2018-02-02)
+
+- [#470](https://github.com/zendeskgarden/react-components/pull/470) Adding a guard for when the popup is blocked by the browser ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+
 ### v13.11.0 (2018-01-24)
 
 - [#464](https://github.com/zendeskgarden/react-components/pull/464) Callout: Add floating prop ([Austin Green](mailto:austingreenkansas@gmail.com))
@@ -346,9 +350,6 @@
 
 - [#265](https://github.com/zendeskgarden/react-components/pull/265) Ellipsis: Add support for rich content in title/tooltips ([Marc Høegh](mailto:Anifacted@users.noreply.github.com))
 - [#262](https://github.com/zendeskgarden/react-components/pull/262) Reformat the rest of the files ([Sune Simonsen](mailto:sune@we-knowhow.dk))
-
-### v8.1.1 (2017-08-15)
-
 - [#260](https://github.com/zendeskgarden/react-components/pull/260) Bump version of css-labels to allow for ellipsis overflows ([Austin Green](mailto:austingreenkansas@gmail.com))
 
 ### v8.1.0 (2017-08-14)
