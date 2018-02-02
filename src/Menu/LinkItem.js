@@ -83,7 +83,9 @@ export default Selectable(LinkItem, {
     const openInNewWindow = event.ctrlKey || event.metaKey;
 
     const newWindow = window.open(href, openInNewWindow ? "_blank" : target);
-    newWindow.opener = null;
+    if (newWindow) {
+      newWindow.opener = null;
+    }
   },
   selectEvent: "onClick",
   preventDefault: true
