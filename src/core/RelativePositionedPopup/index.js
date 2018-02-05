@@ -46,10 +46,11 @@ const getDocuments = () => {
   return Array.from(iframes).reduce(
     (documents, iframe) => {
       try {
-        return documents.concat(iframe.contentDocument);
-      } catch (e) {
-        return documents;
-      }
+        if (iframe.contentDocument) {
+          return documents.concat(iframe.contentDocument);
+        }
+      } catch (e) {}
+      return documents;
     },
     [document]
   );
