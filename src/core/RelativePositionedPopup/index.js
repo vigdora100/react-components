@@ -40,26 +40,20 @@ const rtlMapping = {
   top_right: "top_left"
 };
 
-const getCurrentOrigin = () => {
-  const location = window.location;
-  const origin = location.origin || location.protocol + "//" + location.host;
-
-  return origin;
-};
-
-const isIFrameOfCurrentOrigin = iframe => {
-  const origin = getCurrentOrigin();
-  return !iframe.src || iframe.src.indexOf(origin) === 0;
-};
-
 const getDocuments = () => {
   const iframes = document.querySelectorAll("iframe");
 
-  const iframeDocuments = Array.from(iframes)
-    .filter(isIFrameOfCurrentOrigin)
-    .map(iframe => iframe.contentDocument);
-
-  return [document, ...iframeDocuments];
+  return Array.from(iframes).reduce(
+    (documents, iframe) => {
+      try {
+        if (iframe.contentDocument) {
+          return documents.concat(iframe.contentDocument);
+        }
+      } catch (e) {}
+      return documents;
+    },
+    [document]
+  );
 };
 
 class RelativePositionedPopup extends Component {
