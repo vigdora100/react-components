@@ -1,3 +1,7 @@
+### v13.12.3 (2018-02-06)
+
+- [#471](https://github.com/zendeskgarden/react-components/pull/471) More effective way finding non-blocked documents in the page ([Luis Almeida](mailto:lmg.almeida@gmail.com))
+
 ### v13.12.2 (2018-02-02)
 
 - [#472](https://github.com/zendeskgarden/react-components/pull/472) Table: Bump CSS dependency to fix text-overflow in sortable headers ([Jonathan Zempel](mailto:jzempel@gmail.com))
