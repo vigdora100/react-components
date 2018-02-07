@@ -3,7 +3,7 @@
   "description": "Shared React components",
   "license": "UNLICENSED",
   "repository": "zendeskgarden/react-components",
-  "version": "13.12.3",
+  "version": "13.13.0",
   "main": "./lib",
   "files": [
     "lib",
