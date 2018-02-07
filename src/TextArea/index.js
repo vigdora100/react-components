@@ -40,6 +40,7 @@ export default class TextArea extends ThemedComponent {
     onPaste: PropTypes.func,
     placeholder: PropTypes.string,
     resizable: PropTypes.bool,
+    readOnly: PropTypes.bool,
     size: PropTypes.oneOf(["small", "medium"]),
     tabIndex: PropTypes.number,
     testId: PropTypes.string,

@@ -113,6 +113,21 @@ initialState={ value: '' };
 </Grid>
 ```
 
+Readonly:
+
+```
+initialState={ value: 'This value is readonly' };
+
+<Grid columns={1} stretched>
+  <TextArea
+    readOnly
+    onChange={ (value) => setState({ value }) }
+    placeholder='Write something'
+    value={ state.value }
+  />
+</Grid>
+```
+
 ### Uncontrolled component
 
 By not providing a `value` prop, the component becomes "uncontrolled" (Read more [here](https://facebook.github.io/react/docs/uncontrolled-components.html)). To pass an

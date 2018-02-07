@@ -28,6 +28,7 @@ export default class Core extends Component {
     onPaste: PropTypes.func,
     placeholder: PropTypes.string,
     rows: PropTypes.number,
+    readOnly: PropTypes.bool,
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
     value: PropTypes.string
@@ -65,6 +66,7 @@ export default class Core extends Component {
       onKeyDown,
       onPaste,
       placeholder,
+      readOnly,
       rows,
       tabIndex,
       testId,
@@ -105,6 +107,7 @@ export default class Core extends Component {
       },
       onPaste,
       placeholder,
+      readOnly,
       rows,
       tabIndex,
       value
