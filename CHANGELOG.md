@@ -1,3 +1,7 @@
+### v13.13.2 (2018-02-08)
+
+- [#480](https://github.com/zendeskgarden/react-components/pull/480) Avoid scrolling the page right and left when toggling ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+
 ### v13.13.1 (2018-02-08)
 
 - [#479](https://github.com/zendeskgarden/react-components/pull/479) This fixes link menu item selection ([Sune Simonsen](mailto:sune@we-knowhow.dk))
