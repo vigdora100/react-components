@@ -1,3 +1,7 @@
+### v13.13.1 (2018-02-08)
+
+- [#479](https://github.com/zendeskgarden/react-components/pull/479) This fixes link menu item selection ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+
 ### v13.12.3 (2018-02-06)
 
 - [#471](https://github.com/zendeskgarden/react-components/pull/471) More effective way finding non-blocked documents in the page ([Luis Almeida](mailto:lmg.almeida@gmail.com))
@@ -358,9 +362,6 @@
 
 - [#265](https://github.com/zendeskgarden/react-components/pull/265) Ellipsis: Add support for rich content in title/tooltips ([Marc Høegh](mailto:Anifacted@users.noreply.github.com))
 - [#262](https://github.com/zendeskgarden/react-components/pull/262) Reformat the rest of the files ([Sune Simonsen](mailto:sune@we-knowhow.dk))
-
-### v8.1.1 (2017-08-15)
-
 - [#260](https://github.com/zendeskgarden/react-components/pull/260) Bump version of css-labels to allow for ellipsis overflows ([Austin Green](mailto:austingreenkansas@gmail.com))
 
 ### v8.1.0 (2017-08-14)
