@@ -1,3 +1,7 @@
+### v13.14.0 (2018-02-08)
+
+- [#477](https://github.com/zendeskgarden/react-components/pull/477) React 16 support ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+
 ### v13.13.2 (2018-02-08)
 
 - [#480](https://github.com/zendeskgarden/react-components/pull/480) Avoid scrolling the page right and left when toggling ([Sune Simonsen](mailto:sune@we-knowhow.dk))
