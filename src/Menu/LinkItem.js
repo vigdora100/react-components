@@ -19,7 +19,9 @@ class LinkItem extends ThemedComponent {
     role: PropTypes.string,
     selected: PropTypes.bool,
     testId: PropTypes.string,
+    title: PropTypes.string,
     href: PropTypes.string.isRequired,
+    selectedByMouse: PropTypes.bool,
     target: PropTypes.oneOf(["_self", "_blank", "_parent", "_top"])
   };
 
@@ -49,16 +51,23 @@ class LinkItem extends ThemedComponent {
       testId,
       href,
       target,
-      className
+      className,
+      selectedByMouse
     } = this.props;
+
     const { theme } = this;
+
+    const accessibilityProps = {
+      "aria-activedescendant": selected,
+      "aria-disabled": disabled
+    };
 
     return (
       <a
-        aria-activedescendant={selected}
-        aria-disabled={disabled}
+        {...accessibilityProps}
         className={classNames(theme.item, className, {
           [theme.disabled]: disabled,
+          [theme.focused]: selected && !selectedByMouse,
           [theme.selected]: selected
         })}
         disabled={disabled}
