@@ -58,7 +58,7 @@ export default class Toggle extends ThemedComponent {
     onChange && onChange(event.target.checked);
   };
 
-  onArrowLeft = () => {
+  onArrowLeft = e => {
     const { onChange } = this.props;
     const { checked } = this.input;
 
@@ -66,9 +66,11 @@ export default class Toggle extends ThemedComponent {
       this.input.checked = false;
       onChange && onChange(false);
     }
+
+    e.preventDefault();
   };
 
-  onArrowRight = () => {
+  onArrowRight = e => {
     const { onChange } = this.props;
     const { checked } = this.input;
 
@@ -76,6 +78,8 @@ export default class Toggle extends ThemedComponent {
       this.input.checked = true;
       onChange && onChange(true);
     }
+
+    e.preventDefault();
   };
 
   render() {
@@ -125,7 +129,7 @@ export default class Toggle extends ThemedComponent {
           onChange={this.onChange}
           onKeyDown={event => {
             const handler = this.handlers[event.keyCode];
-            handler && handler();
+            handler && handler(event);
           }}
           onFocus={() => {
             this.setState({ focused: this.keyboard });
