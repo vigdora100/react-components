@@ -274,7 +274,7 @@ export default class MultiSelect extends ThemedComponent {
             this.mouseInitiated = false;
           }, 0);
         }}
-        tabIndex={!disabled && -1}
+        tabIndex={disabled ? null : -1}
         ref={ref => {
           this.inputContainerNode = this.inputContainerNode || findDOMNode(ref);
         }}
