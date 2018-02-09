@@ -59,8 +59,7 @@ describe("Checkbox", () => {
             Check me out!
           </Checkbox>,
           "when deeply rendered",
-          "with event",
-          "change",
+          "with event change",
           { target: { checked: false } },
           "on",
           <input />
@@ -82,8 +81,7 @@ describe("Checkbox", () => {
           Check me out!
         </Checkbox>,
         "when deeply rendered",
-        "with event",
-        "change",
+        "with event change",
         { target: { checked: true } },
         "on",
         <input />
