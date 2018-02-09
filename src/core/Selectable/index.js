@@ -53,6 +53,10 @@ const Selectable = (
       this.hover = false;
     };
 
+    onMouseDown = e => {
+      preventDefault && e.preventDefault();
+    };
+
     componentWillReceiveProps(nextProps) {
       const { selected } = this.props;
 
@@ -72,6 +76,7 @@ const Selectable = (
         ...this.props,
         onMouseEnter: this.onMouseEnter,
         onMouseLeave: this.onMouseLeave,
+        onMouseDown: this.onMouseDown,
         [selectEvent]: this.onChoseValue
       };
 
