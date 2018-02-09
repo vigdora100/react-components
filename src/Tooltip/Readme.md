@@ -21,7 +21,7 @@ Long tooltips:
 Sizing:
 
 ```
-<Grid style={{height: 55}}>
+<Grid style={{height: 80, position: 'relative'}} stretched>
   <Tooltip inline top={10} left={10}>Default size</Tooltip>
   <Tooltip inline top={10} left={115} size='medium'>Medium size</Tooltip>
   <Tooltip inline top={10} left={225} size='large'>Large size</Tooltip>
@@ -31,7 +31,7 @@ Sizing:
 Content:
 
 ```
-<Grid style={{height: 45}}>
+<Grid style={{height: 60, position: 'relative'}} stretched>
   <Tooltip inline top={10} left={10} size='medium'>String content</Tooltip>
   <Tooltip inline top={10} left={130} size='medium'>This tooltip has <strong>rich content</strong></Tooltip>
 </Grid>

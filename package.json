@@ -105,7 +105,7 @@
     "querystring": "0.2.0",
     "react": "16.2.0",
     "react-dom": "16.2.0",
-    "react-styleguidist": "5.1.6",
+    "react-styleguidist": "6.2.3",
     "react-svg-loader": "1.1.1",
     "react-test-renderer": "16.2.0",
     "sinon": "2.1.0",

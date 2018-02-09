@@ -14,7 +14,7 @@ For a simple table the only required property is an array of data. A more comple
 This is a general purpose component to apply default cell and header styling. [All react-virtualized Column props are supported.](https://github.com/bvaughn/react-virtualized/blob/master/docs/Column.md) By default all cells are truncated if space is limited.  You can disable this by applying a `truncated` prop.
 
 Example:
-```js
+```js static
 const data = [{name: 'Austin'}];
 
 <Table.Column
