@@ -63,10 +63,7 @@ module.exports = {
         },
         {
           test: /\.(svg|png|jpg|gif|woff|woff2)$/,
-          include: [
-            sourceDir,
-            svgPath
-          ],
+          include: [sourceDir, svgPath],
           loaders: ["url-loader?limit=1000"]
         },
         {
@@ -162,10 +159,23 @@ module.exports = {
     },
     Heading: {
       heading: {
-        color: "#30aabc",
-        letterSpacing: "1.9px",
+        color: "#30aabc"
+      },
+      heading1: {
         fontSize: "35px",
+        lineHeight: "35px",
+        marginBottom: "20px",
         fontWeight: "400"
+      },
+      heading2: {
+        color: "#000",
+        fontSize: "25px",
+        lineHeight: "25px"
+      }
+    },
+    SectionHeading: {
+      sectionName: {
+        letterSpacing: "1.9px"
       }
     },
     ReactComponent: {
