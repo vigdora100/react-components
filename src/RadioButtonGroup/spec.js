@@ -52,8 +52,7 @@ describe("RadioButtonGroup", () => {
         <RadioButton value={3}>3</RadioButton>
       </RadioButtonGroup>,
       "when deeply rendered",
-      "with event",
-      "change",
+      "with event change",
       "on",
       <input />
     ).then(() => {

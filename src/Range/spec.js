@@ -110,8 +110,7 @@ describe("Range", () => {
       return expect(
         <Range max={15} min={0} onChange={onChange} value={10} />,
         "when deeply rendered",
-        "with event",
-        "change",
+        "with event change",
         "on",
         <input />
       ).then(() => {
@@ -200,8 +199,7 @@ describe("Range", () => {
         return expect(
           <Range defaultValue={10} max={15} min={0} onChange={onChange} />,
           "when deeply rendered",
-          "with event",
-          "change",
+          "with event change",
           "on",
           <input />
         ).then(() => {

@@ -104,8 +104,7 @@ describe("RadioButton", () => {
         Check me out!
       </RadioButton>,
       "when deeply rendered",
-      "with event",
-      "change",
+      "with event change",
       "on",
       <input />
     ).then(() => {
