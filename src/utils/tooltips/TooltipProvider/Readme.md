@@ -54,7 +54,7 @@ argument the target node in which you would like the tooltips to be rendered.
 have created an element for you with an `id` that matches the `id` prop that was
 specified for the provider. I.e. you can reuse that container element.
 
-```javascript
+```js static
 import { createTooltipManager } from '@zendesk/garden-react-components'
 
 const tooltipManager = createTooltipManager(document.getElementById('my-tooltips'))
@@ -66,7 +66,7 @@ The Tooltip Manager will expose an API to show and hide tooltips:
 
 You can show a tooltip for a given DOM element the following way:
 
-```javascript
+```js static
 const element = document.getElementById('my-button')
 const content = 'This button can be clicked'
 const positioning = ['top', 'bottom']
@@ -81,14 +81,14 @@ const tooltipId = tooltipManager.show(
 When showing a tooltip, you get a tooltip id that you can use to hide the
 tooltip again:
 
-```javascript
+```js static
 tooltipManager.hide(tooltipId)
 ```
 
 If you just want to hide all visible tooltips, you can call the method without any
 arguments:
 
-```javascript
+```js static
 tooltipManager.hide()
 ```
 
@@ -98,7 +98,7 @@ tooltipManager.hide()
 Via this, you can configure specifics about the behavior of your tooltips.
 Currently the following properties are available (default values shown):
 
-```javascript
+```js static
 const options = {
   dir: 'ltr', // Controls the direction of the tooltip. One of 'rtl' or 'ltr'.
   zIndex: 600, // Controls the z-index style rule applied to the tooltip container.

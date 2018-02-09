@@ -59,7 +59,8 @@ describe("Toggle", () => {
             Toggle me!
           </Toggle>,
           "when deeply rendered",
-          "with event change",
+          "with event",
+          "change",
           { target: { checked: false } },
           "on",
           <input />
@@ -81,7 +82,8 @@ describe("Toggle", () => {
           Toggle me!
         </Toggle>,
         "when deeply rendered",
-        "with event change",
+        "with event",
+        "change",
         { target: { checked: true } },
         "on",
         <input />

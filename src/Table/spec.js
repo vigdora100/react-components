@@ -5,6 +5,7 @@ import Table from ".";
 import View from "../core/View";
 import Menu from "../Menu";
 import Checkbox from "../Checkbox";
+import TestUtils from "react-addons-test-utils";
 
 /**
  * These tests require full-mount rendering to ensure our logic is
@@ -50,23 +51,25 @@ describe("Table", () => {
   });
 
   it("applies correct density to both header and body rows if provided", () => {
-    const cozyBodyStyling = { height: 32 };
-    const cozyHeaderStyling = { height: 40 };
-    expect(
+    const component = TestUtils.renderIntoDocument(
       <Table data={data} density="cozy" width={500} height={500}>
         <Table.Column label="Name" dataKey="name" width={50} />
-      </Table>,
-      "when deeply rendered",
+      </Table>
+    );
+
+    const cozyBodyStyling = { height: 32 };
+    const cozyHeaderStyling = { height: 40 };
+
+    expect(
+      component,
       "to contain",
-      <div>
-        <div className="table_row_header" style={cozyHeaderStyling}>
-          Name
-        </div>
-        <div className="ReactVirtualized__Grid">
-          <div className="table_row" style={cozyBodyStyling}>
-            Name 0
-          </div>
-        </div>
+      <div className="table_row_header" style={cozyHeaderStyling}>
+        Name
+      </div>
+    ).and(
+      "to contain",
+      <div className="table_row" style={cozyBodyStyling}>
+        Name 0
       </div>
     );
   });
@@ -163,7 +166,7 @@ describe("Table", () => {
 
   describe("Column", () => {
     it("header contains sortable classes if sorting is enabled", () => {
-      expect(
+      const component = TestUtils.renderIntoDocument(
         <Table
           data={data}
           width={500}
@@ -174,20 +177,19 @@ describe("Table", () => {
         >
           <Table.Column label="Name" dataKey="name" width={50} disableSort />
           <Table.Column label="Sortable Name" dataKey="name" width={50} />
-        </Table>,
-        "when deeply rendered",
+        </Table>
+      );
+
+      expect(component, "to contain", <div className="cell">Name</div>).and(
         "to contain",
-        <div>
-          <div className="cell">Name</div>
-          <div className="cell">
-            <button className="cell_sortable ascending">Sortable Name</button>
-          </div>
+        <div className="cell">
+          <button className="cell_sortable ascending">Sortable Name</button>
         </div>
       );
     });
 
     it("applies truncation correctly if provided", () => {
-      expect(
+      const component = TestUtils.renderIntoDocument(
         <Table data={data} width={500} height={500}>
           <Table.Column label="Name" dataKey="name" width={50} />
           <Table.Column
@@ -196,43 +198,41 @@ describe("Table", () => {
             width={50}
             truncate={false}
           />
-        </Table>,
-        "when deeply rendered",
-        "to contain",
-        <div className="ReactVirtualized__Grid">
-          <div className="table_row">
-            <div className="cell cell_truncate">Name 0</div>
-            <div className="cell">Name 0</div>
-          </div>
-        </div>
+        </Table>
       );
+
+      expect(
+        component,
+        "to contain",
+        <div className="cell cell_truncate">Name 0</div>
+      ).and("to contain", <div className="cell">Name 0</div>);
     });
   });
 
   describe("Checkbox Column", () => {
     it("displays checkboxes if CheckboxColumn is provided", () => {
-      expect(
+      const component = TestUtils.renderIntoDocument(
         <Table data={data} width={500} height={500} selectedData={[]}>
           <Table.CheckboxColumn onSelection={() => {}} />
           <Table.Column label="Name" dataKey="name" width={50} />
-        </Table>,
-        "when deeply rendered",
+        </Table>
+      );
+      expect(
+        component,
         "to contain",
-        <div>
-          <div className="table_row_header">
-            <div className="cell">
-              <Checkbox />
-            </div>
-            <div className="cell">Name</div>
+        <div className="table_row_header">
+          <div className="cell">
+            <Checkbox />
           </div>
-          <div className="ReactVirtualized__Grid">
-            <div className="table_row">
-              <div className="cell">
-                <Checkbox />
-              </div>
-              <div className="cell">Name 0</div>
-            </div>
+          <div className="cell">Name</div>
+        </div>
+      ).and(
+        "to contain",
+        <div className="table_row">
+          <div className="cell">
+            <Checkbox />
           </div>
+          <div className="cell">Name 0</div>
         </div>
       );
     });
@@ -254,7 +254,7 @@ describe("Table", () => {
     });
 
     it("disables selection for disabled rows correctly", () => {
-      expect(
+      const component = TestUtils.renderIntoDocument(
         <Table
           data={data}
           width={500}
@@ -264,36 +264,43 @@ describe("Table", () => {
         >
           <Table.CheckboxColumn onSelection={() => {}} />
           <Table.Column label="Name" dataKey="name" width={50} />
-        </Table>,
-        "when deeply rendered",
+        </Table>
+      );
+
+      expect(
+        component,
         "to contain",
-        <div className="ReactVirtualized__Grid">
-          <div className="table_row">
-            <div className="cell">
-              <Checkbox />
-            </div>
-            <div className="cell">Name 0</div>
+        <div className="table_row">
+          <div className="cell">
+            <Checkbox disabled={false} />
           </div>
+          <div className="cell">Name 0</div>
+        </div>
+      )
+        .and(
+          "to contain",
           <div className="table_row">
             <div className="cell">
               <Checkbox disabled />
             </div>
             <div className="cell">Name 1</div>
           </div>
+        )
+        .and(
+          "to contain",
           <div className="table_row">
             <div className="cell">
-              <Checkbox />
+              <Checkbox disabled={false} />
             </div>
             <div className="cell">Name 2</div>
           </div>
-        </div>
-      );
+        );
     });
   });
 
   describe("Menu Column", () => {
     it("displays menu in header row if MenuColumn is provided with headerMenuItems", () => {
-      expect(
+      const component = TestUtils.renderIntoDocument(
         <Table data={data} width={500} height={500}>
           <Table.Column label="Name" dataKey="name" width={50} />
           <Table.MenuColumn
@@ -301,21 +308,22 @@ describe("Table", () => {
               <Menu.Item key="example">Example</Menu.Item>
             ]}
           />
-        </Table>,
-        "when deeply rendered",
+        </Table>
+      );
+
+      expect(
+        component,
         "to contain",
-        <div>
-          <div className="table_row_header">
-            <div className="cell">Name</div>
-            <div className="cell">
-              <div className="overflow_menu" />
-            </div>
+        <div className="table_row_header">
+          <div className="cell">Name</div>
+          <div className="cell">
+            <div className="overflow_menu" />
           </div>
-          <div className="ReactVirtualized__Grid">
-            <div className="table_row">
-              <div className="cell">Name 0</div>
-            </div>
-          </div>
+        </div>
+      ).and(
+        "to contain",
+        <div className="table_row">
+          <div className="cell">Name 0</div>
         </div>
       );
     });
@@ -330,17 +338,10 @@ describe("Table", () => {
         </Table>,
         "when deeply rendered",
         "to contain",
-        <div>
-          <div className="table_row_header">
-            <div className="cell">Name</div>
-          </div>
-          <div className="ReactVirtualized__Grid">
-            <div className="table_row">
-              <div className="cell">Name 0</div>
-              <div className="cell">
-                <div className="overflow_menu" />
-              </div>
-            </div>
+        <div className="table_row">
+          <div className="cell">Name 0</div>
+          <div className="cell">
+            <div className="overflow_menu" />
           </div>
         </div>
       );

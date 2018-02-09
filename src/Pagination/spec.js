@@ -99,30 +99,14 @@ describe("Pagination", () => {
         "to deeply render as",
         <div>
           <div>Previous Page</div>
-          <div className="page">
-            {1}
-          </div>
-          <div className="page">
-            {2}
-          </div>
-          <div className="page is_current">
-            {3}
-          </div>
-          <div className="page">
-            {4}
-          </div>
-          <div className="page">
-            {5}
-          </div>
-          <div className="page">
-            {6}
-          </div>
-          <div className="page">
-            {7}
-          </div>
-          <div className="page">
-            {8}
-          </div>
+          <div className="page">1</div>
+          <div className="page">2</div>
+          <div className="page is_current">3</div>
+          <div className="page">4</div>
+          <div className="page">5</div>
+          <div className="page">6</div>
+          <div className="page">7</div>
+          <div className="page">8</div>
           <div>Next Page</div>
         </div>
       );
@@ -134,30 +118,14 @@ describe("Pagination", () => {
         "to deeply render as",
         <div>
           <div>Previous Page</div>
-          <div className="page">
-            {1}
-          </div>
-          <div className="page">
-            {2}
-          </div>
-          <div className="page is_current">
-            {3}
-          </div>
-          <div className="page">
-            {4}
-          </div>
-          <div className="page">
-            {5}
-          </div>
-          <div className="page">
-            {6}
-          </div>
-          <div className="page">
-            {7}
-          </div>
-          <div className="page">
-            {8}
-          </div>
+          <div className="page">1</div>
+          <div className="page">2</div>
+          <div className="page is_current">3</div>
+          <div className="page">4</div>
+          <div className="page">5</div>
+          <div className="page">6</div>
+          <div className="page">7</div>
+          <div className="page">8</div>
           <div>Next Page</div>
         </div>
       );
@@ -169,31 +137,15 @@ describe("Pagination", () => {
         "to deeply render as",
         <div>
           <div>Previous Page</div>
-          <div className="page">
-            {1}
-          </div>
-          <div className="page">
-            {2}
-          </div>
-          <div className="page">
-            {3}
-          </div>
-          <div className="page">
-            {4}
-          </div>
-          <div className="page is_current">
-            {5}
-          </div>
-          <div className="page">
-            {6}
-          </div>
-          <div className="page">
-            {7}
-          </div>
+          <div className="page">1</div>
+          <div className="page">2</div>
+          <div className="page">3</div>
+          <div className="page">4</div>
+          <div className="page is_current">5</div>
+          <div className="page">6</div>
+          <div className="page">7</div>
           <div className="page_gap" />
-          <div className="page">
-            {100}
-          </div>
+          <div className="page">100</div>
           <div>Next Page</div>
         </div>
       );
@@ -205,31 +157,15 @@ describe("Pagination", () => {
         "to deeply render as",
         <div>
           <div>Previous Page</div>
-          <div className="page">
-            {1}
-          </div>
+          <div className="page">1</div>
           <div className="page_gap" />
-          <div className="page">
-            {94}
-          </div>
-          <div className="page">
-            {95}
-          </div>
-          <div className="page is_current">
-            {96}
-          </div>
-          <div className="page">
-            {97}
-          </div>
-          <div className="page">
-            {98}
-          </div>
-          <div className="page">
-            {99}
-          </div>
-          <div className="page">
-            {100}
-          </div>
+          <div className="page">94</div>
+          <div className="page">95</div>
+          <div className="page is_current">96</div>
+          <div className="page">97</div>
+          <div className="page">98</div>
+          <div className="page">99</div>
+          <div className="page">100</div>
           <div>Next Page</div>
         </div>
       );
@@ -241,29 +177,15 @@ describe("Pagination", () => {
         "to deeply render as",
         <div>
           <div>Previous Page</div>
-          <div className="page">
-            {1}
-          </div>
+          <div className="page">1</div>
           <div className="page_gap" />
-          <div className="page">
-            {48}
-          </div>
-          <div className="page">
-            {49}
-          </div>
-          <div className="page is_current">
-            {50}
-          </div>
-          <div className="page">
-            {51}
-          </div>
-          <div className="page">
-            {52}
-          </div>
+          <div className="page">48</div>
+          <div className="page">49</div>
+          <div className="page is_current">50</div>
+          <div className="page">51</div>
+          <div className="page">52</div>
           <div className="page_gap" />
-          <div className="page">
-            {100}
-          </div>
+          <div className="page">100</div>
           <div>Next Page</div>
         </div>
       );
@@ -275,27 +197,13 @@ describe("Pagination", () => {
         "to deeply render as",
         <div>
           <div className="is_hidden">Previous Page</div>
-          <div className="page is_current">
-            {1}
-          </div>
-          <div className="page">
-            {2}
-          </div>
-          <div className="page">
-            {3}
-          </div>
-          <div className="page">
-            {4}
-          </div>
-          <div className="page">
-            {5}
-          </div>
-          <div className="page">
-            {6}
-          </div>
-          <div className="page">
-            {7}
-          </div>
+          <div className="page is_current">1</div>
+          <div className="page">2</div>
+          <div className="page">3</div>
+          <div className="page">4</div>
+          <div className="page">5</div>
+          <div className="page">6</div>
+          <div className="page">7</div>
           <div>Next Page</div>
         </div>
       );
@@ -307,33 +215,15 @@ describe("Pagination", () => {
         "to deeply render as",
         <div>
           <div>Previous Page</div>
-          <div className="page">
-            {1}
-          </div>
-          <div className="page">
-            {2}
-          </div>
-          <div className="page">
-            {3}
-          </div>
-          <div className="page">
-            {4}
-          </div>
-          <div className="page">
-            {5}
-          </div>
-          <div className="page">
-            {6}
-          </div>
-          <div className="page">
-            {7}
-          </div>
-          <div className="page">
-            {8}
-          </div>
-          <div className="page is_current">
-            {9}
-          </div>
+          <div className="page">1</div>
+          <div className="page">2</div>
+          <div className="page">3</div>
+          <div className="page">4</div>
+          <div className="page">5</div>
+          <div className="page">6</div>
+          <div className="page">7</div>
+          <div className="page">8</div>
+          <div className="page is_current">9</div>
           <div className="is_hidden">Next Page</div>
         </div>
       );
@@ -348,29 +238,29 @@ describe("Pagination", () => {
         <div>
           <div>Previous Page</div>
           <div className="page" aria-label="Page 1">
-            {1}
+            1
           </div>
           <div className="page_gap" />
           <div className="page" aria-label="Page 94">
-            {94}
+            94
           </div>
           <div className="page" aria-label="Page 95">
-            {95}
+            95
           </div>
           <div className="page is_current" aria-label="Page 96">
-            {96}
+            96
           </div>
           <div className="page" aria-label="Page 97">
-            {97}
+            97
           </div>
           <div className="page" aria-label="Page 98">
-            {98}
+            98
           </div>
           <div className="page" aria-label="Page 99">
-            {99}
+            99
           </div>
           <div className="page" aria-label="Page 100">
-            {100}
+            100
           </div>
           <div>Next Page</div>
         </div>
@@ -388,29 +278,29 @@ describe("Pagination", () => {
         <div>
           <div>Previous Page</div>
           <div className="page" aria-label="1 custom">
-            {1}
+            1
           </div>
           <div className="page_gap" />
           <div className="page" aria-label="94 custom">
-            {94}
+            94
           </div>
           <div className="page" aria-label="95 custom">
-            {95}
+            95
           </div>
           <div className="page is_current" aria-label="96 custom">
-            {96}
+            96
           </div>
           <div className="page" aria-label="97 custom">
-            {97}
+            97
           </div>
           <div className="page" aria-label="98 custom">
-            {98}
+            98
           </div>
           <div className="page" aria-label="99 custom">
-            {99}
+            99
           </div>
           <div className="page" aria-label="100 custom">
-            {100}
+            100
           </div>
           <div>Next Page</div>
         </div>
@@ -432,9 +322,7 @@ describe("Pagination", () => {
         "with event",
         "click",
         "on",
-        <div className="page">
-          {48}
-        </div>
+        <div className="page">48</div>
       ).then(() => {
         expect(onPageSelected, "to have calls satisfying", () =>
           onPageSelected(47)
