@@ -1,3 +1,7 @@
+### v13.15.0 (2018-02-09)
+
+- [#482](https://github.com/zendeskgarden/react-components/pull/482) React 16 again ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+
 ### v13.14.1 (2018-02-09)
 
 - [#481](https://github.com/zendeskgarden/react-components/pull/481) revert: Upgrade to React 16 ([Sune Simonsen](mailto:sune@we-knowhow.dk))
