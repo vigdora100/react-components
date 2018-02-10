@@ -40,8 +40,10 @@ const MenuColumn = ({
   }
 
   const headerRenderer = rowProps => {
+    const menuItems = headerMenuItems && headerMenuItems(rowProps);
+
     return (
-      headerMenuItems &&
+      menuItems &&
       <OverflowMenu
         isFocusable
         dir={dir}
@@ -50,7 +52,7 @@ const MenuColumn = ({
         maxHeight={headerMenuMaxHeight}
         shouldClose={shouldHeaderMenuClose}
       >
-        {headerMenuItems(rowProps)}
+        {menuItems}
       </OverflowMenu>
     );
   };
@@ -59,8 +61,10 @@ const MenuColumn = ({
     const { rowIndex } = rowProps;
     const { focusedRow } = tableState;
 
+    const menuItems = rowMenuItems && rowMenuItems(rowProps);
+
     return (
-      rowMenuItems &&
+      menuItems &&
       <OverflowMenu
         isFocusable={rowIndex === focusedRow}
         dir={dir}
@@ -71,7 +75,7 @@ const MenuColumn = ({
         maxHeight={rowMenuMaxHeight}
         shouldClose={shouldBodyMenuClose}
       >
-        {rowMenuItems(rowProps)}
+        {menuItems}
       </OverflowMenu>
     );
   };
