@@ -332,6 +332,7 @@ export default class Table extends ThemedComponent {
       data,
       density,
       dir,
+      rowHeight,
       rowRenderer,
       onRowsRendered,
       useAutoSizer,
@@ -362,7 +363,16 @@ export default class Table extends ThemedComponent {
             width={width}
             height={height}
             headerHeight={retrieveHeaderHeight(this.props)}
-            rowHeight={rowProps => retrieveRowHeight(rowProps, this.props)}
+            rowHeight={rowProps => {
+              switch (typeof rowHeight) {
+                case "number":
+                  return rowHeight;
+                case "function":
+                  return rowHeight(rowProps);
+                default:
+                  return retrieveRowHeight(rowProps, this.props);
+              }
+            }}
             rowCount={data.length}
             ref={this.applyKeyboardActions}
             rowGetter={({ index }) => data[index]}

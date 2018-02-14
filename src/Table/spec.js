@@ -6,6 +6,7 @@ import View from "../core/View";
 import Menu from "../Menu";
 import Checkbox from "../Checkbox";
 import TestUtils from "react-addons-test-utils";
+import { retrieveRowHeight } from "../Table/Rows";
 
 /**
  * These tests require full-mount rendering to ensure our logic is
@@ -72,6 +73,68 @@ describe("Table", () => {
         Name 0
       </div>
     );
+  });
+
+  describe("#rowHeight", () => {
+    let rows;
+    let rowHeight;
+
+    const getRows = rowHeight => {
+      return TestUtils.scryRenderedDOMComponentsWithClass(
+        TestUtils.renderIntoDocument(
+          <Table rowHeight={rowHeight} data={data} width={500} height={500}>
+            <Table.Column label="Name" dataKey="name" width={50} />
+          </Table>
+        ),
+        "ReactVirtualized__Table__row"
+      );
+    };
+
+    describe("when `rowHeight` is provided", () => {
+      describe("and it is a number", () => {
+        beforeEach(() => {
+          rowHeight = 420;
+          rows = getRows(rowHeight);
+        });
+
+        it("returns `rowHeight` as the height for each row", () => {
+          rows.forEach(row => {
+            expect(parseInt(row.style.height), "to equal", rowHeight);
+          });
+        });
+      });
+
+      describe("and it is a function", () => {
+        beforeEach(() => {
+          rowHeight = ({ index }) => 10 + index * 10;
+          rows = getRows(rowHeight);
+        });
+
+        it("calls `rowHeight` to determine row height", () => {
+          rows.forEach((row, index) => {
+            expect(
+              parseInt(row.style.height),
+              "to equal",
+              rowHeight({ index })
+            );
+          });
+        });
+      });
+    });
+
+    describe("when `rowHeight` is absent", () => {
+      beforeEach(() => (rows = getRows()));
+
+      it("calls `retrieveRowHeight` to determine row height", () => {
+        rows.forEach((row, index) => {
+          expect(
+            parseInt(row.style.height),
+            "to equal",
+            retrieveRowHeight({}, {})
+          );
+        });
+      });
+    });
   });
 
   describe("Group Rows", () => {
