@@ -1,37 +1,37 @@
 .default {
-  composes: c-label from '@zendesk/garden-css-labels';
+  composes: c-tag from '@zendesk/garden-css-tags';
 }
 
 .light {
-  composes: c-label c-label--light from '@zendesk/garden-css-labels';
+  composes: c-tag c-tag--light from '@zendesk/garden-css-tags';
 }
 
 .dark {
-  composes: c-label c-label--dark from '@zendesk/garden-css-labels';
+  composes: c-tag c-tag--dark from '@zendesk/garden-css-tags';
 }
 
 .success {
-  composes: c-label c-label--success from '@zendesk/garden-css-labels';
+  composes: c-tag c-tag--success from '@zendesk/garden-css-tags';
 }
 
 .warning {
-  composes: c-label c-label--warning from '@zendesk/garden-css-labels';
+  composes: c-tag c-tag--warning from '@zendesk/garden-css-tags';
 }
 
 .error {
-  composes: c-label c-label--error from '@zendesk/garden-css-labels';
+  composes: c-tag c-tag--error from '@zendesk/garden-css-tags';
 }
 
 .small {
-  composes: c-label--sm from '@zendesk/garden-css-labels';
+  composes: c-tag--sm from '@zendesk/garden-css-tags';
 }
 
 .large {
-  composes: c-label--lg from '@zendesk/garden-css-labels';
+  composes: c-tag--lg from '@zendesk/garden-css-tags';
 }
 
 .pill {
-  composes: c-label--pill from '@zendesk/garden-css-labels';
+  composes: c-tag--pill from '@zendesk/garden-css-tags';
 }
 
 .stretched {
@@ -39,21 +39,21 @@
 }
 
 .avatar {
-  composes: c-label__avatar from '@zendesk/garden-css-labels';
+  composes: c-tag__avatar from '@zendesk/garden-css-tags';
 }
 
 .remove {
-  composes: c-label__remove from '@zendesk/garden-css-labels';
+  composes: c-tag__remove from '@zendesk/garden-css-tags';
 }
 
 .round {
-  composes: c-label--round from '@zendesk/garden-css-labels';
+  composes: c-tag--round from '@zendesk/garden-css-tags';
 }
 
 .rtl {
-  composes: is-rtl from '@zendesk/garden-css-labels';
+  composes: is-rtl from '@zendesk/garden-css-tags';
 }
 
 .is_focused {
-  composes: is-focused from '@zendesk/garden-css-labels';
+  composes: is-focused from '@zendesk/garden-css-tags';
 }

@@ -1,12 +1,12 @@
-@import '@zendesk/garden-css-labels/src/custom';
+@import '@zendesk/garden-css-tags/src/custom';
 
 :root {
-  --zd-label--custom-accent-color: var(--zd-label-color);
+  --zd-tag--custom-accent-color: var(--zd-label-color);
 }
 
 .default {
-  composes: c-label from '@zendesk/garden-css-labels';
-  composes: c-label--custom;
+  composes: c-tag from '@zendesk/garden-css-tags';
+  composes: c-tag--custom;
 }
 
 .is_focused {
