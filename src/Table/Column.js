@@ -40,6 +40,7 @@ const Column = ({ columnProps, tableProps, key, theme }) => {
         if (isSortable) {
           return (
             <button
+              title={label}
               tabIndex={0}
               className={classNames(theme.cell_sortable, {
                 [theme.ascending]: isAscending,
