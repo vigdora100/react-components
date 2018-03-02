@@ -8,6 +8,7 @@
 
 .input {
   composes: c-txt__input from '@zendesk/garden-css-forms';
+  appearance: none;
 }
 
 .style_bare {
