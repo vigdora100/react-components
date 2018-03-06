@@ -7,6 +7,7 @@ import styles from "./styles.css";
 
 import DotsAluminum from "./assets/dots.100x85.aluminum.gif";
 import DotsPelorous from "./assets/dots.100x85.pelorous.gif";
+import DotsWhite from "./assets/dots.100x85.white.gif";
 import SpinnerAluminum from "./assets/spinner.100x100.aluminum.gif";
 import SpinnerPelorous from "./assets/spinner.100x100.pelorous.gif";
 
@@ -17,7 +18,7 @@ export default class Loader extends ThemedComponent {
        */
     alt: PropTypes.string,
     className: PropTypes.string,
-    color: PropTypes.oneOf(["aluminum", "pelorous"]),
+    color: PropTypes.oneOf(["aluminum", "pelorous", "white"]),
     testId: PropTypes.string,
     type: PropTypes.oneOf(["dots", "spinner"]),
     size: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
@@ -40,10 +41,20 @@ export default class Loader extends ThemedComponent {
     const { type, color } = this.props;
 
     if (type === "dots") {
-      return color === "aluminum" ? DotsAluminum : DotsPelorous;
+      if (color === "aluminum") {
+        return DotsAluminum;
+      } else if (color === "white") {
+        return DotsWhite;
+      }
+
+      return DotsPelorous;
     }
 
-    return color === "aluminum" ? SpinnerAluminum : SpinnerPelorous;
+    if (color === "aluminum") {
+      return SpinnerAluminum;
+    }
+
+    return SpinnerPelorous;
   };
 
   render() {
