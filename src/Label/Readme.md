@@ -2,7 +2,7 @@
 <Label>Label</Label>
 ```
 
-Types:
+### Types
 
 ```
 <Grid columns={6} style={{ textAlign: 'center' }}>
@@ -21,7 +21,7 @@ Types:
 </Grid>
 ```
 
-Sizes:
+### Sizes
 
 ```
 <Grid columns={2} spacing='medium' style={{ textAlign: 'center' }}>
@@ -34,7 +34,7 @@ Sizes:
 </Grid>
 ```
 
-Round labels:
+### Round labels
 
 ```
 <Grid columns={6} spacing='medium' style={{ textAlign: 'center' }}>
@@ -59,7 +59,14 @@ Round labels:
 </Grid>
 ```
 
-Avatars:
+### Avatars
+
+The `Label` component handles the shape, size, and visibility of the provided
+avatar based on its own properties. It expects a standard `<img>` or `<svg>`
+to apply it's styling to.
+
+Do not provide it an `Avatar` component. These are meant for standalone visualizations
+and will not render correctly within `Label.`
 
 ```
 const avatar = <img src='http://placeskull.com/16/16/03363d'/>;
@@ -74,7 +81,7 @@ const avatar = <img src='http://placeskull.com/16/16/03363d'/>;
 </Grid>
 ```
 
-Removable:
+### Removable
 
 ```
 const onRemove = () => alert('Removed!')
@@ -96,7 +103,7 @@ const avatar = <img src='http://placeskull.com/16/16/03363d'/>;
 </Grid>
 ```
 
-Support for RTL:
+### Support for RTL
 
 ```
 const onRemove = () => console.log('Removed!')
@@ -118,7 +125,7 @@ const avatar = <img src='http://placeskull.com/16/16/03363d'/>;
 </Grid>
 ```
 
-Custom colors:
+### Custom colors
 
 ```
 <Grid>
@@ -128,7 +135,7 @@ Custom colors:
 </Grid>
 ```
 
-Tab order:
+### Tab order
 
 ```
 <Grid>

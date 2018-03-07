@@ -10,6 +10,7 @@ import accessibilityStyles from "../utils/styling/accessibility.css";
 
 export default class Label extends ThemedComponent {
   static propTypes = {
+    /** Expects an `<img>` or `<svg>` element */
     avatar: PropTypes.node,
     children: PropTypes.node.isRequired,
     className: PropTypes.string,
