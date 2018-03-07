@@ -34,9 +34,9 @@
   version "5.1.1"
   resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-menus/-/@zendesk/garden-css-menus-5.1.1.tgz#60ef93b00fcaf9adb4f10335d61dc68c6758d5c8"
 
-"@zendesk/garden-css-modals@4.1.1":
-  version "4.1.1"
-  resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-modals/-/@zendesk/garden-css-modals-4.1.1.tgz#e5020a10a16bff457ef568104db3848ac99c14d9"
+"@zendesk/garden-css-modals@4.1.2":
+  version "4.1.2"
+  resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-modals/-/@zendesk/garden-css-modals-4.1.2.tgz#0f6f514f2ec9360b372f701696df8b5e1460ef49"
 
 "@zendesk/garden-css-pagination@1.2.0":
   version "1.2.0"
