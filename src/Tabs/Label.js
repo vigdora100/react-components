@@ -19,6 +19,7 @@ class Label extends ThemedComponent {
     selected: PropTypes.bool,
     selectedByMouse: PropTypes.bool,
     title: PropTypes.string,
+    testId: PropTypes.string,
     /** <a href="#view">See View</a> */
     tooltipPositioning: () => {}
   };
@@ -41,6 +42,7 @@ class Label extends ThemedComponent {
       selected,
       selectedByMouse,
       title,
+      testId,
       tooltipPositioning
     } = this.props;
 
@@ -60,6 +62,7 @@ class Label extends ThemedComponent {
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
         role="tab"
+        testId={testId}
       >
         <View title={title} tooltipPositioning={tooltipPositioning}>
           {children}
