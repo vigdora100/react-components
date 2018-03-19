@@ -62,9 +62,12 @@ class Label extends ThemedComponent {
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
         role="tab"
-        testId={testId}
       >
-        <View title={title} tooltipPositioning={tooltipPositioning}>
+        <View
+          title={title}
+          tooltipPositioning={tooltipPositioning}
+          testId={testId}
+        >
           {children}
         </View>
       </li>
