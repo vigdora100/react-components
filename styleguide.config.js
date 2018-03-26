@@ -148,7 +148,6 @@ module.exports = {
       link: {
         fontWeight: "inherit !important",
         fontSize: "14px !important",
-        color: "inherit !important",
         "&, &:link, &:visited": {
           color: "inherit"
         },
