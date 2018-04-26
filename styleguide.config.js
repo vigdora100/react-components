@@ -17,7 +17,7 @@ var svgPath = path.join(
 );
 
 module.exports = {
-  title: "Zendesk Garden / React Style Guide",
+  title: "React Components / Zendesk Garden",
   skipComponentsWithoutExample: true,
   sections: [
     {
@@ -108,9 +108,9 @@ module.exports = {
     ]
   },
   theme: {
-    base: "#555",
-    link: "#30aabc",
-    linkHover: "#30aabc"
+    base: "#2F3941",
+    link: "#007FAB",
+    linkHover: "#007FAB"
   },
   styles: {
     StyleGuide: {
@@ -135,7 +135,7 @@ module.exports = {
         marginTop: "16px"
       },
       item: {
-        color: "#777",
+        color: "#68737D",
         fontWeight: "300"
       }
     },
@@ -158,7 +158,7 @@ module.exports = {
     },
     Heading: {
       heading: {
-        color: "#30aabc"
+        color: "#04444D"
       },
       heading1: {
         fontSize: "35px",
@@ -167,7 +167,7 @@ module.exports = {
         fontWeight: "400"
       },
       heading2: {
-        color: "#000",
+        color: "#2F3941",
         fontSize: "25px",
         lineHeight: "25px"
       }
@@ -180,24 +180,24 @@ module.exports = {
     ReactComponent: {
       heading: {
         margin: "0 0 12px",
-        color: "#555"
+        color: "#2F3941"
       },
       primaryHeading: {
         lineHeight: "1.78571",
         letterSpacing: ".04em",
         fontSize: "25px",
-        color: "#555"
+        color: "#2F3941"
       }
     },
     Props: {
       cellHeading: {
-        color: "#555",
+        color: "#2F3941",
         fontWeight: "400"
       }
     },
     Markdown: {
       para: {
-        color: "#555",
+        color: "#2F3941",
         fontSize: "15px"
       }
     }
