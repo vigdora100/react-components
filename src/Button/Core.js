@@ -82,11 +82,13 @@ export default class Core extends Component {
       tabIndex,
       testId,
       title,
-      tooltipPositioning
+      tooltipPositioning,
+      ...other
     } = this.props;
 
     return (
       <View
+        {...other}
         autoFocus={autoFocus}
         className={className}
         testId={testId}
