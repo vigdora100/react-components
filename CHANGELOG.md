@@ -1,39 +1,3 @@
-### v13.18.3 (2018-03-19)
-
-- [#520](https://github.com/zendeskgarden/react-components/pull/520) TabLabel: Move the `testId` prop down to the View component ([Marc Høegh](mailto:Anifacted@users.noreply.github.com))
-
-### v13.18.2 (2018-03-16)
-
-- [#518](https://github.com/zendeskgarden/react-components/pull/518) Tab: Add support for `testId` on tab panels/labels ([Marc Høegh](mailto:Anifacted@users.noreply.github.com))
-
-### v13.18.1 (2018-03-07)
-
-- [#509](https://github.com/zendeskgarden/react-components/pull/509) Modal: Address positioning issue in Firefox and IE11 ([Austin Green](mailto:austingreenkansas@gmail.com))
-
-### v13.18.0 (2018-03-07)
-
-- [#504](https://github.com/zendeskgarden/react-components/pull/504) Loader: Add white dots ([Austin Green](mailto:austingreenkansas@gmail.com))
-
-### v13.17.2 (2018-03-02)
-
-- [#502](https://github.com/zendeskgarden/react-components/pull/502) fix: reset <TextInput> appearance ([Jonathan Zempel](mailto:jzempel@gmail.com))
-
-### v13.17.1 (2018-02-14)
-
-- [#500](https://github.com/zendeskgarden/react-components/pull/500) Table: Added title attribute to sortable column headers ([Austin Green](mailto:austingreenkansas@gmail.com))
-
-### v13.17.0 (2018-02-14)
-
-- [#488](https://github.com/zendeskgarden/react-components/pull/488) Update all CSS packages to include renaming ([Jonathan Zempel](mailto:jzempel@gmail.com))
-
-### v13.16.0 (2018-02-14)
-
-- [#486](https://github.com/zendeskgarden/react-components/pull/486) Support rowHeight prop for Table component ([Austin Wang](awang@zendesk.com))
-
-### v13.15.1 (2018-02-09)
-
-- [#483](https://github.com/zendeskgarden/react-components/pull/483) Table: Fix disabled Overflow menu ([Austin Green](mailto:austingreenkansas@gmail.com))
-
 ### v13.15.0 (2018-02-09)
 
 - [#482](https://github.com/zendeskgarden/react-components/pull/482) React 16 again ([Sune Simonsen](mailto:sune@we-knowhow.dk))
@@ -212,8 +176,7 @@
 
 ### v12.12.0 (2017-11-15)
 
-- [#389](https://github.com/zendeskgarden/react-components/pull/389) * Remove over-saturation on neutral theme button hover.
-* Update `Anchor` and `Button type='anchor'` to underline on hover. ([Jonathan Zempel](mailto:jzempel@gmail.com))
+- [#389](https://github.com/zendeskgarden/react-components/pull/389) * Remove over-saturation on neutral theme button hover.* Update `Anchor` and `Button type='anchor'` to underline on hover. ([Jonathan Zempel](mailto:jzempel@gmail.com))
 
 ### v12.11.0 (2017-11-13)
 
@@ -286,10 +249,7 @@
 
 ### v12.3.1 (2017-10-18)
 
-- [#356](https://github.com/zendeskgarden/react-components/pull/356) Update garden-css-tabs
-
-* improved padding
-* leverage custom CSS ([Jonathan Zempel](mailto:jzempel@gmail.com))
+- [#356](https://github.com/zendeskgarden/react-components/pull/356) Update garden-css-tabs* improved padding* leverage custom CSS ([Jonathan Zempel](mailto:jzempel@gmail.com))
 
 ### v12.3.0 (2017-10-18)
 
@@ -940,3 +900,4 @@
 ### v0.3.2 (2016-08-16)
 
 - [#7](https://github.com/zendeskgarden/react-components/pull/7) Fixes menu positioning inside of a modal ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+
