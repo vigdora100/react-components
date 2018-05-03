@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 export default class PanelConfig extends Component {
   static propTypes = {
+    /* eslint-disable react/no-unused-prop-types */
     children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
     disabled: PropTypes.bool,
     id: PropTypes.string.isRequired,
@@ -10,6 +11,7 @@ export default class PanelConfig extends Component {
     title: PropTypes.string,
     /** <a href="#view">See View</a> */
     tooltipPositioning: () => {}
+    /* eslint-enable react/no-unused-prop-types */
   };
 
   render() {

@@ -83,6 +83,8 @@ export default class Core extends Component {
       testId,
       title,
       tooltipPositioning,
+      onKeyboardFocus,
+      onSubmitKeyPressed,
       ...other
     } = this.props;
 
