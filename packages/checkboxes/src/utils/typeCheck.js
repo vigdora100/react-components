@@ -13,4 +13,5 @@
  */
 export default function typeCheck(a, b) {
   return a.type === b || a.type.prototype instanceof b;
+  // return a.type === b || (a.type && a.type.prototype instanceof b);
 }
