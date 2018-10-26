@@ -16,6 +16,10 @@ module.exports = {
       content: '../../packages/autocomplete/README.md'
     },
     {
+      name: 'Elements',
+      components: '../../packages/autocomplete/src/elements/[A-Z]*.js'
+    },
+    {
       name: 'Containers',
       components: '../../packages/autocomplete/src/containers/[A-Z]*.js'
     },
